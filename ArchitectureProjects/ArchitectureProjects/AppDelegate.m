@@ -8,7 +8,24 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
+#import <AFNetworking.h>
+#import <GCNetworkReachability.h>
+#import <IQKeyboardManager.h>
+#import "UIViewController+ShowModal.h"
+#import "SimpleModalVC.h"
+#import <UIAlertController+Blocks.h>
+#import "Macros.h"
+
+@import Firebase;
+
+@interface AppDelegate () {
+    BOOL showOfflineAlert;
+}
+
+@property (nonatomic, strong) GCNetworkReachability* reachability;
 
 @end
 
@@ -16,7 +33,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    /*
+     Fabric
+     */
+//    [Fabric with:@[[Crashlytics class]]];
+    
+    /*
+     Setup Root Controller
+     */
+    [self setupRootVC];
+
     return YES;
 }
 
@@ -45,6 +72,67 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Reachability
+
+- (void)startReachabilityMonitoring {
+    showOfflineAlert = YES;
+    self.reachability = [GCNetworkReachability reachabilityWithHostName:@"www.google.com"];
+    [self.reachability startMonitoringNetworkReachabilityWithHandler:^(GCNetworkReachabilityStatus status) {
+        // this block is called on the main thread
+        switch (status) {
+            case GCNetworkReachabilityStatusNotReachable:
+                if (showOfflineAlert) {
+                    [self showOfflineAlert];
+                    showOfflineAlert = NO;
+                }
+                break;
+            case GCNetworkReachabilityStatusWWAN:
+            case GCNetworkReachabilityStatusWiFi:
+                if (!showOfflineAlert) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:NN_NETWORK_STATE_OK object:nil];
+                }
+                showOfflineAlert = YES;
+                break;
+        }
+    }];
+}
+
+#pragma mark - Private
+
+- (void)setupAppearance {
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor pl_mainColor]];
+//    
+//    [[UINavigationBar appearance]setTranslucent:NO];
+//    [[UINavigationBar appearance] setTintColor:[UIColor pl_mainTintColor]];
+//    
+//    [[UINavigationBar appearance] setTitleTextAttributes:@{
+//                                                           NSForegroundColorAttributeName: [UIColor pl_mainTintColor],
+//                                                           NSFontAttributeName: [UIFont systemFontOfSize:17.f]}];
+//    
+//    [[UIView appearance] setTintColor:[UIColor pl_mainColor]];
+    
+    [[IQKeyboardManager sharedManager]setEnable:YES];
+    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 100.f;
+    [IQKeyboardManager sharedManager].toolbarManageBehaviour = IQAutoToolbarByTag;
+}
+
+- (void)showOfflineAlert {
+    [self.window.rootViewController showModalViewControllerWithIdentifier:@"SimpleModalVC" setupBlock:^(ModalViewController *modal) {
+        SimpleModalVC *vc = (SimpleModalVC*)modal;
+        vc.modalMessage = NSLocalizedString(@"alert.offline.message", nil);
+        vc.modalTitle = NSLocalizedString(@"alert.offline.title", nil);
+
+    } animated:YES];
+    
+}
+
+- (void)setupRootVC{
+    NSString* storyboardName = @"Main";
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]];
+    UIViewController* rootVC = [storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+    self.window.rootViewController = rootVC;
 }
 
 

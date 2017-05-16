@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  ArchitectureProjects
+
+  Created by YAUHENI DROBAU on 5/16/17.
+  Copyright © 2017 Yauheni Drobau. All rights reserved.
+*/
+
+"alert.button.ok" = "ОК";
+"alert.button.yes" = "ДА";
+"alert.button.no" = "НЕТ";
+"alert.button.cancel" = "Отмена";
+"alert.button.delete" = "Удалить";
+"alert.offline.title" = "Оффлайн";
+"alert.offline.message" = "Не удается обнаружить подключение к интернету. Пожалуйста, убедитесь, что вы имеете действительное соединение и попробуйте снова";
+"alert.title.warning" = "Предупреждение";
+"alert.error.title" = "Ошибка";
+"alert.info.login.error.message" = "Ошибка входа";
+"alert.phone.call.not.supported" = "Ваше устройство не поддерживает звонки.";
+"alert.shop.no.data.description" = "Вы еще не загружали данный магазин.";
+
+//Contacts
+
+"contacts.screen.title" = "Контактная информация";
+"contacts.screen.info" = "Если у вас есть вопросы, специалисты всегда будут рады вам помочь. Достаточно позвонить по телефонам:";
+"contacts.screen.by.phone" = "+375 29 5 48 48 70";
+"contacts.screen.pl.phone" = " +48 535 22 22 94";
+"contacts.screen.belarus" = "(Беларусь)";
+"contacts.screen.poland" = "(Польша)";
