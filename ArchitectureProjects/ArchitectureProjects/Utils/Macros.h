@@ -19,6 +19,26 @@ return shared##classname; \
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
+#define WS() __weak typeof(self) wself = self;
+
 #define NN_NETWORK_STATE_OK @"NN_NETWORK_STATE_OK"
 #define NN_USER_AUTH_CHANGED @"NN_USER_AUTH_CHANGED"
 #define NN_NETWORK_STATE_OFFLINE @"NN_NETWORK_STATE_OFFLINE"
+
+#define LOGIN_IS_ALREADY_EXISTS_CODE 17007
+
+//#define BASE_EMAIL @"proektydomow@mail.ru"
+#define BASE_EMAIL @"zheka-88_94@mail.ru"
+
+#define VK_URL @"https://vk.com/architectureidesign"
+#define INSTAGRAM_URL @"https://www.instagram.com/proektydomow/"
+typedef enum {
+    MenuTypeProjects = 0,
+    MenuTypeStart = 1,
+    MenuTypeCost = 2,
+    MenuTypeQuestion = 3,
+    MenuTypeContact = 4
+}MenuTypes;
+
+typedef void(^RealmDataManagerSaveCallback)(NSError *error);
+typedef void(^APUserManagerLoginCompletion)(NSError *error);

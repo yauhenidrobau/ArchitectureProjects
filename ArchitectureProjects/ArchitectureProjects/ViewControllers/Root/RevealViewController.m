@@ -7,6 +7,7 @@
 //
 
 #import "RevealViewController.h"
+#import "UIViewController+ShowModal.h"
 
 @interface RevealViewController ()
 

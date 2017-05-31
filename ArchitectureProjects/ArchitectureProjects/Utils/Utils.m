@@ -12,7 +12,7 @@
 
 +(void)addShadowToView:(UIView*)view {
     view.layer.borderWidth = 1;
-    view.layer.borderColor = [UIColor whiteColor].CGColor;
+    view.layer.borderColor = [UIColor blueColor].CGColor;
 }
 
 @end

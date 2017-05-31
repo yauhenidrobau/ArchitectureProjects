@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aic-JX-mNv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Стоимость проекта-->
+        <scene sceneID="JHm-tA-Pej">
+            <objects>
+                <viewController id="GpS-rH-qWx" customClass="APCostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="74K-h2-SDA"/>
+                        <viewControllerLayoutGuide type="bottom" id="zFe-5e-UrU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R12-h2-qIC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtN-e5-xuG">
+                                <rect key="frame" x="20" y="151.5" width="335" height="167.5"/>
+                                <string key="text">- Проект одноэтажного индивидуального жилого дома 2 000 000 бел.руб.
+- Проект двухэтажного (мансарда или подвал относится ко второму этажу) индивидуального жилого дома 2 400 000 бел.руб.
+- Проект из нашего каталога без значительных изменений 1 800 000 бел. руб.
+- Проект на реконструкцию жилого дома (включена стоимость замеров) 2 500 000 бел. руб.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоимость проектов приведена ориентировочно и рассматривается индивидуально для каждого проекта." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RA-se-bt0">
+                                <rect key="frame" x="10" y="74" width="355" height="57.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2li-Ca-FPo">
+                                <rect key="frame" x="20" y="329" width="335" height="90"/>
+                                <string key="text">Стоимость проекта на прямую зависит от состава проекта. Состав проекта оговаривается в начале проектирования. Выше приведены цены проектов стандартной комплектации. </string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSo-7Q-NMg">
+                                <rect key="frame" x="10" y="622" width="355" height="35"/>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.2901960784" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="D0Q-9i-4e1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Ознакомиться можно здесь">
+                                    <color key="titleColor" red="0.8980392157" green="0.92941176469999998" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3RA-se-bt0" firstAttribute="top" secondItem="74K-h2-SDA" secondAttribute="bottom" constant="10" id="Au0-OX-rFa"/>
+                            <constraint firstItem="rtN-e5-xuG" firstAttribute="centerX" secondItem="R12-h2-qIC" secondAttribute="centerX" id="CJN-Cm-NSA"/>
+                            <constraint firstAttribute="trailing" secondItem="2li-Ca-FPo" secondAttribute="trailing" constant="20" id="CmX-dS-HvX"/>
+                            <constraint firstItem="aSo-7Q-NMg" firstAttribute="centerX" secondItem="R12-h2-qIC" secondAttribute="centerX" id="DKK-jE-Jeh"/>
+                            <constraint firstItem="aSo-7Q-NMg" firstAttribute="leading" secondItem="R12-h2-qIC" secondAttribute="leading" constant="10" id="DL7-lp-aIE"/>
+                            <constraint firstItem="zFe-5e-UrU" firstAttribute="top" secondItem="aSo-7Q-NMg" secondAttribute="bottom" constant="10" id="Eje-ik-dzA"/>
+                            <constraint firstAttribute="trailing" secondItem="aSo-7Q-NMg" secondAttribute="trailing" constant="10" id="MO0-UR-VfJ"/>
+                            <constraint firstItem="2li-Ca-FPo" firstAttribute="top" secondItem="rtN-e5-xuG" secondAttribute="bottom" constant="10" id="PRa-EY-4gj"/>
+                            <constraint firstItem="rtN-e5-xuG" firstAttribute="top" secondItem="3RA-se-bt0" secondAttribute="bottom" constant="20" id="TRr-VK-lEb"/>
+                            <constraint firstAttribute="trailing" secondItem="3RA-se-bt0" secondAttribute="trailing" constant="10" id="VE5-4s-LPq"/>
+                            <constraint firstItem="aSo-7Q-NMg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2li-Ca-FPo" secondAttribute="bottom" constant="10" id="Wac-ub-SKq"/>
+                            <constraint firstItem="3RA-se-bt0" firstAttribute="centerX" secondItem="R12-h2-qIC" secondAttribute="centerX" id="Xa2-sH-hqx"/>
+                            <constraint firstAttribute="trailing" secondItem="rtN-e5-xuG" secondAttribute="trailing" constant="20" id="ayP-qB-uoR"/>
+                            <constraint firstItem="2li-Ca-FPo" firstAttribute="leading" secondItem="R12-h2-qIC" secondAttribute="leading" constant="20" id="cAX-kD-JpH"/>
+                            <constraint firstItem="rtN-e5-xuG" firstAttribute="leading" secondItem="R12-h2-qIC" secondAttribute="leading" constant="20" id="dj0-Dg-y0p"/>
+                            <constraint firstItem="3RA-se-bt0" firstAttribute="leading" secondItem="R12-h2-qIC" secondAttribute="leading" constant="10" id="qT3-Rk-9CP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Стоимость проекта" id="NCM-MA-YwK"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tutorialButton" destination="aSo-7Q-NMg" id="ogk-qi-pzK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ay-x8-1T2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655.2" y="151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cxx-f3-Mk6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aic-JX-mNv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZIE-pL-jBU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GpS-rH-qWx" kind="relationship" relationship="rootViewController" id="CxX-i9-hZ6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AvY-c3-CaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="151.57421289355324"/>
+        </scene>
+    </scenes>
+</document>

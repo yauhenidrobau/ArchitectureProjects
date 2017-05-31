@@ -9,6 +9,7 @@
 #import "UIViewController+RevealViewController.h"
 
 #import <SWRevealViewController.h>
+#import "UIAlertController+AP.h"
 
 @implementation UIViewController (RevealViewController)
 
@@ -31,4 +32,14 @@
         
     }
 }
+
+- (void)showErrorAlertWithMessage:(NSString*)message {
+    [self showAlertWithTitle:NSLocalizedString(@"alert.error.title", nil) andMessage:message];
+}
+
+- (void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message {
+    UIAlertController* alert = [UIAlertController alertWithTitle:title message:message];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end

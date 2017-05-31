@@ -9,6 +9,8 @@
 #import "APProjectCollectionViewCell.h"
 
 #import <UIImageView+WebCache.h>
+#import "APImagesObject.h"
+#import "APFileHelper.h"
 
 @interface APProjectCollectionViewCell ()
 
@@ -28,10 +30,18 @@
     self.images = @[self.mainImage, self.smallImage1,self.smallImage2, self.smallImage3];
 }
 
--(void)updateCellWithImages:(NSArray *)imagesURL {
-    for (NSInteger i = 0; i < self.images.count; i++) {
-        [((UIImageView*)self.images[i]) sd_setImageWithURL:imagesURL[i]];
-    }
+-(void)updateCellWithProject:(APProjectObject *)project {
     
+    for (NSInteger i = 0; i < self.images.count; i++) {
+        NSString *imagePath = [APFileHelper getImagePath:project.name forImageIndex:i+1];
+        NSString *imageString = [[NSString alloc]initWithString:((APImagesObject*)project.images[i]).image];
+        if (!imagePath.length) {
+            NSURL *imageURL = [NSURL URLWithString:imageString];
+            [((UIImageView*)self.images[i]) sd_setImageWithURL:imageURL];
+        } else {
+            [((UIImageView*)self.images[i]) setImage:[UIImage imageWithContentsOfFile:imagePath]];
+
+        }
+    }
 }
 @end

@@ -27,3 +27,14 @@
 "contacts.screen.pl.phone" = " +48 535 22 22 94";
 "contacts.screen.belarus" = "(Беларусь)";
 "contacts.screen.poland" = "(Польша)";
+
+//Menu
+
+"menu.projects" = "Проекты";
+"menu.start" = "С его начать";
+"menu.cost" = "Стоимость проекта";
+"menu.question" = "Задать вопрос";
+"menu.contact" = "Контакты";
+
+"menu.question.sent.message" = "Успешно отправлен";
+"menu.question.sent.title" = "Ваш вопрос";

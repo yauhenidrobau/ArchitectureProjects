@@ -5,6 +5,8 @@
 #import <UIKit/UIKit.h>
 #import "ModalViewController.h"
 
+#define SIMPLE_MODAL_ID @"SimpleModalVC"
+
 @interface UIViewController (ShowModal)
 
 - (void)showModalViewControllerWithIdentifier:(NSString *)storyboardIdentifier;

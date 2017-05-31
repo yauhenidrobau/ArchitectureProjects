@@ -11,5 +11,8 @@
 @interface UIViewController (RevealViewController)
 
 - (void)setupRevealViewController;
+- (void)showErrorAlertWithMessage:(NSString*)message;
+- (void)showAlertWithTitle:(NSString*)title andMessage:(NSString*)message;
+
 
 @end

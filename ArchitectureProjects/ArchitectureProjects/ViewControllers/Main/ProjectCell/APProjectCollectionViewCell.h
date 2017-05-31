@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APProjectObject.h"
 
 @interface APProjectCollectionViewCell : UICollectionViewCell
 
--(void)updateCellWithImages:(NSArray*)imagesArray;
+-(void)updateCellWithProject:(APProjectObject*)project;
 
 @end

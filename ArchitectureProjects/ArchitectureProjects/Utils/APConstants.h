@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-#define CELL_SIZE_COEF 3
+#define CELL_SIZE_COEF 2

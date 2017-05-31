@@ -39,8 +39,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GmM-dk-Rlc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GmM-dk-Rlc">
+                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="sjw-kJ-wnP">
                                     <size key="itemSize" width="50" height="50"/>
@@ -61,18 +61,63 @@
                         <constraints>
                             <constraint firstItem="rSR-fv-7Qd" firstAttribute="top" secondItem="GmM-dk-Rlc" secondAttribute="bottom" id="Ld4-h9-Jd8"/>
                             <constraint firstItem="GmM-dk-Rlc" firstAttribute="leading" secondItem="VJI-iT-5cC" secondAttribute="leading" id="NFV-NL-Ce8"/>
-                            <constraint firstItem="GmM-dk-Rlc" firstAttribute="top" secondItem="1JP-lJ-KE7" secondAttribute="bottom" id="Sdu-0Z-cm1"/>
+                            <constraint firstItem="GmM-dk-Rlc" firstAttribute="top" secondItem="1JP-lJ-KE7" secondAttribute="bottom" constant="10" id="Sdu-0Z-cm1"/>
                             <constraint firstAttribute="trailing" secondItem="GmM-dk-Rlc" secondAttribute="trailing" id="dnr-wb-YoT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eET-eC-6pj"/>
                     <connections>
                         <outlet property="collectionView" destination="GmM-dk-Rlc" id="2xZ-ni-1Pq"/>
+                        <segue destination="5o7-nh-xFo" kind="show" identifier="ProjectDetailSegue" id="mdW-9c-K9E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLC-0K-wt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1400" y="139"/>
+        </scene>
+        <!--Project Details View Controller-->
+        <scene sceneID="SEf-wC-b09">
+            <objects>
+                <viewController id="5o7-nh-xFo" customClass="APProjectDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bRK-Xm-cyR"/>
+                        <viewControllerLayoutGuide type="bottom" id="UXh-25-m4q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tmH-Kp-Ru4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RbR-1K-i3T">
+                                <rect key="frame" x="0.0" y="10" width="375" height="657"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="npZ-Rd-VKk">
+                                    <size key="itemSize" width="375" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5o7-nh-xFo" id="XbB-qt-kR0"/>
+                                    <outlet property="delegate" destination="5o7-nh-xFo" id="DyX-ay-13D"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RbR-1K-i3T" firstAttribute="leading" secondItem="tmH-Kp-Ru4" secondAttribute="leading" id="I0P-vQ-uMh"/>
+                            <constraint firstItem="RbR-1K-i3T" firstAttribute="top" secondItem="tmH-Kp-Ru4" secondAttribute="top" constant="10" id="Vf3-Pd-4A5"/>
+                            <constraint firstAttribute="trailing" secondItem="RbR-1K-i3T" secondAttribute="trailing" id="hyX-u6-f1L"/>
+                            <constraint firstItem="UXh-25-m4q" firstAttribute="top" secondItem="RbR-1K-i3T" secondAttribute="bottom" id="oRe-si-RtD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="RbR-1K-i3T" id="0Vk-06-VNQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wza-6n-Ho1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146.4000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>

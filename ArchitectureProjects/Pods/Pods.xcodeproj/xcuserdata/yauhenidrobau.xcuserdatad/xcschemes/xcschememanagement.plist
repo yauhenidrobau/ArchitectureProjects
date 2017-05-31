@@ -54,17 +54,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SAMKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SWRevealViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>UIAlertController+Blocks.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,17 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24997B57207E5E82264F46E06353FE93</key>
+		<key>28939B9980BFDBA39CF3E66F074AEA62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32CFA2908B7C8BA4199B5452C41A996A</key>
+		<key>3195E38AC2FFF152F5564F1E98A9704D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35C3D42CC89DE73939D092F8D5AA3D0B</key>
+		<key>502F8B95E8CB794ABF5D34FC98A2758B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +102,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5CC9D252303AA76BEBC796EF6E3EB866</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>621A375654A9981D477AD911613B2CC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F497196FB9D6FC9EF035AF942EC9CEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>908E32256F01CDBE2CA18FD6E2508165</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C361AB9004BA77CFE23E93DB6BE9DC46</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C48BB28D20A0890BE0F78E8784658DA7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>DE868725B18AE240E550C5515AE66BC4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F04F2D13470DED99549D0860B637271F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -16,8 +16,11 @@
 #import <IQKeyboardManager.h>
 #import "UIViewController+ShowModal.h"
 #import "SimpleModalVC.h"
-#import <UIAlertController+Blocks.h>
 #import "Macros.h"
+#import "APKeychainManager.h"
+#import "APProjectManager.h"
+#import "APUserManager.h"
+#import "UIAlertController+AP.h"
 
 @import Firebase;
 
@@ -37,12 +40,31 @@
     /*
      Fabric
      */
-//    [Fabric with:@[[Crashlytics class]]];
+    [Fabric with:@[[Crashlytics class]]];
     
     /*
      Setup Root Controller
      */
     [self setupRootVC];
+
+    /*
+     FireBase
+     */
+    [FIRApp configure];
+    
+    /*
+     Appierance
+     */
+    [self setupAppearance];
+    
+    /*
+     Reachability
+     */
+    [self startReachabilityMonitoring];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateDidChage:) name:NN_NETWORK_STATE_OK object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showOfflineAlert) name:NN_NETWORK_STATE_OFFLINE object:nil];
 
     return YES;
 }
@@ -83,15 +105,13 @@
         // this block is called on the main thread
         switch (status) {
             case GCNetworkReachabilityStatusNotReachable:
-                if (showOfflineAlert) {
-                    [self showOfflineAlert];
-                    showOfflineAlert = NO;
-                }
+                [self showOfflineAlert];
                 break;
             case GCNetworkReachabilityStatusWWAN:
             case GCNetworkReachabilityStatusWiFi:
                 if (!showOfflineAlert) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:NN_NETWORK_STATE_OK object:nil];
+//                    [self showOfflineAlert];
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:NN_NETWORK_STATE_OK object:nil];
                 }
                 showOfflineAlert = YES;
                 break;
@@ -101,31 +121,13 @@
 
 #pragma mark - Private
 
-- (void)setupAppearance {
-//    [[UINavigationBar appearance] setBarTintColor:[UIColor pl_mainColor]];
-//    
-//    [[UINavigationBar appearance]setTranslucent:NO];
-//    [[UINavigationBar appearance] setTintColor:[UIColor pl_mainTintColor]];
-//    
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{
-//                                                           NSForegroundColorAttributeName: [UIColor pl_mainTintColor],
-//                                                           NSFontAttributeName: [UIFont systemFontOfSize:17.f]}];
-//    
-//    [[UIView appearance] setTintColor:[UIColor pl_mainColor]];
-    
-    [[IQKeyboardManager sharedManager]setEnable:YES];
-    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 100.f;
-    [IQKeyboardManager sharedManager].toolbarManageBehaviour = IQAutoToolbarByTag;
-}
-
 - (void)showOfflineAlert {
-    [self.window.rootViewController showModalViewControllerWithIdentifier:@"SimpleModalVC" setupBlock:^(ModalViewController *modal) {
-        SimpleModalVC *vc = (SimpleModalVC*)modal;
-        vc.modalMessage = NSLocalizedString(@"alert.offline.message", nil);
-        vc.modalTitle = NSLocalizedString(@"alert.offline.title", nil);
-
-    } animated:YES];
-    
+    if (showOfflineAlert) {
+        UIAlertController* alert = [UIAlertController alertWithOfflineError];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        alert.view.tintColor = [UIColor blackColor];
+        showOfflineAlert = NO;
+    }
 }
 
 - (void)setupRootVC{
@@ -135,5 +137,21 @@
     self.window.rootViewController = rootVC;
 }
 
+- (void)setupAppearance {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0 / 255.0 green:35.0 / 255.0 blue:35.0 / 255.0 alpha:1]];
+    
+    [[UINavigationBar appearance]setTranslucent:NO];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSForegroundColorAttributeName: [UIColor redColor],
+                                                           NSFontAttributeName: [UIFont systemFontOfSize:17.f]}];
+    
+    [[UIView appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[IQKeyboardManager sharedManager]setEnable:YES];
+    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 100.f;
+    [IQKeyboardManager sharedManager].toolbarManageBehaviour = IQAutoToolbarByTag;
+}
 
 @end

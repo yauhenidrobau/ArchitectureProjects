@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,20 +21,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
                         <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="MB0-mE-RMa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="MB0-mE-RMa">
                                 <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="k5q-Ph-lGk">
-                                <rect key="frame" x="0.0" y="114.5" width="57.5" height="57.5"/>
+                                <rect key="frame" x="0.0" y="112" width="57.5" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="k5q-Ph-lGk" secondAttribute="height" multiplier="1:1" id="Xy4-AN-Ltv"/>
+                                    <constraint firstAttribute="height" constant="60" id="8cp-51-UkS"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-Ep-GR2">
-                                <rect key="frame" x="57.5" y="114.5" width="57" height="57.5"/>
+                                <rect key="frame" x="57.5" y="112" width="57" height="60"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-u2-qNo">
-                                <rect key="frame" x="114.5" y="114.5" width="57.5" height="57.5"/>
+                                <rect key="frame" x="114.5" y="112" width="57.5" height="60"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,14 +47,14 @@
                             <constraint firstItem="MB0-mE-RMa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IzD-mv-LHm"/>
                             <constraint firstItem="k5q-Ph-lGk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jbo-7n-0YT"/>
                             <constraint firstAttribute="bottom" secondItem="AxE-Ep-GR2" secondAttribute="bottom" id="Jfw-YZ-7W0"/>
-                            <constraint firstItem="AxE-Ep-GR2" firstAttribute="width" secondItem="k5q-Ph-lGk" secondAttribute="width" id="TXa-Qy-BHN"/>
+                            <constraint firstItem="AxE-Ep-GR2" firstAttribute="width" secondItem="k5q-Ph-lGk" secondAttribute="width" id="N8s-nF-toT"/>
                             <constraint firstAttribute="bottom" secondItem="k5q-Ph-lGk" secondAttribute="bottom" id="YPZ-K9-gKE"/>
                             <constraint firstAttribute="trailing" secondItem="6xj-u2-qNo" secondAttribute="trailing" id="aMV-cL-Sej"/>
-                            <constraint firstItem="6xj-u2-qNo" firstAttribute="width" secondItem="k5q-Ph-lGk" secondAttribute="width" id="dul-DR-nxF"/>
+                            <constraint firstItem="k5q-Ph-lGk" firstAttribute="height" secondItem="AxE-Ep-GR2" secondAttribute="height" id="fgJ-7R-WkE"/>
+                            <constraint firstItem="6xj-u2-qNo" firstAttribute="width" secondItem="AxE-Ep-GR2" secondAttribute="width" id="iMp-0S-ncQ"/>
+                            <constraint firstItem="6xj-u2-qNo" firstAttribute="height" secondItem="AxE-Ep-GR2" secondAttribute="height" id="qOl-Gz-xY5"/>
                             <constraint firstItem="6xj-u2-qNo" firstAttribute="leading" secondItem="AxE-Ep-GR2" secondAttribute="trailing" id="rC3-Ik-xXc"/>
                             <constraint firstItem="6xj-u2-qNo" firstAttribute="leading" secondItem="AxE-Ep-GR2" secondAttribute="trailing" id="sNs-dB-1Zq"/>
-                            <constraint firstItem="6xj-u2-qNo" firstAttribute="height" secondItem="k5q-Ph-lGk" secondAttribute="height" id="v7E-Fl-Mjq"/>
-                            <constraint firstItem="AxE-Ep-GR2" firstAttribute="height" secondItem="k5q-Ph-lGk" secondAttribute="height" id="wVA-IX-b8c"/>
                         </constraints>
                     </view>
                 </subviews>

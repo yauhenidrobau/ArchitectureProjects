@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="07y-Uf-aMf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Контакты-->
+        <scene sceneID="ktH-ov-lV0">
+            <objects>
+                <viewController id="RJV-yy-8bV" customClass="APContactViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hl9-aM-zzs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ozU-dq-fpe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mD0-0x-B3o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjM-OY-eYO">
+                                <rect key="frame" x="73" y="64" width="230" height="113"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тел." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LS-ow-n5b">
+                                        <rect key="frame" x="15" y="15" width="33" height="21"/>
+                                        <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TI-IQ-c1a">
+                                        <rect key="frame" x="56" y="44" width="142" height="30"/>
+                                        <state key="normal" title="+37529 551-90-52">
+                                            <color key="titleColor" red="0.078431372550000003" green="0.2901960784" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="telButtonTouched:" destination="RJV-yy-8bV" eventType="touchUpInside" id="Gbx-PU-jQI"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тел." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et9-cf-7CP">
+                                        <rect key="frame" x="15" y="48" width="33" height="21"/>
+                                        <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Z-SH-kCo">
+                                        <rect key="frame" x="15" y="77" width="42" height="20"/>
+                                        <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="proektydomow@mail.ru " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ty-nv-0bj">
+                                        <rect key="frame" x="59" y="77" width="166" height="17"/>
+                                        <fontDescription key="fontDescription" name="Cochin-Bold" family="Cochin" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rw2-5I-Slh">
+                                        <rect key="frame" x="56" y="11" width="142" height="30"/>
+                                        <state key="normal" title="+37533 671-37-43">
+                                            <color key="titleColor" red="0.078431372550000003" green="0.2901960784" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="telButtonTouched:" destination="RJV-yy-8bV" eventType="touchUpInside" id="6xH-Lj-HnX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Et9-cf-7CP" firstAttribute="top" secondItem="5LS-ow-n5b" secondAttribute="bottom" constant="12" id="5fT-ej-yKC"/>
+                                    <constraint firstItem="a5Z-SH-kCo" firstAttribute="leading" secondItem="fjM-OY-eYO" secondAttribute="leading" constant="15" id="8TX-ll-R1G"/>
+                                    <constraint firstItem="7TI-IQ-c1a" firstAttribute="top" secondItem="rw2-5I-Slh" secondAttribute="bottom" constant="3" id="9V4-G6-Spt"/>
+                                    <constraint firstAttribute="height" constant="113" id="FyX-Mz-jdB"/>
+                                    <constraint firstAttribute="trailing" secondItem="7TI-IQ-c1a" secondAttribute="trailing" constant="32" id="GT7-CY-PwZ"/>
+                                    <constraint firstItem="rw2-5I-Slh" firstAttribute="leading" secondItem="5LS-ow-n5b" secondAttribute="trailing" constant="8" id="KD5-vd-KN5"/>
+                                    <constraint firstItem="7TI-IQ-c1a" firstAttribute="leading" secondItem="Et9-cf-7CP" secondAttribute="trailing" constant="8" id="Kgs-Mp-kka"/>
+                                    <constraint firstAttribute="width" constant="230" id="MtP-ae-WfS"/>
+                                    <constraint firstAttribute="trailing" secondItem="4ty-nv-0bj" secondAttribute="trailing" constant="5" id="Rh3-w7-gLf"/>
+                                    <constraint firstItem="rw2-5I-Slh" firstAttribute="top" secondItem="fjM-OY-eYO" secondAttribute="top" constant="11" id="TE4-NC-Ebi"/>
+                                    <constraint firstAttribute="trailing" secondItem="rw2-5I-Slh" secondAttribute="trailing" constant="32" id="Yo3-tk-SAk"/>
+                                    <constraint firstItem="a5Z-SH-kCo" firstAttribute="top" secondItem="Et9-cf-7CP" secondAttribute="bottom" constant="8" id="ZGa-59-Igt"/>
+                                    <constraint firstItem="Et9-cf-7CP" firstAttribute="leading" secondItem="fjM-OY-eYO" secondAttribute="leading" constant="15" id="hod-3Q-2Ww"/>
+                                    <constraint firstItem="5LS-ow-n5b" firstAttribute="leading" secondItem="fjM-OY-eYO" secondAttribute="leading" constant="15" id="lUg-Ih-r7y"/>
+                                    <constraint firstItem="4ty-nv-0bj" firstAttribute="top" secondItem="7TI-IQ-c1a" secondAttribute="bottom" constant="3" id="p34-MD-2mu"/>
+                                    <constraint firstItem="5LS-ow-n5b" firstAttribute="top" secondItem="fjM-OY-eYO" secondAttribute="top" constant="15" id="wgc-2D-0o6"/>
+                                    <constraint firstItem="4ty-nv-0bj" firstAttribute="leading" secondItem="a5Z-SH-kCo" secondAttribute="trailing" constant="2" id="zTl-C0-Sfr"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8i-Tp-cQ9">
+                                <rect key="frame" x="30" y="187" width="315" height="197"/>
+                                <string key="text">Выполняем проекты домов, бань, гаражей, беседок, малых архитектурных форм. Также выполняем проекты на реконструкцию жилых домов. Генплан и вертикальная планировка участка. Обмеры. По Беларуси выполняем проекты систем отопления, электроснабжения, водоснабжения. 
+Гарантируем индивидуальный подход к каждому клиенту и качество выполняемых работ. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwn-d5-Dhn">
+                                <rect key="frame" x="30" y="394" width="315" height="34"/>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.2901960784" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="53G-a4-7ZZ"/>
+                                </constraints>
+                                <state key="normal" title="Мы в VK" image="VK">
+                                    <color key="titleColor" red="0.8980392157" green="0.92941176469999998" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="vkButtonTouched:" destination="RJV-yy-8bV" eventType="touchUpInside" id="vMA-pl-W31"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWv-Fa-Imf">
+                                <rect key="frame" x="30" y="438" width="315" height="34"/>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.2901960784" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="B6O-LY-j9e"/>
+                                </constraints>
+                                <state key="normal" title="Мы в Instagram" image="Instagram">
+                                    <color key="titleColor" red="0.8980392157" green="0.92941176469999998" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="instagramButtonTouched:" destination="RJV-yy-8bV" eventType="touchUpInside" id="GIH-Au-DDL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xwn-d5-Dhn" firstAttribute="trailing" secondItem="n8i-Tp-cQ9" secondAttribute="trailing" id="2AZ-vu-ORy"/>
+                            <constraint firstItem="fjM-OY-eYO" firstAttribute="centerX" secondItem="mD0-0x-B3o" secondAttribute="centerX" id="3Qx-gF-goC"/>
+                            <constraint firstItem="n8i-Tp-cQ9" firstAttribute="leading" secondItem="mD0-0x-B3o" secondAttribute="leading" constant="30" id="4Qt-4e-AoB"/>
+                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="top" secondItem="xwn-d5-Dhn" secondAttribute="bottom" constant="10" id="4dN-Sv-R1K"/>
+                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="centerX" secondItem="mD0-0x-B3o" secondAttribute="centerX" id="C4i-YZ-JDC"/>
+                            <constraint firstItem="n8i-Tp-cQ9" firstAttribute="top" secondItem="fjM-OY-eYO" secondAttribute="bottom" constant="10" id="DBU-Ni-cah"/>
+                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="trailing" secondItem="n8i-Tp-cQ9" secondAttribute="trailing" id="KyQ-Ho-V5i"/>
+                            <constraint firstItem="xwn-d5-Dhn" firstAttribute="top" secondItem="n8i-Tp-cQ9" secondAttribute="bottom" constant="10" id="SHS-0K-dvJ"/>
+                            <constraint firstItem="xwn-d5-Dhn" firstAttribute="centerX" secondItem="mD0-0x-B3o" secondAttribute="centerX" id="Zt7-Lz-Y23"/>
+                            <constraint firstAttribute="trailing" secondItem="n8i-Tp-cQ9" secondAttribute="trailing" constant="30" id="b77-mi-sfR"/>
+                            <constraint firstItem="fjM-OY-eYO" firstAttribute="top" secondItem="hl9-aM-zzs" secondAttribute="bottom" id="rQu-py-Lyn"/>
+                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="leading" secondItem="n8i-Tp-cQ9" secondAttribute="leading" id="urx-nr-hYa"/>
+                            <constraint firstItem="xwn-d5-Dhn" firstAttribute="leading" secondItem="n8i-Tp-cQ9" secondAttribute="leading" id="w5r-tj-QNp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Контакты" id="hLW-6A-0kP"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEK-XE-MLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2594.4000000000001" y="151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HMJ-OH-OWk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="07y-Uf-aMf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Klo-rK-1h6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RJV-yy-8bV" kind="relationship" relationship="rootViewController" id="Wn8-5i-QD4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IIh-Ko-AEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655.2" y="151.57421289355324"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Instagram" width="630" height="181"/>
+        <image name="VK" width="846" height="221"/>
+    </resources>
+</document>
