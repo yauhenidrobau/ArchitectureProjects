@@ -56,6 +56,8 @@ SINGLETON(APRealmManager)
 
 - (void)saveToProject:(NSDictionary*)projectDict withCallback:(RealmDataManagerSaveCallback)callback {
     RLMRealm *realm = [RLMRealm defaultRealm];
+    NSInteger index = 0;
+    NSLog(@"%@",[RLMRealm defaultRealm].configuration.fileURL);
     for (NSDictionary *project in projectDict.allValues) {
         [realm beginWriteTransaction];
         @try {
@@ -66,17 +68,23 @@ SINGLETON(APRealmManager)
                 projectObject.projectId = [project[@"id"] integerValue];
                 projectObject.name = project[@"name"];
                 projectObject.category = project[@"category"];
-                NSInteger index = 0;
                 for (NSString *imageURL in [project[@"images"] allValues]) {
                     
                     APImagesObject  *imageObject = [[APImagesObject alloc] init];
                     imageObject.image = imageURL;
-                    imageObject.imageID = index;
+                    imageObject.imagePrimaryID = index;
+//                    imageObject.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                    imageObject.captionTitle = [NSString stringWithFormat:@"%@-captionTitle-%ld", projectObject.name, index];
+                    imageObject.captionCredit = [NSString stringWithFormat:@"%@-captionCredit-%ld", projectObject.name, index];
+                    imageObject.captionSummary = [NSString stringWithFormat:@"%@-captionSummary-%ld", projectObject.name, index];
+                    
                     [projectObject.images  addObject:imageObject];
+                    [realm addOrUpdateObject:projectObject];
                     index ++;
                 }
+            } else {
+                [realm addOrUpdateObject:projectObject];
             }
-            [realm addOrUpdateObject:projectObject];
             [realm commitWriteTransaction];
         } @catch (NSException *exception) {
             NSLog(@"exception");
@@ -114,7 +122,7 @@ SINGLETON(APRealmManager)
     for (RLMObject *object in results) {
         [array addObject:object];
     }
-    NSSortDescriptor * newSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"imageID" ascending:YES];
+    NSSortDescriptor * newSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"imagePrimaryID" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:newSortDescriptor];
     array = [NSMutableArray arrayWithArray:[array sortedArrayUsingDescriptors:sortDescriptors]];
     return array;

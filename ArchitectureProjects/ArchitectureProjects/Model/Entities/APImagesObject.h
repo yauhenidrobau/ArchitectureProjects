@@ -9,10 +9,13 @@
 #import <Realm/Realm.h>
 
 @interface APImagesObject : RLMObject
-@property NSInteger imageID;
 @property NSInteger imagePrimaryID;
 
 @property (strong, nonatomic) NSString *image;
+@property (strong, nonatomic) NSData *imageData;
+@property (nonatomic, strong) NSString *captionTitle;
+@property (nonatomic, strong) NSString *captionSummary;
+@property (nonatomic, strong) NSString *captionCredit;
 @end
 
 RLM_ARRAY_TYPE(APImagesObject)

@@ -147,7 +147,9 @@
                                                            NSForegroundColorAttributeName: [UIColor redColor],
                                                            NSFontAttributeName: [UIFont systemFontOfSize:17.f]}];
     
-    [[UIView appearance] setTintColor:[UIColor whiteColor]];
+    
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary  dictionaryWithObjectsAndKeys: [UIColor blackColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blueColor], NSForegroundColorAttributeName,nil] forState:UIControlStateSelected];
     
     [[IQKeyboardManager sharedManager]setEnable:YES];
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 100.f;

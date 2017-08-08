@@ -100,11 +100,29 @@
                                 <rect key="frame" x="30" y="394" width="315" height="34"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.2901960784" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="315" id="4Dc-Qp-18h"/>
                                     <constraint firstAttribute="height" constant="34" id="53G-a4-7ZZ"/>
+                                    <constraint firstAttribute="width" constant="400" id="AUj-cD-gja"/>
                                 </constraints>
                                 <state key="normal" title="Мы в VK" image="VK">
                                     <color key="titleColor" red="0.8980392157" green="0.92941176469999998" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4Dc-Qp-18h"/>
+                                        <exclude reference="AUj-cD-gja"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="4Dc-Qp-18h"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="AUj-cD-gja"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="vkButtonTouched:" destination="RJV-yy-8bV" eventType="touchUpInside" id="vMA-pl-W31"/>
                                 </connections>
@@ -125,19 +143,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xwn-d5-Dhn" firstAttribute="trailing" secondItem="n8i-Tp-cQ9" secondAttribute="trailing" id="2AZ-vu-ORy"/>
                             <constraint firstItem="fjM-OY-eYO" firstAttribute="centerX" secondItem="mD0-0x-B3o" secondAttribute="centerX" id="3Qx-gF-goC"/>
                             <constraint firstItem="n8i-Tp-cQ9" firstAttribute="leading" secondItem="mD0-0x-B3o" secondAttribute="leading" constant="30" id="4Qt-4e-AoB"/>
                             <constraint firstItem="jWv-Fa-Imf" firstAttribute="top" secondItem="xwn-d5-Dhn" secondAttribute="bottom" constant="10" id="4dN-Sv-R1K"/>
                             <constraint firstItem="jWv-Fa-Imf" firstAttribute="centerX" secondItem="mD0-0x-B3o" secondAttribute="centerX" id="C4i-YZ-JDC"/>
                             <constraint firstItem="n8i-Tp-cQ9" firstAttribute="top" secondItem="fjM-OY-eYO" secondAttribute="bottom" constant="10" id="DBU-Ni-cah"/>
-                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="trailing" secondItem="n8i-Tp-cQ9" secondAttribute="trailing" id="KyQ-Ho-V5i"/>
                             <constraint firstItem="xwn-d5-Dhn" firstAttribute="top" secondItem="n8i-Tp-cQ9" secondAttribute="bottom" constant="10" id="SHS-0K-dvJ"/>
                             <constraint firstItem="xwn-d5-Dhn" firstAttribute="centerX" secondItem="mD0-0x-B3o" secondAttribute="centerX" id="Zt7-Lz-Y23"/>
                             <constraint firstAttribute="trailing" secondItem="n8i-Tp-cQ9" secondAttribute="trailing" constant="30" id="b77-mi-sfR"/>
                             <constraint firstItem="fjM-OY-eYO" firstAttribute="top" secondItem="hl9-aM-zzs" secondAttribute="bottom" id="rQu-py-Lyn"/>
-                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="leading" secondItem="n8i-Tp-cQ9" secondAttribute="leading" id="urx-nr-hYa"/>
-                            <constraint firstItem="xwn-d5-Dhn" firstAttribute="leading" secondItem="n8i-Tp-cQ9" secondAttribute="leading" id="w5r-tj-QNp"/>
+                            <constraint firstItem="jWv-Fa-Imf" firstAttribute="width" secondItem="xwn-d5-Dhn" secondAttribute="width" id="skv-PA-4qX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Контакты" id="hLW-6A-0kP"/>

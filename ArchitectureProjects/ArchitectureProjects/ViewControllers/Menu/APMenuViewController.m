@@ -74,7 +74,7 @@
 
     switch (indexPath.row) {
         case MenuTypeProjects:
-            storyboardName = @"Projects";
+            storyboardName = @"TabBar";
             break;
         case MenuTypeStart:
             storyboardName = @"Start";

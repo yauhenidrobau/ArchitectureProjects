@@ -1,4 +1,4 @@
-//
+ //
 //  APDownloadHelper.m
 //  ArchitectureProjects
 //
@@ -16,7 +16,7 @@
 static NSString *kQueueOperationsChanged = @"kQueueOperationsChanged";
 
 @interface APDownloadHelper () {
-    NSOperationQueue *queue;
+    dispatch_queue_t queue;
 }
 
 @end
@@ -27,11 +27,7 @@ SINGLETON(APDownloadHelper)
 -(id)init {
     self = [super init];
     if (self) {
-        queue = [[NSOperationQueue alloc]init];
-        queue.maxConcurrentOperationCount = 1;
-        [queue waitUntilAllOperationsAreFinished];
-        [queue addObserver:self forKeyPath:@"operations" options:0 context:&kQueueOperationsChanged];
-        
+        queue = dispatch_queue_create_with_target("com.", DISPATCH_QUEUE_CONCURRENT, nil);
         return self;
     }
     return nil;
@@ -72,27 +68,26 @@ SINGLETON(APDownloadHelper)
 - (void)downloadImageForProjects:(NSArray*)projects withCallback:(void(^)(BOOL downloaded, BOOL finished))callback {
 
     FIRStorage *storage = [FIRStorage storage];
-    
-    for (APProjectObject *object in projects) {
-        NSString *title = object.name;
-       __block NSInteger index = object.projectId;
-        NSArray *images = [[APRealmManager sharedInstance]projectImagesRLMResultsToArray:object.images];
-        __block NSInteger imageIndex = 1;
+    dispatch_group_t group = dispatch_group_create();
 
-        for (NSString *imageString in images) {
-            if (![APFileHelper getImagePath:title forImageIndex:imageIndex].length) {
-                [queue addOperationWithBlock:^{
+        for (APProjectObject *object in projects) {
+
+            NSString *title = object.name;
+            __block NSInteger index = object.projectId;
+            NSArray *images = [[APRealmManager sharedInstance]projectImagesRLMResultsToArray:object.images];
+            __block NSInteger imageIndex = 1;
+            
+            for (NSString *imageString in images) {
+                if (![APFileHelper getImagePath:title forImageIndex:imageIndex].length) {
+                    
                     NSString *imagePathInStorage = [NSString stringWithFormat:@"%@/%@.%ld.jpg",title,title,imageIndex];
                     FIRStorageReference *storageRef = [storage referenceWithPath:imagePathInStorage];
                     
                     NSURL *localURL = [NSURL URLWithString:[APFileHelper createFilePath:title forImageIndex:imageIndex]];
                     imageIndex ++;
+                    dispatch_group_async(group, queue, ^{
                     FIRStorageDownloadTask *downloadTask = [storageRef writeToFile:localURL completion:^(NSURL *URL, NSError *error){
-                        if (index == projects.count) {
-                            if (callback) {
-                                callback(error.localizedDescription.length, YES);
-                            }
-                        } else if (error) {
+                        if (error) {
                             NSLog(@"downloaded ERROR");
                             if (callback) {
                                 callback(NO,NO);
@@ -105,28 +100,16 @@ SINGLETON(APDownloadHelper)
                         }
                         
                     }];
-                }];
+                    });
+                }
             }
         }
-        index ++;
-    }
-
-}
-
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
-                         change:(NSDictionary *)change context:(void *)context
-{
-    if (object == queue && [keyPath isEqualToString:@"operations"] && context == &kQueueOperationsChanged) {
-        if ([queue.operations count] == 0) {
-            // Do something here when your queue has completed
-            NSLog(@"queue has completed");
-            [queue removeObserver:self forKeyPath:@"operations" context:&kQueueOperationsChanged];
+    dispatch_group_notify(group, queue, ^{
+        if (callback) {
+            callback(NO, YES);
         }
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object
-                               change:change context:context];
-    }
+    });
 }
+
 
 @end

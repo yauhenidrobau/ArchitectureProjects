@@ -1,81 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ffc-ca-9S8" customClass="APProjectCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+            <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-                        <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                        <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="MB0-mE-RMa">
-                                <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="MB0-mE-RMa">
+                                <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="k5q-Ph-lGk">
-                                <rect key="frame" x="0.0" y="112" width="57.5" height="60"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="k5q-Ph-lGk">
+                                <rect key="frame" x="0.0" y="190" width="103.5" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8cp-51-UkS"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-Ep-GR2">
-                                <rect key="frame" x="57.5" y="112" width="57" height="60"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-Ep-GR2">
+                                <rect key="frame" x="103.5" y="190" width="104" height="60"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-u2-qNo">
-                                <rect key="frame" x="114.5" y="112" width="57.5" height="60"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-u2-qNo">
+                                <rect key="frame" x="207.5" y="190" width="103.5" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squircle-full-icon" translatesAutoresizingMaskIntoConstraints="NO" id="psE-Hz-moo">
+                                <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squircle-full-icon" translatesAutoresizingMaskIntoConstraints="NO" id="sV5-F8-sjn">
+                                <rect key="frame" x="93.5" y="125" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="uTD-n0-g0D"/>
+                                    <constraint firstAttribute="width" constant="125" id="ulX-CO-isB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squircle-full-icon" translatesAutoresizingMaskIntoConstraints="NO" id="E2E-rM-tpg">
+                                <rect key="frame" x="0.0" y="63" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="5Ne-pY-iUp"/>
+                                    <constraint firstAttribute="height" constant="125" id="E7K-pc-XMg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squircle-full-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-Ns-MVY">
+                                <rect key="frame" x="186" y="63" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="EKF-bI-2UE"/>
+                                    <constraint firstAttribute="width" constant="125" id="gv4-y2-vGR"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="psE-Hz-moo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2gw-a0-yhm"/>
                             <constraint firstItem="AxE-Ep-GR2" firstAttribute="leading" secondItem="k5q-Ph-lGk" secondAttribute="trailing" id="4zl-e8-Cqg"/>
+                            <constraint firstItem="Nb9-Ns-MVY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5MV-ol-Vzy"/>
                             <constraint firstAttribute="bottom" secondItem="6xj-u2-qNo" secondAttribute="bottom" id="6WJ-FR-UJa"/>
-                            <constraint firstItem="MB0-mE-RMa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8au-mK-UnY"/>
-                            <constraint firstAttribute="trailing" secondItem="MB0-mE-RMa" secondAttribute="trailing" id="BhF-Xz-i3v"/>
-                            <constraint firstAttribute="bottom" secondItem="MB0-mE-RMa" secondAttribute="bottom" id="FKV-kM-Tpe"/>
-                            <constraint firstItem="MB0-mE-RMa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IzD-mv-LHm"/>
+                            <constraint firstAttribute="bottom" secondItem="sV5-F8-sjn" secondAttribute="bottom" id="Bi3-8N-LV8"/>
+                            <constraint firstItem="sV5-F8-sjn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Dy4-yV-1GA"/>
+                            <constraint firstItem="psE-Hz-moo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fnp-15-nWC"/>
                             <constraint firstItem="k5q-Ph-lGk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jbo-7n-0YT"/>
                             <constraint firstAttribute="bottom" secondItem="AxE-Ep-GR2" secondAttribute="bottom" id="Jfw-YZ-7W0"/>
                             <constraint firstItem="AxE-Ep-GR2" firstAttribute="width" secondItem="k5q-Ph-lGk" secondAttribute="width" id="N8s-nF-toT"/>
+                            <constraint firstItem="E2E-rM-tpg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ocy-wh-z7m"/>
+                            <constraint firstAttribute="trailing" secondItem="psE-Hz-moo" secondAttribute="trailing" id="V7I-Ft-Uno"/>
+                            <constraint firstItem="psE-Hz-moo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VzU-h2-sUq"/>
                             <constraint firstAttribute="bottom" secondItem="k5q-Ph-lGk" secondAttribute="bottom" id="YPZ-K9-gKE"/>
                             <constraint firstAttribute="trailing" secondItem="6xj-u2-qNo" secondAttribute="trailing" id="aMV-cL-Sej"/>
+                            <constraint firstAttribute="trailing" secondItem="Nb9-Ns-MVY" secondAttribute="trailing" id="fch-bh-szz"/>
                             <constraint firstItem="k5q-Ph-lGk" firstAttribute="height" secondItem="AxE-Ep-GR2" secondAttribute="height" id="fgJ-7R-WkE"/>
                             <constraint firstItem="6xj-u2-qNo" firstAttribute="width" secondItem="AxE-Ep-GR2" secondAttribute="width" id="iMp-0S-ncQ"/>
+                            <constraint firstAttribute="bottom" secondItem="psE-Hz-moo" secondAttribute="bottom" id="oUW-cB-imD"/>
                             <constraint firstItem="6xj-u2-qNo" firstAttribute="height" secondItem="AxE-Ep-GR2" secondAttribute="height" id="qOl-Gz-xY5"/>
                             <constraint firstItem="6xj-u2-qNo" firstAttribute="leading" secondItem="AxE-Ep-GR2" secondAttribute="trailing" id="rC3-Ik-xXc"/>
+                            <constraint firstItem="E2E-rM-tpg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rXX-SO-EyD"/>
                             <constraint firstItem="6xj-u2-qNo" firstAttribute="leading" secondItem="AxE-Ep-GR2" secondAttribute="trailing" id="sNs-dB-1Zq"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="7E9-fq-B6h"/>
                 <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="ffc-ca-9S8" secondAttribute="leading" id="Jaj-GP-bRB"/>
                 <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="ffc-ca-9S8" secondAttribute="top" id="P6B-Qj-sfX"/>
                 <constraint firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="sUC-F1-Czb"/>
             </constraints>
-            <size key="customSize" width="50" height="100"/>
+            <size key="customSize" width="120" height="100"/>
             <connections>
-                <outlet property="mainImage" destination="MB0-mE-RMa" id="t7c-Dm-V5Y"/>
-                <outlet property="smallImage1" destination="k5q-Ph-lGk" id="0Ff-km-nht"/>
-                <outlet property="smallImage2" destination="AxE-Ep-GR2" id="qvG-j3-loV"/>
-                <outlet property="smallImage3" destination="6xj-u2-qNo" id="Fmb-eA-3mm"/>
+                <outlet property="mainImage" destination="psE-Hz-moo" id="Odx-k3-r9c"/>
+                <outlet property="smallImage1" destination="Nb9-Ns-MVY" id="3gL-2A-zsF"/>
+                <outlet property="smallImage2" destination="sV5-F8-sjn" id="3JB-5h-maL"/>
+                <outlet property="smallImage3" destination="E2E-rM-tpg" id="3im-vD-LbG"/>
             </connections>
-            <point key="canvasLocation" x="25" y="27"/>
+            <point key="canvasLocation" x="5" y="27"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="no_image_200_200" width="100" height="100"/>
+        <image name="squircle-full-icon" width="160" height="160"/>
     </resources>
 </document>

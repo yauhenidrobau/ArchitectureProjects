@@ -30,47 +30,42 @@ SINGLETON(APProjectManager)
 #pragma mark - Public
 
 - (void)loadProjectsWithCompletion:(void(^)(NSArray *projects, BOOL finished, NSError *error))completion {
-    
-    NSArray* cachedProjects = [self cachedObjects];
-    if (completion) {
-        completion(cachedProjects, NO, nil);
-    }
-    
-    if ([APNetworkHelper isInternetConnected]) {
-        
-        self.ref = [[FIRDatabase database] reference];
-        
-        NSString *email = [APKeychainManager sharedInstance].storedEmail;
-        NSLog(@"----- Login in Firebase -----");
+        NSArray* cachedProjects = [self cachedObjects];
+        if (completion) {
+            completion(cachedProjects, NO, nil);
+        }
+        if ([APNetworkHelper isInternetConnected]) {
+            self.ref = [[FIRDatabase database] reference];
+            NSString *email = [APKeychainManager sharedInstance].storedEmail;
+            NSLog(@"----- Login in Firebase -----");
+            
+            [[FIRAuth auth] signInWithEmail:email password:email completion:^(FIRUser *user, NSError *error) {
+                if (user && !error) {
+                    NSLog(@"----- Get Projects -----");
 
-        [[FIRAuth auth] signInWithEmail:email password:email completion:^(FIRUser *user, NSError *error) {
-            if (user && !error) {
-                NSLog(@"----- Get Projects -----");
-
-                [[self.ref child:@"projects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-                    // Get user value
-                    NSDictionary *projectDict = [self parseObjectsFromJSON:snapshot];
-                    NSLog(@"----- Save Projects -----");
-
-                    [[APRealmManager sharedInstance]saveToProject:projectDict withCallback:^(NSError *error) {
-                        NSArray* cachedProjects = [self cachedObjects];
+                    [[self.ref child:@"projects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                        // Get user value
+                        NSDictionary *projectDict = [self parseObjectsFromJSON:snapshot];
+                        NSLog(@"----- Save Projects -----");
+                        [[APRealmManager sharedInstance]saveToProject:projectDict withCallback:^(NSError *error) {
+                            NSArray* cachedProjects = [self cachedObjects];
                             if (completion) {
                                 completion(cachedProjects, YES, error);
                             }
+                        }];
+                    } withCancelBlock:^(NSError * _Nonnull error) {
+                        NSLog(@"%@", error.localizedDescription);
+                        if (completion) {
+                            completion(cachedProjects, YES, error);
+                        }
                     }];
-                } withCancelBlock:^(NSError * _Nonnull error) {
-                    NSLog(@"%@", error.localizedDescription);
+                } else {
                     if (completion) {
                         completion(cachedProjects, YES, error);
                     }
-                }];
-            } else {
-                if (completion) {
-                    completion(cachedProjects, YES, error);
                 }
-            }
-        }];
-    }
+            }];
+        }
 }
 
 //- (NSArray*)loadProjectsForCategory:(NSString*)category {
@@ -86,8 +81,8 @@ SINGLETON(APProjectManager)
 #warning Background thread?!
 - (NSArray*)cachedObjects {
     RLMResults *results = [APProjectObject allObjects];
-    NSArray *localShops = [[APRealmManager sharedInstance] RLMResultsToArray:results];
-    return localShops;
+    NSArray *localProjects = [[APRealmManager sharedInstance] RLMResultsToArray:results];
+    return localProjects;
 }
 
 - (NSDictionary*)parseObjectsFromJSON:(FIRDataSnapshot *)JSON {

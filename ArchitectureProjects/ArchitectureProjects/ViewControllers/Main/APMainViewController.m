@@ -20,6 +20,9 @@
 #import "APDownloadHelper.h"
 #import "APUserManager.h"
 #import "APNetworkHelper.h"
+#import <NYTPhotosViewController.h>
+#import "Utils.h"
+#import <MBProgressHUD.h>
 
 @interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -68,8 +71,11 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    APProjectCollectionViewCell *cell = (APProjectCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"ProjectDetailSegue" sender:cell];
+    APProjectObject *object = self.projects[indexPath.row];
+//    NSArray *images = [Utils imagesFromImagesObject:object];
+//    NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithPhotos:images];
+//    [self presentViewController:photosViewController animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"ProjectDetailSegue" sender:object];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -86,7 +92,7 @@
     if (!IS_IPHONE) {
         return CGSizeMake(collectionView.frame.size.width / 3 - 40, collectionView.frame.size.height / 3);
     }
-    return CGSizeMake(picDimension, 200);
+    return CGSizeMake(picDimension/2.5, picDimension/2.5);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -95,7 +101,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 20;
+    return 5;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 5;
@@ -117,6 +123,7 @@
     [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     self.flowLayout.minimumInteritemSpacing = 10.0f;
     [self.collectionView setCollectionViewLayout:self.flowLayout];
+    self.collectionView.backgroundColor = [UIColor blueColor];
     self.collectionView.bounces = YES;
 }
 
@@ -142,23 +149,25 @@
 
 -(void)loadProjects {
     WS()
-    [[APProjectManager sharedInstance] loadProjectsWithCompletion:^(NSArray *projects, BOOL finished, NSError *error) {
-        wself.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
-        [wself.collectionView reloadData];
-
-        if (finished && [APNetworkHelper isInternetConnected]) {
-            NSLog(@"----- Download Images -----");
-            [[APDownloadHelper sharedInstance]downloadImageForProjects:projects withCallback:^(BOOL downloaded, BOOL finished) {
-                if (finished) {
-                    wself.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD showHUDAddedTo:wself.view animated:YES];
+        
+        [[APProjectManager sharedInstance] loadProjectsWithCompletion:^(NSArray *projects, BOOL finished, NSError *error) {
+            wself.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
+            [wself.collectionView reloadData];
+            if (finished && [APNetworkHelper isInternetConnected]) {
+                wself.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
+                dispatch_async(dispatch_get_main_queue(), ^{
                     [wself.collectionView reloadData];
                     [wself.refreshControl endRefreshing];
-                }
-            }];
-        } else if (![APNetworkHelper isInternetConnected]){
-            [wself.refreshControl endRefreshing];
-            [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
-        }
-    }];
+                });
+                [MBProgressHUD hideHUDForView:wself.view animated:YES];
+            } else if (![APNetworkHelper isInternetConnected]){
+                [wself.refreshControl endRefreshing];
+                [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
+            }
+        }];
+    });
+
 }
 @end

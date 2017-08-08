@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class APProjectObject;
+
 @interface Utils : NSObject
 
 +(void)addShadowToView:(UIView*)view;
-
++(NSArray*)imagesFromImagesObject:(APProjectObject*)object;
 @end
