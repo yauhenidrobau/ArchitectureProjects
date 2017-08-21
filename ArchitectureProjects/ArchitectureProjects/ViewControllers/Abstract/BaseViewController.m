@@ -22,4 +22,8 @@
     [self setupRevealViewController];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 @end

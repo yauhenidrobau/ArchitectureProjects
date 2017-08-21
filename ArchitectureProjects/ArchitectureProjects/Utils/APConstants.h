@@ -9,3 +9,4 @@
 #import <Foundation/Foundation.h>
 
 #define CELL_SIZE_COEF 2
+#define GOOGLE_MAPS_API_KEY @"AIzaSyC4eKIyid0ax1yslKdGYcL3KR7k8H969JI"

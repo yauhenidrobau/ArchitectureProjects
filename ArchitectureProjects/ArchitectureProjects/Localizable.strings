@@ -8,10 +8,10 @@
 
 // Tabbar
 "Projects" = "Проекты";
-"Projects" = "Проекты";
-"Projects" = "Проекты";
-"Projects" = "Проекты";
-"Map" = "Наши клиенты";
+"Projects2" = "2";
+"Projects3" = "3";
+"Projects4" = "4";
+"Map" = "Как нас найти";
 
 //
 "alert.button.ok" = "ОК";
@@ -46,3 +46,9 @@
 
 "menu.question.sent.message" = "Успешно отправлен";
 "menu.question.sent.title" = "Ваш вопрос";
+
+//Project Details
+"of" = "из";
+
+//MAP
+"map.routing.title" = "Ищем нас...";

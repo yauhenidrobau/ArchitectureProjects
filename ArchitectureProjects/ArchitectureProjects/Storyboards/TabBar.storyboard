@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3qN-pd-ghH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aIz-jY-vdA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -32,10 +32,12 @@
         <scene sceneID="Ee0-FI-Yo9">
             <objects>
                 <tabBarController id="2Hj-P5-Ib6" customClass="APTabBarViewController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="6rf-JC-1fn">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="6rf-JC-1fn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.91372549020000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="pWe-g5-Quz" kind="relationship" relationship="viewControllers" id="Wea-gC-LkF"/>
@@ -58,11 +60,12 @@
                         <viewControllerLayoutGuide type="bottom" id="C9n-xA-sZo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AtI-l8-uan">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qH5-WP-baS"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXr-Xf-L56" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,7 +80,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ifE-Nv-Sk3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e6z-9G-64S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -87,24 +90,58 @@
             </objects>
             <point key="canvasLocation" x="382" y="1966"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="5Tx-Gk-weR">
             <objects>
-                <viewController id="hUE-mE-8p3" sceneMemberID="viewController">
+                <viewController id="hUE-mE-8p3" customClass="APMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dyX-7L-3ZA"/>
                         <viewControllerLayoutGuide type="bottom" id="ElC-ay-60J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2PS-Ph-wcM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myi-OF-K8m" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvU-an-CEa">
+                                <rect key="frame" x="295" y="483" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GF1-qs-39Z"/>
+                                    <constraint firstAttribute="width" constant="60" id="iTA-j2-GJ5"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" image="user-location-icon"/>
+                                <connections>
+                                    <action selector="centerOnUser:" destination="hUE-mE-8p3" eventType="touchUpInside" id="irL-Zc-s1k"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="myi-OF-K8m" firstAttribute="top" secondItem="2PS-Ph-wcM" secondAttribute="top" id="7Du-J3-krP"/>
+                            <constraint firstAttribute="trailing" secondItem="EvU-an-CEa" secondAttribute="trailing" constant="20" id="J9w-Hs-1AW"/>
+                            <constraint firstItem="ElC-ay-60J" firstAttribute="top" secondItem="myi-OF-K8m" secondAttribute="bottom" id="KjE-A6-dkd"/>
+                            <constraint firstAttribute="trailing" secondItem="myi-OF-K8m" secondAttribute="trailing" id="fCL-Gr-2rk"/>
+                            <constraint firstItem="myi-OF-K8m" firstAttribute="leading" secondItem="2PS-Ph-wcM" secondAttribute="leading" id="l3r-Iu-Mv7"/>
+                            <constraint firstItem="ElC-ay-60J" firstAttribute="top" secondItem="EvU-an-CEa" secondAttribute="bottom" constant="75" id="zjC-43-wuu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ucw-dV-nUq"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="locationButton" destination="EvU-an-CEa" id="zSV-X0-lLG"/>
+                        <outlet property="mapView" destination="myi-OF-K8m" id="epd-CD-VSd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXX-W7-x1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="1288"/>
+            <point key="canvasLocation" x="1100" y="1287.7061469265368"/>
         </scene>
         <!--Item-->
         <scene sceneID="Nxh-Iq-tO6">
@@ -112,7 +149,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pWe-g5-Quz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="floor-plan-icon" selectedImage="floor-plan-filled-icon" id="qCj-v9-VfR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPd-z9-hwT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPd-z9-hwT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,12 +171,13 @@
                         <viewControllerLayoutGuide type="bottom" id="aAc-b3-a13"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kg2-jM-41k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G2d-f9-ohw">
                                 <rect key="frame" x="0.0" y="74" width="375" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.91372549020000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="wUb-b0-rVV">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -166,9 +204,6 @@
                     <navigationItem key="navigationItem" id="3R3-hu-9b6"/>
                     <connections>
                         <outlet property="collectionView" destination="G2d-f9-ohw" id="XJ3-9U-sqm"/>
-                        <segue destination="kcz-DZ-lgW" kind="show" identifier="ProjectDetailSegue" id="xTy-5i-PkF">
-                            <nil key="action"/>
-                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUN-QJ-1Wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,7 +223,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ugo-ml-pS3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.01176470588" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RIP-Dp-xzs">
                                     <size key="itemSize" width="375" height="200"/>
@@ -205,7 +240,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfu-qG-sbB" customClass="SpringView" customModule="ArchitectureProjects" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.0" green="0.78039215689999997" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
@@ -238,7 +273,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pTT-St-vvi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 2" id="Dus-T1-pvH"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eTy-Hb-ybd">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eTy-Hb-ybd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -257,7 +293,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CLn-DV-52q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 3" id="KOU-Ez-amK"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yi0-ex-VRo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Yi0-ex-VRo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,7 +312,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fER-D4-WmE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 5" id="Kj5-SA-0H0"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q50-Op-5VV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q50-Op-5VV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -289,13 +325,14 @@
             </objects>
             <point key="canvasLocation" x="-487" y="1966"/>
         </scene>
-        <!--Item 4-->
+        <!--Как добраться-->
         <scene sceneID="fci-TI-TsI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qtw-cR-0xN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 4" id="Orf-hu-v5l"/>
+                    <tabBarItem key="tabBarItem" title="Как добраться" image="map-icon" selectedImage="map-filled-icon" id="Orf-hu-v5l"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="u7K-lv-Htx">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="u7K-lv-Htx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -312,5 +349,8 @@
     <resources>
         <image name="floor-plan-filled-icon" width="25" height="25"/>
         <image name="floor-plan-icon" width="25" height="25"/>
+        <image name="map-filled-icon" width="25" height="25"/>
+        <image name="map-icon" width="25" height="25"/>
+        <image name="user-location-icon" width="105" height="105"/>
     </resources>
 </document>

@@ -8,6 +8,9 @@
 
 #import "APProjectDetailsCollectionViewCell.h"
 
+#import <UIImageView+WebCache.h>
+#import "APProjectObject.h"
+
 @interface APProjectDetailsCollectionViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
@@ -17,9 +20,10 @@
 @implementation APProjectDetailsCollectionViewCell
 
 
-- (void)setImageURL:(NSString *)imageURL {
-    [self.cellImage setImage:[UIImage imageWithContentsOfFile:imageURL]];
+- (void)setImageURL:(NSURL *)imageURL {
+    [self.cellImage sd_setImageWithURL:imageURL];
     _imageURL = imageURL;
+    
 }
 
 @end

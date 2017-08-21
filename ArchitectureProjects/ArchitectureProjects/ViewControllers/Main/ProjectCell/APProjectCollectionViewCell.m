@@ -29,6 +29,7 @@
     [super awakeFromNib];
     
     self.images = @[self.mainImage, self.smallImage1,self.smallImage2, self.smallImage3];
+    self.layer.cornerRadius = 15;
 }
 
 -(void)updateCellWithProject:(APProjectObject *)project {
@@ -36,7 +37,7 @@
         
         
         [((UIImageView*)self.images[i]) sd_setImageWithURL:[NSURL URLWithString:project.images[i].image]];
-        ((UIImageView*)self.images[i]).image = [self maskImage:((UIImageView*)self.images[i]).image];
+//        ((UIImageView*)self.images[i]).image = [self maskImage:((UIImageView*)self.images[i]).image];
 //                ((UIImageView*)self.images[i]).image = [UIImage imageNamed:@"squircle-full-icon"];
     }
 }

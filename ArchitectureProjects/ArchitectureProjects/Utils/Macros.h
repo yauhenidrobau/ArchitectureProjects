@@ -16,10 +16,17 @@ return shared##classname; \
 
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define RGBA(r, g, b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define RGBColorFromHex(rgbValue)        [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0xFF00) >> 8))/255.0f blue:((float)(rgbValue & 0xFF))/255.0f alpha:1.0f]
 
+#define OUR_LOCATION CLLocationCoordinate2DMake(52.710527, 25.341690)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
-#define WS() __weak typeof(self) wself = self;
+#define WEAK(var) __weak typeof(var) weak_##var = var;
+#define STRONG(var) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+__strong typeof(var) var = weak_##var; \
+_Pragma("clang diagnostic pop") \
 
 #define NN_NETWORK_STATE_OK @"NN_NETWORK_STATE_OK"
 #define NN_USER_AUTH_CHANGED @"NN_USER_AUTH_CHANGED"

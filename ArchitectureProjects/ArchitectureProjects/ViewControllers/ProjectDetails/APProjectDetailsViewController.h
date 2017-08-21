@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "APProjectObject.h"
-
 @interface APProjectDetailsViewController : UIViewController
 
 @property (strong, nonatomic) APProjectObject *projectObject;

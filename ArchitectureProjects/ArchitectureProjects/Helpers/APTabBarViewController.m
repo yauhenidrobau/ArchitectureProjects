@@ -8,6 +8,9 @@
 
 #import "APTabBarViewController.h"
 
+#import "Macros.h"
+#import "UIColor+App.h"
+
 @interface APTabBarViewController ()
 
 @end
@@ -18,12 +21,17 @@
     [super viewDidLoad];
 
     [self.tabBar.items[0] setTitle:NSLocalizedString(@"Projects", nil)];
-    [self.tabBar.items[1] setTitle:NSLocalizedString(@"Projects", nil)];
-    [self.tabBar.items[2] setTitle:NSLocalizedString(@"Projects", nil)];
-    [self.tabBar.items[3] setTitle:NSLocalizedString(@"Projects", nil)];
-    [self.tabBar.items[4] setTitle:NSLocalizedString(@"Map", nil)];
-    self.tabBar.tintColor = [UIColor redColor];
-
+    [self.tabBar.items[1] setTitle:NSLocalizedString(@"Projects2", nil)];
+    [self.tabBar.items[2] setTitle:NSLocalizedString(@"Projects3", nil)];
+    [self.tabBar.items[3] setTitle:NSLocalizedString(@"Map", nil)];
+    [self.tabBar.items[4] setTitle:NSLocalizedString(@"Projects4", nil)];
+    [self.tabBar setBarTintColor:[UIColor ap_darkBlueColor]];
+    self.tabBar.tintColor = [UIColor whiteColor];
+    if ([self.tabBar respondsToSelector:@selector(unselectedItemTintColor)]) {
+        self.tabBar.unselectedItemTintColor = [UIColor whiteColor];
+    } else {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

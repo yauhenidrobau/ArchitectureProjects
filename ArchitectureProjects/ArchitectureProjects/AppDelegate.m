@@ -21,8 +21,13 @@
 #import "APProjectManager.h"
 #import "APUserManager.h"
 #import "UIAlertController+AP.h"
+#import "APConstants.h"
+#import <SVProgressHUD.h>
+#import "APLocationManager.h"
 
 @import Firebase;
+@import GoogleMaps;
+@import GooglePlaces;
 
 @interface AppDelegate () {
     BOOL showOfflineAlert;
@@ -62,6 +67,18 @@
      */
     [self startReachabilityMonitoring];
     
+    /*
+     Google Maps
+     */
+    [GMSServices provideAPIKey:GOOGLE_MAPS_API_KEY];
+    [GMSPlacesClient provideAPIKey:GOOGLE_MAPS_API_KEY];
+
+    /*
+     SVProgressHUD
+     */
+    [SVProgressHUD setDefaultAnimationType:SVProgressHUDAnimationTypeNative];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateDidChage:) name:NN_NETWORK_STATE_OK object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showOfflineAlert) name:NN_NETWORK_STATE_OFFLINE object:nil];

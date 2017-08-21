@@ -22,14 +22,19 @@
 #import "APNetworkHelper.h"
 #import <NYTPhotosViewController.h>
 #import "Utils.h"
-#import <MBProgressHUD.h>
+#import <SVProgressHUD.h>
+#import <SFFocusViewLayout.h>
+#import "UIViewController+ShowModal.h"
+#import "ModalCollectionVC.h"
 
-@interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) NSArray *projects;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) APProjectCollectionViewCell *selectedCell;
+@property (nonatomic) CGRect defaultCellFrame;
 
 @end
 
@@ -75,28 +80,37 @@
 //    NSArray *images = [Utils imagesFromImagesObject:object];
 //    NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithPhotos:images];
 //    [self presentViewController:photosViewController animated:YES completion:nil];
-    [self performSegueWithIdentifier:@"ProjectDetailSegue" sender:object];
+    
+    [UIView animateWithDuration:0.5  animations:^{
+        [self showModalViewControllerWithIdentifier:@"ModalCollectionVC" setupBlock:^(ModalViewController *modal) {
+            ModalCollectionVC *vc = (ModalCollectionVC*)modal;
+            vc.projectObject = object;
+        } animated:YES];
+    } completion:^(BOOL finished) {
+    }];
+
+//    [self performSegueWithIdentifier:@"ProjectDetailSegue" sender:[self.collectionView cellForItemAtIndexPath:indexPath]];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ProjectDetailSegue"]) {
-       APProjectDetailsViewController *vc = segue.destinationViewController;
-        APProjectObject *object = self.projects[[self.collectionView indexPathForCell:sender].row];
-        vc.projectObject = object;
-    }
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"ProjectDetailSegue"]) {
+//       APProjectDetailsViewController *vc = segue.destinationViewController;
+//        APProjectObject *object = self.projects[[self.collectionView indexPathForCell:sender].row];
+//        vc.projectObject = object;
+//    }
+//}
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat picDimension = collectionView.frame.size.width;
     if (!IS_IPHONE) {
-        return CGSizeMake(collectionView.frame.size.width / 3 - 40, collectionView.frame.size.height / 3);
+        return CGSizeMake(collectionView.frame.size.width / 3 - 10, collectionView.frame.size.height / 3);
     }
-    return CGSizeMake(picDimension/2.5, picDimension/2.5);
+    return CGSizeMake(picDimension/2.2, picDimension/2.2);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    float sectionInset = 20;
+    float sectionInset = 5;
     return UIEdgeInsetsMake(0,sectionInset, 0, sectionInset);
 }
 
@@ -112,7 +126,6 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(0, 0);
 }
-
 #pragma mark - Private
 
 -(void)prepareCollectionView {
@@ -123,7 +136,7 @@
     [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     self.flowLayout.minimumInteritemSpacing = 10.0f;
     [self.collectionView setCollectionViewLayout:self.flowLayout];
-    self.collectionView.backgroundColor = [UIColor blueColor];
+    self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.bounces = YES;
 }
 
@@ -133,37 +146,38 @@
     [self.refreshControl addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.backgroundColor = [UIColor clearColor];
     [self.collectionView addSubview:self.refreshControl];
-    
 }
 
 -(void)loadData {
-    WS()
+    WEAK(self)
     if ([APUserManager sharedInstance].isUserAuthorised) {
-        [wself loadProjects];
+        [self loadProjects];
     } else {
         [[APUserManager sharedInstance] loginUserWithEmail:@"test@test.com" withCompletion:^(NSError *error) {
-            [wself loadProjects];
+            STRONG(self)
+            [self loadProjects];
         }];
     }
 }
 
 -(void)loadProjects {
-    WS()
+    WEAK(self)
     dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD showHUDAddedTo:wself.view animated:YES];
-        
+        [SVProgressHUD show];
         [[APProjectManager sharedInstance] loadProjectsWithCompletion:^(NSArray *projects, BOOL finished, NSError *error) {
-            wself.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
-            [wself.collectionView reloadData];
+            STRONG(self)
+            self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
+            [self.collectionView reloadData];
             if (finished && [APNetworkHelper isInternetConnected]) {
-                wself.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
+                self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [wself.collectionView reloadData];
-                    [wself.refreshControl endRefreshing];
+                    [self.collectionView reloadData];
+                    [self.refreshControl endRefreshing];
+                    [SVProgressHUD showSuccessWithStatus:@"Loaded"];
+                    [SVProgressHUD dismissWithDelay:0.5];
                 });
-                [MBProgressHUD hideHUDForView:wself.view animated:YES];
             } else if (![APNetworkHelper isInternetConnected]){
-                [wself.refreshControl endRefreshing];
+                [self.refreshControl endRefreshing];
                 [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
             }
         }];

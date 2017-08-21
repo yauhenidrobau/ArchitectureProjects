@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class APProjectObject;
+
 @interface APProjectDetailsCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) NSString *imageURL;
+@property (nonatomic, strong) NSURL *imageURL;
 
 @end
