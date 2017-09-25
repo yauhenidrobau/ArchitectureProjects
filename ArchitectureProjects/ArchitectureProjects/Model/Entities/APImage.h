@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NYTPhoto.h>
+#import <UIKit/UIKit.h>
 
-@interface APImage : NSObject <NYTPhoto>
+@interface APImage : NSObject
 
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSData *imageData;

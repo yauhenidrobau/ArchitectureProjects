@@ -10,6 +10,7 @@
 
 @interface UIColor (App)
 
++ (UIColor*)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 +(UIColor*)appColor;
 +(UIColor*)ap_darkBlueColor;
 

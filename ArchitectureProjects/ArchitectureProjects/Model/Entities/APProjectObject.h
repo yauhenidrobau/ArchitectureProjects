@@ -14,9 +14,10 @@
 @property  NSInteger projectId;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) RLMArray<APImagesObject *><APImagesObject> *images;
-@property (strong, nonatomic) NSString *totalArea;
-@property (strong, nonatomic) NSString *dwellingSpace;
-@property (strong, nonatomic) NSString *rooms;
+@property (strong, nonatomic) NSNumber<RLMInt> *totalArea;
+@property (strong, nonatomic) NSNumber<RLMInt> *floors;
+@property (nonatomic) BOOL garage;
+
 @property (strong, nonatomic) NSString *interiorЕrim;
 @property (strong, nonatomic) NSString *category;
 

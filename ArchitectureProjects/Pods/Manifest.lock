@@ -64,7 +64,6 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FLAnimatedImage (1.0.12)
   - GCNetworkReachability (1.3.2)
   - GoogleMaps (2.4.0):
     - GoogleMaps/Maps (= 2.4.0)
@@ -92,13 +91,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NYTPhotoViewer (1.1.0):
-    - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
-    - NYTPhotoViewer/Core (= 1.1.0)
-  - NYTPhotoViewer/AnimatedGifSupport (1.1.0):
-    - FLAnimatedImage (~> 1.0.8)
-    - NYTPhotoViewer/Core
-  - NYTPhotoViewer/Core (1.1.0)
   - Protobuf (3.3.0)
   - Realm (2.9.1):
     - Realm/Headers (= 2.9.1)
@@ -107,7 +99,6 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - SFFocusViewLayout (2.0.0)
   - SVProgressHUD (2.1.2)
   - SWRevealViewController (2.3.0)
 
@@ -124,11 +115,9 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - IQKeyboardManager
-  - NYTPhotoViewer (~> 1.1.0)
   - Realm
   - SAMKeychain
   - SDWebImage (~> 3.7.6)
-  - SFFocusViewLayout (~> 2.0)
   - SVProgressHUD
   - SWRevealViewController (~> 2.3)
 
@@ -145,7 +134,6 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseMessaging: 227406c05b0dc9290702d2e9f18ab5528f0c2cf2
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GCNetworkReachability: 2a7dd53d362220326b3e38df68c91b3ef84418d1
   GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
   GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
@@ -153,15 +141,13 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   IQKeyboardManager: 83eae5318483a34eb2069ef413d195b97605232e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  SFFocusViewLayout: bb580b208a791c075f9e0f7021dd961e8c4cfaf7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 2c7aa8e6fccbe5e00da40496ada78139f780c82d
+PODFILE CHECKSUM: 333c9f5fae8e7891a9e1835c0aeeaad57b625638
 
 COCOAPODS: 1.2.1

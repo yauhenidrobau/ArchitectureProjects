@@ -22,5 +22,6 @@
 
 - (NSArray*)RLMResultsToArray:(RLMResults *)results;
 - (NSArray*)projectImagesRLMResultsToArray:(RLMResults *)results;
+- (NSArray*)RLMResultsToArray:(RLMResults *)results withSortDescriptor:(NSString*)descriptor;
 
 @end

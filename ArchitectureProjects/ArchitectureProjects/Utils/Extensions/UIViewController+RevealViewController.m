@@ -10,6 +10,7 @@
 
 #import <SWRevealViewController.h>
 #import "UIAlertController+AP.h"
+#import "UIColor+App.h"
 
 @implementation UIViewController (RevealViewController)
 
@@ -28,7 +29,7 @@
         [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
         UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
         [self.view addGestureRecognizer:tap];
-        revealViewController.view.backgroundColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor ap_darkBlueColor];
         
     }
 }

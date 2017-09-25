@@ -11,11 +11,15 @@
 
 @implementation UIColor (App)
 
++ (UIColor*)colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue {
+    return [self colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:1];
+}
+
 +(UIColor*)appColor {
     return RGB(28, 156, 125);
 }
 
 +(UIColor*)ap_darkBlueColor {
-    return RGB(39, 119, 180);
+    return RGB(46, 136, 188);
 }
 @end

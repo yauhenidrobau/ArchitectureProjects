@@ -47,6 +47,12 @@
 "menu.question.sent.message" = "Успешно отправлен";
 "menu.question.sent.title" = "Ваш вопрос";
 
+//DropDown Menu
+"dropmenu_filter" = "Фильтр";
+"dropmenu_garage" = "Наличие гаража";
+"dropmenu_floors" = "Количество этажей";
+"dropmenu_area" = "Площадь";
+
 //Project Details
 "of" = "из";
 

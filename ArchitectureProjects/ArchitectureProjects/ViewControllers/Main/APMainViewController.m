@@ -20,14 +20,15 @@
 #import "APDownloadHelper.h"
 #import "APUserManager.h"
 #import "APNetworkHelper.h"
-#import <NYTPhotosViewController.h>
 #import "Utils.h"
-#import <SVProgressHUD.h>
-#import <SFFocusViewLayout.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "UIViewController+ShowModal.h"
 #import "ModalCollectionVC.h"
+#import "DropMenuView.h"
+#import "FilterTableViewController.h"
 
-@interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+#define APMainViewControllerFilterSegue @"FilterSegue"
+@interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource, DropMenuDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
@@ -35,6 +36,9 @@
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) APProjectCollectionViewCell *selectedCell;
 @property (nonatomic) CGRect defaultCellFrame;
+@property (nonatomic) CGFloat currentOffset;
+@property (weak, nonatomic) IBOutlet DropMenuView *dropMenuView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropMenuViewTopConstraint;
 
 @end
 
@@ -43,13 +47,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.dropMenuView.delegate = self;
+    self.dropMenuView.superTopConstant = self.dropMenuViewTopConstraint.constant;
+    
     [self prepareCollectionView];
     [self prepareAppearance];
     
     [self.navigationController.navigationItem setTitle:@"Kee"];
-    
     [self loadData];
-    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - IBActions
@@ -125,6 +135,57 @@
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(0, 0);
+}
+
+#pragma mark - ScrollViewDelegate
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    scrollView = self.collectionView;
+    _currentOffset = self.collectionView.contentOffset.y;
+    
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+//    CGFloat scrollPos = self.collectionView.contentOffset.y ;
+//    
+//    if(scrollPos < 65 && self.navigationController.isNavigationBarHidden){
+//        //Fully hide your toolbar
+////            [UIView animateWithDuration:1 animations:^{
+//                [self.navigationController setNavigationBarHidden:NO animated:YES];
+////            }];
+//    } else {
+//        if (scrollPos > 65 && !self.navigationController.isNavigationBarHidden) {
+//            //Slide it up incrementally, etc.
+//            [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        }
+//    }
+}
+
+#pragma mark - DropMenuDelegate
+- (void)changeMenuYPosition:(CGFloat)newY animated:(BOOL)animated {
+    [UIView animateWithDuration:(animated ? 0.3f : 0.f) delay:0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.dropMenuViewTopConstraint.constant = newY;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
+- (void)filterTouched:(NSDictionary *)settings {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"garage = %@ AND (totalArea >= %@ AND totalArea <= %@) AND floors = %@", settings[@"garageSettings"], settings[@"areaMinValue"], settings[@"areaMaxValue"], settings[@"floorSettings"]];
+    self.projects = [[[APRealmManager sharedInstance] RLMResultsToArray:[APProjectObject allObjects]] filteredArrayUsingPredicate:predicate];
+    [self.collectionView reloadData];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSNumber*)sender {
+    if ([segue.identifier isEqualToString:APMainViewControllerFilterSegue]) {
+        FilterTableViewController *vc = segue.destinationViewController;
+        if (sender.integerValue == FilterFloorOption) {
+            vc.filterArray = [[APRealmManager sharedInstance] RLMResultsToArray:[APProjectObject allObjects] withSortDescriptor:@"floors"];
+        } else if (sender.integerValue == FilterAreaOption) {
+            vc.filterArray = [[APRealmManager sharedInstance] RLMResultsToArray:[APProjectObject allObjects] withSortDescriptor:@"area"];
+        }
+    }
 }
 #pragma mark - Private
 

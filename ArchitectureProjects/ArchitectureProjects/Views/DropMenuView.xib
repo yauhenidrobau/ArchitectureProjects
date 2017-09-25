@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Bodoni72.ttc">
+            <string>BodoniSvtyTwoITCTT-BookIta</string>
+        </array>
+        <array key="GalanoGrotesque-Regular.otf">
+            <string>GalanoGrotesque-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DropMenuView">
+            <connections>
+                <outlet property="areaBeforeLabel" destination="sPe-WG-zCM" id="EiN-O5-LVS"/>
+                <outlet property="areaLabel" destination="fLv-pC-MUb" id="Mt5-Yi-bRn"/>
+                <outlet property="areaMaxTF" destination="uhc-9T-fsp" id="Ite-09-ywD"/>
+                <outlet property="areaMinTF" destination="TxP-ob-rgW" id="4Hz-Xg-iSB"/>
+                <outlet property="filterButton" destination="asJ-Uf-V7G" id="7h0-Mb-YYa"/>
+                <outlet property="floorLabel" destination="LKV-51-lGG" id="k6v-Oy-jU9"/>
+                <outlet property="floorSlider" destination="xeH-77-u4G" id="qqp-G5-z98"/>
+                <outlet property="floorValueLabel" destination="GHl-Wr-qud" id="w6r-Ky-KG8"/>
+                <outlet property="garageButton" destination="aTi-F1-JH4" id="GaF-EJ-VCB"/>
+                <outlet property="garageLabel" destination="cRJ-0P-6WW" id="3Br-HG-wnu"/>
+                <outlet property="menuArrowImageView" destination="CFf-h9-Bo0" id="6me-My-89T"/>
+                <outlet property="menuContainer" destination="3BE-Sf-m4w" id="ZVn-sz-dvF"/>
+                <outlet property="menuTopSpace" destination="Lgq-GG-u27" id="un4-5l-ih6"/>
+                <outlet property="view" destination="iN0-l3-epB" id="DBQ-Nx-MeK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3BE-Sf-m4w" userLabel="menu" customClass="CSBlurView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxr-dz-a2n" userLabel="background">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
+                            <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Jah-1N-VsT">
+                            <rect key="frame" x="20" y="20" width="335" height="35"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наличие гаража" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRJ-0P-6WW">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="21.5"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-F1-JH4">
+                                    <rect key="frame" x="300" y="0.0" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="Ylo-eT-W7j"/>
+                                        <constraint firstAttribute="width" constant="35" id="yfc-Oc-eEU"/>
+                                    </constraints>
+                                    <state key="normal" image="unchecked-icon"/>
+                                    <connections>
+                                        <action selector="garageTouched:" destination="-1" eventType="touchUpInside" id="ic2-ya-5gk"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q0Y-WL-SGm">
+                            <rect key="frame" x="20" y="75" width="335" height="30"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Количество этажей" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKV-51-lGG">
+                                    <rect key="frame" x="0.0" y="0.0" width="180.5" height="30"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="xeH-77-u4G">
+                                    <rect key="frame" x="198.5" y="0.0" width="84" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="FeW-Xe-Wlt"/>
+                                    </constraints>
+                                    <color key="minimumTrackTintColor" red="0.1803921568627451" green="0.52941176470588236" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="thumbTintColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="GzL-dW-2eX"/>
+                                    </connections>
+                                </slider>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHl-Wr-qud">
+                                    <rect key="frame" x="300.5" y="0.0" width="34.5" height="30"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="GHl-Wr-qud" firstAttribute="top" secondItem="q0Y-WL-SGm" secondAttribute="top" id="Bkh-Jn-o78"/>
+                                <constraint firstItem="GHl-Wr-qud" firstAttribute="leading" secondItem="xeH-77-u4G" secondAttribute="trailing" constant="20" id="eTo-XN-SUB"/>
+                                <constraint firstAttribute="trailing" secondItem="GHl-Wr-qud" secondAttribute="trailing" id="m2M-Le-mTl"/>
+                                <constraint firstAttribute="bottom" secondItem="GHl-Wr-qud" secondAttribute="bottom" id="pBt-ob-LZl"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dvb-xz-ntE">
+                            <rect key="frame" x="20" y="125" width="335" height="30"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Площадь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLv-pC-MUb">
+                                    <rect key="frame" x="0.0" y="4.5" width="185" height="21.5"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TxP-ob-rgW">
+                                    <rect key="frame" x="185" y="0.0" width="55" height="30"/>
+                                    <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="qYu-np-INs"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="iQE-LK-ea2"/>
+                                    </connections>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="до" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-WG-zCM">
+                                    <rect key="frame" x="240" y="4.5" width="40" height="21.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="DMc-nX-gm2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-9T-fsp">
+                                    <rect key="frame" x="280" y="0.0" width="55" height="30"/>
+                                    <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="56B-dl-6eF"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="gy5-zt-LAB"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asJ-Uf-V7G">
+                            <rect key="frame" x="124.5" y="208" width="125" height="44"/>
+                            <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="125" id="Jba-nr-l4w"/>
+                                <constraint firstAttribute="height" constant="44" id="mfP-GP-5df"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="15"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="selected" backgroundImage="drawer_btn_inactive">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" backgroundImage="drawer_btn_inactive"/>
+                            <connections>
+                                <action selector="filterTouched:" destination="-1" eventType="touchUpInside" id="tgD-Ze-NFL"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pink_filter" translatesAutoresizingMaskIntoConstraints="NO" id="4NB-pp-hQt" userLabel="filter btn">
+                            <rect key="frame" x="0.0" y="268" width="375" height="42"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="c8F-Pf-nub"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drawer_ic_openclose" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-h9-Bo0" userLabel="menu arrow">
+                            <rect key="frame" x="180.5" y="294" width="14" height="9"/>
+                            <color key="tintColor" red="0.01176470588" green="0.77647058820000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="9" id="647-yR-LHS"/>
+                                <constraint firstAttribute="width" constant="14" id="qFa-SI-v6P"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVK-Ph-Hpt" userLabel="title lbl">
+                            <rect key="frame" x="16" y="288" width="343" height="0.0"/>
+                            <fontDescription key="fontDescription" name="GalanoGrotesque-Regular" family="Galano Grotesque" pointSize="14"/>
+                            <color key="textColor" red="0.62745098040000002" green="0.070588235289999995" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="Jah-1N-VsT" firstAttribute="top" secondItem="3BE-Sf-m4w" secondAttribute="top" constant="20" id="3wJ-wO-wdk"/>
+                        <constraint firstItem="asJ-Uf-V7G" firstAttribute="centerX" secondItem="3BE-Sf-m4w" secondAttribute="centerX" id="4GZ-h6-MeJ"/>
+                        <constraint firstItem="q0Y-WL-SGm" firstAttribute="top" secondItem="Jah-1N-VsT" secondAttribute="bottom" constant="20" id="4e5-jt-Hs0"/>
+                        <constraint firstAttribute="trailing" secondItem="Jah-1N-VsT" secondAttribute="trailing" constant="20" id="6MV-fn-0aj"/>
+                        <constraint firstItem="4NB-pp-hQt" firstAttribute="top" secondItem="asJ-Uf-V7G" secondAttribute="bottom" constant="16" id="7Ph-Dp-Tnh"/>
+                        <constraint firstItem="4NB-pp-hQt" firstAttribute="top" secondItem="Nxr-dz-a2n" secondAttribute="bottom" constant="-20" id="983-SE-z37"/>
+                        <constraint firstAttribute="bottom" secondItem="4NB-pp-hQt" secondAttribute="bottom" id="CYH-4H-kr4"/>
+                        <constraint firstItem="Dvb-xz-ntE" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="20" id="D9C-JY-lsa"/>
+                        <constraint firstItem="Jah-1N-VsT" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="20" id="DEb-en-wTN"/>
+                        <constraint firstItem="4NB-pp-hQt" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" id="DcC-ds-3ny"/>
+                        <constraint firstAttribute="trailing" secondItem="Dvb-xz-ntE" secondAttribute="trailing" constant="20" id="JQ9-cO-Nql"/>
+                        <constraint firstAttribute="trailing" secondItem="jVK-Ph-Hpt" secondAttribute="trailing" constant="16" id="KjH-at-dab"/>
+                        <constraint firstAttribute="trailing" secondItem="Nxr-dz-a2n" secondAttribute="trailing" id="MQb-FW-Nqc"/>
+                        <constraint firstAttribute="trailing" secondItem="4NB-pp-hQt" secondAttribute="trailing" id="MVv-SH-fuI"/>
+                        <constraint firstItem="Nxr-dz-a2n" firstAttribute="top" secondItem="3BE-Sf-m4w" secondAttribute="top" id="NSe-Db-6W1"/>
+                        <constraint firstItem="CFf-h9-Bo0" firstAttribute="top" secondItem="4NB-pp-hQt" secondAttribute="bottom" constant="-16" id="WEN-gf-h0I"/>
+                        <constraint firstAttribute="height" constant="310" id="Xom-cn-dkK"/>
+                        <constraint firstAttribute="trailing" secondItem="q0Y-WL-SGm" secondAttribute="trailing" constant="20" id="c24-Yh-uYF"/>
+                        <constraint firstItem="Nxr-dz-a2n" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" id="cSV-QK-XI4"/>
+                        <constraint firstItem="4NB-pp-hQt" firstAttribute="top" secondItem="jVK-Ph-Hpt" secondAttribute="bottom" constant="-20" id="euq-C8-gl3"/>
+                        <constraint firstItem="jVK-Ph-Hpt" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="16" id="hG8-y3-5M5"/>
+                        <constraint firstItem="CFf-h9-Bo0" firstAttribute="centerX" secondItem="4NB-pp-hQt" secondAttribute="centerX" id="i6l-q0-397"/>
+                        <constraint firstItem="q0Y-WL-SGm" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="20" id="mfZ-kn-fBd"/>
+                        <constraint firstItem="Dvb-xz-ntE" firstAttribute="top" secondItem="q0Y-WL-SGm" secondAttribute="bottom" constant="20" id="pld-Qj-Nlr"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="barStyle">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="0DT-IF-CVC" appends="YES" id="1zI-wm-kdU"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3BE-Sf-m4w" secondAttribute="trailing" id="EVK-nI-0AC"/>
+                <constraint firstItem="3BE-Sf-m4w" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Lgq-GG-u27"/>
+                <constraint firstItem="3BE-Sf-m4w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="krN-bB-XnE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="0DT-IF-CVC">
+            <connections>
+                <action selector="menuPanGesture:" destination="-1" id="rKg-CS-Tsy"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="drawer_btn_inactive" width="16" height="16"/>
+        <image name="drawer_ic_openclose" width="14" height="9"/>
+        <image name="pink_filter" width="320" height="42"/>
+        <image name="unchecked-icon" width="50" height="50"/>
+    </resources>
+</document>

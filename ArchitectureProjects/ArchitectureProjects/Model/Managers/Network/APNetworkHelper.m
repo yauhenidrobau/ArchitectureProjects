@@ -8,7 +8,7 @@
 
 #import "APNetworkHelper.h"
 
-#import <GCNetworkReachability.h>
+#import "GCNetworkReachability.h"
 #import "Macros.h"
 
 @implementation APNetworkHelper

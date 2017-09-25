@@ -50,6 +50,8 @@
 		1E5A0B0A1EDCBB6B004DEB1C /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A0B091EDCBB6B004DEB1C /* Contact.storyboard */; };
 		1E5A0B0D1EDCBBD9004DEB1C /* APContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B0C1EDCBBD9004DEB1C /* APContactViewController.m */; };
 		1E5A0B1E1EDCC800004DEB1C /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A0B0F1EDCC800004DEB1C /* Modals.storyboard */; };
+		6E01EF491F792A0C0007AD11 /* FontHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E01EF481F792A0C0007AD11 /* FontHelper.m */; };
+		6E01EF4C1F792AF30007AD11 /* NSObject+Smart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E01EF4B1F792AF30007AD11 /* NSObject+Smart.m */; };
 		6E1FE7D11F3121D9007EC3C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1FE7D01F3121D9007EC3C6 /* QuartzCore.framework */; };
 		6E239B971F305DE200B84B30 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E239B961F305DE200B84B30 /* TabBar.storyboard */; };
 		6E239B9B1F30761700B84B30 /* APTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E239B9A1F30761700B84B30 /* APTabBarViewController.m */; };
@@ -61,10 +63,15 @@
 		6E7B43581F43392B00703EE1 /* UIViewController+ShowModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B1B1EDCC800004DEB1C /* UIViewController+ShowModal.m */; };
 		6E7B435C1F4351DC00703EE1 /* APModalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7B435A1F4351DC00703EE1 /* APModalCollectionViewCell.m */; };
 		6E7B435D1F4351DC00703EE1 /* APModalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7B435B1F4351DC00703EE1 /* APModalCollectionViewCell.xib */; };
+		6EB4D8371F78D89800368A20 /* DropMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4D8361F78D89800368A20 /* DropMenuView.m */; };
+		6EB4D8391F78D8A600368A20 /* DropMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB4D8381F78D8A600368A20 /* DropMenuView.xib */; };
+		6EB4D83C1F78DC7D00368A20 /* UIImageView+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4D83B1F78DC7D00368A20 /* UIImageView+Rotation.m */; };
+		6EB4D83F1F78DE0A00368A20 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4D83E1F78DE0A00368A20 /* CustomButton.m */; };
+		6EB4D8431F78F1E700368A20 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4D8421F78F1E700368A20 /* FilterTableViewController.m */; };
 		6EEA733B1F42D3FC000EA52E /* APMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA733A1F42D3FC000EA52E /* APMapViewController.m */; };
 		6EEA733E1F42F1D1000EA52E /* APLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEA733D1F42F1D1000EA52E /* APLocationManager.m */; };
 		6EED5FFB1F438551007FB771 /* UIColor+App.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EED5FFA1F438551007FB771 /* UIColor+App.m */; };
-		7448E2793C1EDCE0F8B7AB66 /* libPods-ArchitectureProjects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F345608FFF3A7DE1859E9955 /* libPods-ArchitectureProjects.a */; };
+		8BD22D9B7C62CA3294488662 /* libPods-ArchitectureProjects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7F05027F49CB619768E592 /* libPods-ArchitectureProjects.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +159,10 @@
 		1E5A0B1A1EDCC800004DEB1C /* UIViewController+ShowModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowModal.h"; sourceTree = "<group>"; };
 		1E5A0B1B1EDCC800004DEB1C /* UIViewController+ShowModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowModal.m"; sourceTree = "<group>"; };
 		342321D58C6FD923269C5F1B /* Pods-ArchitectureProjects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArchitectureProjects.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArchitectureProjects/Pods-ArchitectureProjects.debug.xcconfig"; sourceTree = "<group>"; };
+		6E01EF471F792A0C0007AD11 /* FontHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontHelper.h; sourceTree = "<group>"; };
+		6E01EF481F792A0C0007AD11 /* FontHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontHelper.m; sourceTree = "<group>"; };
+		6E01EF4A1F792AF30007AD11 /* NSObject+Smart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Smart.h"; sourceTree = "<group>"; };
+		6E01EF4B1F792AF30007AD11 /* NSObject+Smart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Smart.m"; sourceTree = "<group>"; };
 		6E1FE7D01F3121D9007EC3C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6E239B961F305DE200B84B30 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		6E239B991F30761700B84B30 /* APTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTabBarViewController.h; sourceTree = "<group>"; };
@@ -163,6 +174,15 @@
 		6E7B43591F4351DC00703EE1 /* APModalCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APModalCollectionViewCell.h; sourceTree = "<group>"; };
 		6E7B435A1F4351DC00703EE1 /* APModalCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APModalCollectionViewCell.m; sourceTree = "<group>"; };
 		6E7B435B1F4351DC00703EE1 /* APModalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APModalCollectionViewCell.xib; sourceTree = "<group>"; };
+		6EB4D8351F78D89800368A20 /* DropMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropMenuView.h; sourceTree = "<group>"; };
+		6EB4D8361F78D89800368A20 /* DropMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropMenuView.m; sourceTree = "<group>"; };
+		6EB4D8381F78D8A600368A20 /* DropMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropMenuView.xib; sourceTree = "<group>"; };
+		6EB4D83A1F78DC7D00368A20 /* UIImageView+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Rotation.h"; sourceTree = "<group>"; };
+		6EB4D83B1F78DC7D00368A20 /* UIImageView+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Rotation.m"; sourceTree = "<group>"; };
+		6EB4D83D1F78DE0A00368A20 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		6EB4D83E1F78DE0A00368A20 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		6EB4D8411F78F1E700368A20 /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
+		6EB4D8421F78F1E700368A20 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		6EEA73391F42D3FC000EA52E /* APMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMapViewController.h; sourceTree = "<group>"; };
 		6EEA733A1F42D3FC000EA52E /* APMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMapViewController.m; sourceTree = "<group>"; };
 		6EEA733C1F42F1D1000EA52E /* APLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLocationManager.h; sourceTree = "<group>"; };
@@ -170,7 +190,7 @@
 		6EED5FF91F438551007FB771 /* UIColor+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+App.h"; sourceTree = "<group>"; };
 		6EED5FFA1F438551007FB771 /* UIColor+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+App.m"; sourceTree = "<group>"; };
 		A7A492E0CA0D2D836BD053E8 /* Pods-ArchitectureProjects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArchitectureProjects.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArchitectureProjects/Pods-ArchitectureProjects.release.xcconfig"; sourceTree = "<group>"; };
-		F345608FFF3A7DE1859E9955 /* libPods-ArchitectureProjects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArchitectureProjects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7F05027F49CB619768E592 /* libPods-ArchitectureProjects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArchitectureProjects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +200,7 @@
 			files = (
 				6E1FE7D11F3121D9007EC3C6 /* QuartzCore.framework in Frameworks */,
 				1E5A0B051EDCB848004DEB1C /* MessageUI.framework in Frameworks */,
-				7448E2793C1EDCE0F8B7AB66 /* libPods-ArchitectureProjects.a in Frameworks */,
+				8BD22D9B7C62CA3294488662 /* libPods-ArchitectureProjects.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +230,7 @@
 			children = (
 				6EF30C881F39C20E00E60759 /* ThirdParty */,
 				6E239B981F3075EF00B84B30 /* Helpers */,
+				6EB4D8341F78D86800368A20 /* Views */,
 				1E058ACF1ECB3ADD00C0A0A8 /* ViewControllers */,
 				1E058AE11ECB3ADD00C0A0A8 /* Utils */,
 				1E058AE71ECB3ADD00C0A0A8 /* Storyboards */,
@@ -236,6 +257,7 @@
 		1E058ACF1ECB3ADD00C0A0A8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6EB4D8401F78F1C800368A20 /* Filter */,
 				1E5A0B0E1EDCC800004DEB1C /* Modals */,
 				6EEA73381F42D3D9000EA52E /* Map */,
 				1E5A0AD81EDCAD0A004DEB1C /* Menu */,
@@ -319,6 +341,10 @@
 				6EED5FFA1F438551007FB771 /* UIColor+App.m */,
 				1E34DDA91EDE119B005CE73C /* UIAlertController+AP.h */,
 				1E34DDAA1EDE119B005CE73C /* UIAlertController+AP.m */,
+				6EB4D83A1F78DC7D00368A20 /* UIImageView+Rotation.h */,
+				6EB4D83B1F78DC7D00368A20 /* UIImageView+Rotation.m */,
+				6E01EF4A1F792AF30007AD11 /* NSObject+Smart.h */,
+				6E01EF4B1F792AF30007AD11 /* NSObject+Smart.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -537,7 +563,7 @@
 			children = (
 				6E1FE7D01F3121D9007EC3C6 /* QuartzCore.framework */,
 				1E5A0B041EDCB848004DEB1C /* MessageUI.framework */,
-				F345608FFF3A7DE1859E9955 /* libPods-ArchitectureProjects.a */,
+				AA7F05027F49CB619768E592 /* libPods-ArchitectureProjects.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -545,12 +571,35 @@
 		6E239B981F3075EF00B84B30 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6E01EF471F792A0C0007AD11 /* FontHelper.h */,
+				6E01EF481F792A0C0007AD11 /* FontHelper.m */,
 				6E239B991F30761700B84B30 /* APTabBarViewController.h */,
 				6E239B9A1F30761700B84B30 /* APTabBarViewController.m */,
 				6EEA733C1F42F1D1000EA52E /* APLocationManager.h */,
 				6EEA733D1F42F1D1000EA52E /* APLocationManager.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6EB4D8341F78D86800368A20 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6EB4D8351F78D89800368A20 /* DropMenuView.h */,
+				6EB4D8361F78D89800368A20 /* DropMenuView.m */,
+				6EB4D8381F78D8A600368A20 /* DropMenuView.xib */,
+				6EB4D83D1F78DE0A00368A20 /* CustomButton.h */,
+				6EB4D83E1F78DE0A00368A20 /* CustomButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6EB4D8401F78F1C800368A20 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				6EB4D8411F78F1E700368A20 /* FilterTableViewController.h */,
+				6EB4D8421F78F1E700368A20 /* FilterTableViewController.m */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		6EEA73381F42D3D9000EA52E /* Map */ = {
@@ -649,6 +698,7 @@
 				6E239B971F305DE200B84B30 /* TabBar.storyboard in Resources */,
 				6E7B435D1F4351DC00703EE1 /* APModalCollectionViewCell.xib in Resources */,
 				1E5A0AE11EDCB336004DEB1C /* Start.storyboard in Resources */,
+				6EB4D8391F78D8A600368A20 /* DropMenuView.xib in Resources */,
 				1E285FCC1EDC11990090F899 /* GoogleService-Info.plist in Resources */,
 				1E058AC51ECB3A2B00C0A0A8 /* Assets.xcassets in Resources */,
 				1E058B051ECB42AA00C0A0A8 /* Localizable.strings in Resources */,
@@ -729,6 +779,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EB4D83C1F78DC7D00368A20 /* UIImageView+Rotation.m in Sources */,
 				1E5A0AE41EDCB351004DEB1C /* APStartViewController.m in Sources */,
 				1E285FAF1EDBFE0D0090F899 /* APProjectManager.m in Sources */,
 				1E5A0ADE1EDCB0F8004DEB1C /* APMenuTableViewCell.m in Sources */,
@@ -739,9 +790,11 @@
 				1E285FB31EDBFF520090F899 /* APNetworkHelper.m in Sources */,
 				1E3C539F1EDC339900CDCC22 /* APDownloadHelper.m in Sources */,
 				6E7B43571F43392900703EE1 /* ModalCollectionVC.m in Sources */,
+				6EB4D8431F78F1E700368A20 /* FilterTableViewController.m in Sources */,
 				1E058ABD1ECB3A2B00C0A0A8 /* AppDelegate.m in Sources */,
 				6E7B43561F43392600703EE1 /* SimpleYesNoModalVC.m in Sources */,
 				1E058AF51ECB3ADD00C0A0A8 /* Utils.m in Sources */,
+				6E01EF4C1F792AF30007AD11 /* NSObject+Smart.m in Sources */,
 				1E285FBA1EDC02DE0090F899 /* APUser.m in Sources */,
 				6E7B43581F43392B00703EE1 /* UIViewController+ShowModal.m in Sources */,
 				1E3C539B1EDC1A8200CDCC22 /* APImagesObject.m in Sources */,
@@ -757,8 +810,10 @@
 				6E239B9B1F30761700B84B30 /* APTabBarViewController.m in Sources */,
 				1E34DDAB1EDE119B005CE73C /* UIAlertController+AP.m in Sources */,
 				1E5A0ADB1EDCAD1D004DEB1C /* APMenuViewController.m in Sources */,
+				6EB4D8371F78D89800368A20 /* DropMenuView.m in Sources */,
 				6EEA733E1F42F1D1000EA52E /* APLocationManager.m in Sources */,
 				1E3C53A41EDC343A00CDCC22 /* APFileHelper.m in Sources */,
+				6E01EF491F792A0C0007AD11 /* FontHelper.m in Sources */,
 				1E16673A1ECD7B6E0033EBB6 /* APProjectDetailsTableViewCell.m in Sources */,
 				6E7B43541F43392100703EE1 /* ModalViewController.m in Sources */,
 				1E3C53AB1EDC5E3100CDCC22 /* APProjectDetailsCollectionViewCell.m in Sources */,
@@ -767,6 +822,7 @@
 				1E2571E81ECB72C900C6107D /* APProjectCollectionViewCell.m in Sources */,
 				1E285FC51EDC095E0090F899 /* APKeychainManager.m in Sources */,
 				1E058B031ECB403B00C0A0A8 /* UIViewController+RevealViewController.m in Sources */,
+				6EB4D83F1F78DE0A00368A20 /* CustomButton.m in Sources */,
 				6EEA733B1F42D3FC000EA52E /* APMapViewController.m in Sources */,
 				1E058AF31ECB3ADD00C0A0A8 /* RevealViewController.m in Sources */,
 			);
@@ -874,7 +930,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2W7A5AWJY;
 				INFOPLIST_FILE = ArchitectureProjects/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobov.ArchitectureProjects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -892,12 +948,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = M2W7A5AWJY;
 				INFOPLIST_FILE = ArchitectureProjects/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobov.ArchitectureProjects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cc3634b1-d5bf-4b90-a129-667d490c49bf";
-				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: com.drobov.ArchitectureProjects";
+				PROVISIONING_PROFILE = "4f0f8758-e99a-4e00-b136-4de00bb96bc8";
+				PROVISIONING_PROFILE_SPECIFIER = "ArchitectureProjects adHoc";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

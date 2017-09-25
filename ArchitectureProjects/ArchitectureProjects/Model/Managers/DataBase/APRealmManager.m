@@ -18,6 +18,9 @@ SINGLETON(APRealmManager)
 #pragma mark - Public
 
 #pragma mark - User
+- (APUser *)getUser {
+    return [APUser allObjects].firstObject;
+}
 
 - (void)saveUserWithEmail:(NSString*)email withCallback:(RealmDataManagerSaveCallback)callback {
     RLMRealm *realm = [RLMRealm defaultRealm];
@@ -48,10 +51,6 @@ SINGLETON(APRealmManager)
     }
 }
 
-- (APUser*)getUser {
-    return [APUser allObjects].firstObject;
-}
-
 #pragma mark - Project 
 
 - (void)saveToProject:(NSDictionary*)projectDict withCallback:(RealmDataManagerSaveCallback)callback {
@@ -68,6 +67,9 @@ SINGLETON(APRealmManager)
                 projectObject.projectId = [project[@"id"] integerValue];
                 projectObject.name = project[@"name"];
                 projectObject.category = project[@"category"];
+                projectObject.floors = project[@"floors"];
+                projectObject.totalArea = project[@"area"];
+                projectObject.garage = [project[@"garage"] boolValue];
                 for (NSString *imageURL in [project[@"images"] allValues]) {
                     
                     APImagesObject  *imageObject = [[APImagesObject alloc] init];
@@ -114,6 +116,18 @@ SINGLETON(APRealmManager)
     NSArray *sortDescriptors = [NSArray arrayWithObject:newSortDescriptor];
     array = [NSMutableArray arrayWithArray:[array sortedArrayUsingDescriptors:sortDescriptors]];
     return array;
+}
+
+- (NSArray*)RLMResultsToArray:(RLMResults *)results withSortDescriptor:(NSString*)descriptor {
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (RLMObject *object in results) {
+        [array addObject:object];
+    }
+    NSSortDescriptor * newSortDescriptor = [[NSSortDescriptor alloc] initWithKey:descriptor ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:newSortDescriptor];
+    NSSet *setArray = [NSSet setWithArray:[array sortedArrayUsingDescriptors:sortDescriptors]];
+    return setArray.allObjects;
 }
 
 - (NSArray*)projectImagesRLMResultsToArray:(RLMResults *)results {
