@@ -161,7 +161,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                                           NSForegroundColorAttributeName: [UIColor redColor],
+                                                           NSForegroundColorAttributeName: [UIColor whiteColor],
                                                            NSFontAttributeName: [UIFont systemFontOfSize:17.f]}];
     
     

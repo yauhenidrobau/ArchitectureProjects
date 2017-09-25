@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="CSAnimationView">
                         <rect key="frame" x="0.0" y="0.0" width="311" height="250"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_image_200_200" translatesAutoresizingMaskIntoConstraints="NO" id="MB0-mE-RMa">
@@ -105,6 +105,7 @@
                 <outlet property="smallImage1" destination="Nb9-Ns-MVY" id="3gL-2A-zsF"/>
                 <outlet property="smallImage2" destination="sV5-F8-sjn" id="3JB-5h-maL"/>
                 <outlet property="smallImage3" destination="E2E-rM-tpg" id="3im-vD-LbG"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ZXY-Kk-5OP"/>
             </connections>
             <point key="canvasLocation" x="5" y="27"/>
         </collectionViewCell>

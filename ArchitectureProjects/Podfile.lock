@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Canvas (0.1.2)
   - Crashlytics (3.8.5):
     - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.8.1)
@@ -104,6 +105,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - Canvas (~> 0.1.2)
   - Crashlytics
   - DZNEmptyDataSet
   - Fabric
@@ -123,6 +125,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
@@ -148,6 +151,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 333c9f5fae8e7891a9e1835c0aeeaad57b625638
+PODFILE CHECKSUM: 334b17eb3591c7c241a4c063b625af821acb2e9b
 
 COCOAPODS: 1.2.1

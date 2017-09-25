@@ -227,8 +227,8 @@
         [SVProgressHUD show];
         [[APProjectManager sharedInstance] loadProjectsWithCompletion:^(NSArray *projects, BOOL finished, NSError *error) {
             STRONG(self)
-            self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
-            [self.collectionView reloadData];
+//            self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
+//            [self.collectionView reloadData];
             if (finished && [APNetworkHelper isInternetConnected]) {
                 self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
                 dispatch_async(dispatch_get_main_queue(), ^{

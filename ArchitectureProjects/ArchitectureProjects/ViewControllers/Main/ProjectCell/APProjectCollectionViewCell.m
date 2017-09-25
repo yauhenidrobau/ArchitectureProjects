@@ -12,6 +12,7 @@
 #import "APImagesObject.h"
 #import "APFileHelper.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Canvas.h"
 
 @interface APProjectCollectionViewCell ()
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *smallImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *smallImage2;
 @property (weak, nonatomic) IBOutlet UIImageView *smallImage3;
+@property (weak, nonatomic) IBOutlet CSAnimationView *view;
 @property (strong, nonatomic) NSArray *images;
 
 @end
@@ -30,9 +32,18 @@
     
     self.images = @[self.mainImage, self.smallImage1,self.smallImage2, self.smallImage3];
     self.layer.cornerRadius = 15;
+    
+    self.view.backgroundColor = [UIColor clearColor];
+
+//    
+//    self.view.duration = 0.5;
+//    self.view.delay    = 0;
+//    self.view.type     = CSAnimationTypeMorph;
+    
 }
 
 -(void)updateCellWithProject:(APProjectObject *)project {
+    [self.view startCanvasAnimation];
     for (NSInteger i = 0; i < self.images.count; i++) {
         
         
