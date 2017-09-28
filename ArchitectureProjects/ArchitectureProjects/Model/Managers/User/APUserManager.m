@@ -12,7 +12,7 @@
 #import "APRealmManager.h"
 #import "APKeychainManager.h"
 #import <Firebase.h>
-#import "Macros.h"
+#import "APConstants.h"
 
 @implementation APUserManager
 

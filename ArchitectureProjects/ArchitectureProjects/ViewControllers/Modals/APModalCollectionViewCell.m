@@ -25,7 +25,8 @@
     return self.cellImage.image;
 }
 - (void)setImageURL:(NSURL *)imageURL {
-    [self.cellImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"no_image_200_200"]];
+    [self.cellImage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"no_image_200_200"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    }];
     _imageURL = imageURL;
     
 }

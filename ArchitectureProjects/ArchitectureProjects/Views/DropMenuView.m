@@ -67,11 +67,11 @@
     self.filterSettings = [@{}mutableCopy];
     self.floorValueLabel.text = [NSString stringWithFormat:@"%ld",(long)@(self.floorSlider.minimumValue).integerValue];
     
-    self.floorValueLabel.font = FONT(FTCochin, 18);
-    self.garageLabel.font = FONT(FTCochin, 18);
-    self.areaLabel.font = FONT(FTCochin, 18);
-    self.floorLabel.font = FONT(FTCochin, 18);
-    self.areaBeforeLabel.font = FONT(FTCochin, 18);
+    self.floorValueLabel.font = FONT(FTCochin, 17);
+    self.garageLabel.font = FONT(FTCochin, 17);
+    self.areaLabel.font = FONT(FTCochin, 17);
+    self.floorLabel.font = FONT(FTCochin, 17);
+    self.areaBeforeLabel.font = FONT(FTCochin, 17);
     self.filterButton.titleLabel.font = FONT(FTCochin, 19);
 
 }

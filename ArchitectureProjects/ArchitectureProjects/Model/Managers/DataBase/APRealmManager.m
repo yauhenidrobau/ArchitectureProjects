@@ -11,6 +11,7 @@
 #import <Realm.h>
 #import "APProjectObject.h"
 #import "APImagesObject.h"
+#import "UserImage.h"
 
 @implementation APRealmManager
 SINGLETON(APRealmManager)
@@ -104,7 +105,42 @@ SINGLETON(APRealmManager)
     }
 }
 
+#pragma mark - User Pictures
+- (void)saveUserImage:(UIImage*)image {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    UserImage *imageObject = [self RLMResultsToArray:[UserImage allObjects] withSortDescriptor:@"primaryId"].lastObject;
+    if (!imageObject) {
+        imageObject = [UserImage new];
+        imageObject.imageId = 0;
+        imageObject.primaryId = 0;
+        imageObject.imageData = UIImageJPEGRepresentation(image, 0.5);
+        [realm addOrUpdateObject:imageObject];
+    } else {
+        UserImage *newImageObject = [UserImage new];
+        newImageObject.imageId = imageObject.imageId + 1;
+        newImageObject.imageData = UIImageJPEGRepresentation(image, 0.5);
+        newImageObject.primaryId = imageObject.primaryId + 1;
+        [realm addOrUpdateObject:newImageObject];
+    }
+    [realm commitWriteTransaction];
+}
+
+- (NSArray*)getUserImages {
+    return [self RLMResultsToArray:[UserImage allObjects] withSortDescriptor:@"imageId"];
+}
+
 #pragma mark - Common
+- (void)removeAllItemsForClass:(NSString *)className {
+    [[RLMRealm defaultRealm] beginWriteTransaction];
+    [[RLMRealm defaultRealm]deleteObjects:[NSClassFromString(className) allObjects]];
+    [[RLMRealm defaultRealm] commitWriteTransaction];
+}
+- (void)removeItem:(id)item {
+    [[RLMRealm defaultRealm] beginWriteTransaction];
+    [[RLMRealm defaultRealm]deleteObject:item];
+    [[RLMRealm defaultRealm] commitWriteTransaction];
+}
 
 - (NSArray*)RLMResultsToArray:(RLMResults *)results {
     
@@ -126,8 +162,7 @@ SINGLETON(APRealmManager)
     }
     NSSortDescriptor * newSortDescriptor = [[NSSortDescriptor alloc] initWithKey:descriptor ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:newSortDescriptor];
-    NSSet *setArray = [NSSet setWithArray:[array sortedArrayUsingDescriptors:sortDescriptors]];
-    return setArray.allObjects;
+    return [array sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 - (NSArray*)projectImagesRLMResultsToArray:(RLMResults *)results {

@@ -6,11 +6,15 @@
   Copyright © 2017 Yauheni Drobau. All rights reserved.
 */
 
+
+//Common
+"not.found.title" = "Здесь пока ничего нет";
+
 // Tabbar
 "Projects" = "Проекты";
-"Projects2" = "2";
+"Send photos" = "Ваши Фото";
 "Projects3" = "3";
-"Projects4" = "Настройки";
+"Settings" = "Настройки";
 "Map" = "Как нас найти";
 
 //
@@ -52,6 +56,12 @@
 "dropmenu_garage" = "Наличие гаража";
 "dropmenu_floors" = "Количество этажей";
 "dropmenu_area" = "Площадь";
+
+// Pictures
+"pictures.chooseImage" = "Выбрать картинки";
+"pictures.makePhoto" = "Сделать фото";
+"pictures_send.title" = "Отправить нам";
+"pictures_message.placeholder" = "Здесь вы можете описать свои идеи";
 
 //Project Details
 "of" = "из";

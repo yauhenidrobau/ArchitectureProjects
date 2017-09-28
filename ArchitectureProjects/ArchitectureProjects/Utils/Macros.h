@@ -32,7 +32,6 @@ _Pragma("clang diagnostic pop") \
 #define NN_USER_AUTH_CHANGED @"NN_USER_AUTH_CHANGED"
 #define NN_NETWORK_STATE_OFFLINE @"NN_NETWORK_STATE_OFFLINE"
 
-#define LOGIN_IS_ALREADY_EXISTS_CODE 17007
 
 //#define BASE_EMAIL @"proektydomow@mail.ru"
 #define BASE_EMAIL @"zheka-88_94@mail.ru"

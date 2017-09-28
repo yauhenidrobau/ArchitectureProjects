@@ -56,6 +56,11 @@
 		6E239B971F305DE200B84B30 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E239B961F305DE200B84B30 /* TabBar.storyboard */; };
 		6E239B9B1F30761700B84B30 /* APTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E239B9A1F30761700B84B30 /* APTabBarViewController.m */; };
 		6E2F5F131F29C1CC00C5B30D /* APImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F5F121F29C1CC00C5B30D /* APImage.m */; };
+		6E5E337B1F7A32B5002BF588 /* PicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E337A1F7A32B5002BF588 /* PicturesViewController.m */; };
+		6E5E337E1F7A3D22002BF588 /* UIImage+Smart.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E337D1F7A3D22002BF588 /* UIImage+Smart.m */; };
+		6E5E33811F7A3F98002BF588 /* UserImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E33801F7A3F98002BF588 /* UserImage.m */; };
+		6E6928351F7BA81800E83306 /* PictureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6928331F7BA81800E83306 /* PictureCollectionViewCell.m */; };
+		6E6928361F7BA81800E83306 /* PictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6928341F7BA81800E83306 /* PictureCollectionViewCell.xib */; };
 		6E7B43541F43392100703EE1 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B111EDCC800004DEB1C /* ModalViewController.m */; };
 		6E7B43551F43392400703EE1 /* SimpleModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B151EDCC800004DEB1C /* SimpleModalVC.m */; };
 		6E7B43561F43392600703EE1 /* SimpleYesNoModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B171EDCC800004DEB1C /* SimpleYesNoModalVC.m */; };
@@ -169,6 +174,15 @@
 		6E239B9A1F30761700B84B30 /* APTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APTabBarViewController.m; sourceTree = "<group>"; };
 		6E2F5F111F29C1CC00C5B30D /* APImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APImage.h; sourceTree = "<group>"; };
 		6E2F5F121F29C1CC00C5B30D /* APImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APImage.m; sourceTree = "<group>"; };
+		6E5E33791F7A32B5002BF588 /* PicturesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PicturesViewController.h; sourceTree = "<group>"; };
+		6E5E337A1F7A32B5002BF588 /* PicturesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PicturesViewController.m; sourceTree = "<group>"; };
+		6E5E337C1F7A3D22002BF588 /* UIImage+Smart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Smart.h"; sourceTree = "<group>"; };
+		6E5E337D1F7A3D22002BF588 /* UIImage+Smart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Smart.m"; sourceTree = "<group>"; };
+		6E5E337F1F7A3F98002BF588 /* UserImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserImage.h; sourceTree = "<group>"; };
+		6E5E33801F7A3F98002BF588 /* UserImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserImage.m; sourceTree = "<group>"; };
+		6E6928321F7BA81800E83306 /* PictureCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureCollectionViewCell.h; sourceTree = "<group>"; };
+		6E6928331F7BA81800E83306 /* PictureCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureCollectionViewCell.m; sourceTree = "<group>"; };
+		6E6928341F7BA81800E83306 /* PictureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCollectionViewCell.xib; sourceTree = "<group>"; };
 		6E7B43511F43340B00703EE1 /* ModalCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalCollectionVC.h; sourceTree = "<group>"; };
 		6E7B43521F43340B00703EE1 /* ModalCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalCollectionVC.m; sourceTree = "<group>"; };
 		6E7B43591F4351DC00703EE1 /* APModalCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APModalCollectionViewCell.h; sourceTree = "<group>"; };
@@ -257,6 +271,7 @@
 		1E058ACF1ECB3ADD00C0A0A8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6E5E33781F7A32AB002BF588 /* Pictures */,
 				6EB4D8401F78F1C800368A20 /* Filter */,
 				1E5A0B0E1EDCC800004DEB1C /* Modals */,
 				6EEA73381F42D3D9000EA52E /* Map */,
@@ -345,6 +360,8 @@
 				6EB4D83B1F78DC7D00368A20 /* UIImageView+Rotation.m */,
 				6E01EF4A1F792AF30007AD11 /* NSObject+Smart.h */,
 				6E01EF4B1F792AF30007AD11 /* NSObject+Smart.m */,
+				6E5E337C1F7A3D22002BF588 /* UIImage+Smart.h */,
+				6E5E337D1F7A3D22002BF588 /* UIImage+Smart.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +389,8 @@
 				1E3C539A1EDC1A8200CDCC22 /* APImagesObject.m */,
 				6E2F5F111F29C1CC00C5B30D /* APImage.h */,
 				6E2F5F121F29C1CC00C5B30D /* APImage.m */,
+				6E5E337F1F7A3F98002BF588 /* UserImage.h */,
+				6E5E33801F7A3F98002BF588 /* UserImage.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -581,6 +600,18 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		6E5E33781F7A32AB002BF588 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				6E5E33791F7A32B5002BF588 /* PicturesViewController.h */,
+				6E5E337A1F7A32B5002BF588 /* PicturesViewController.m */,
+				6E6928321F7BA81800E83306 /* PictureCollectionViewCell.h */,
+				6E6928331F7BA81800E83306 /* PictureCollectionViewCell.m */,
+				6E6928341F7BA81800E83306 /* PictureCollectionViewCell.xib */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 		6EB4D8341F78D86800368A20 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,9 +688,9 @@
 		1E058AAD1ECB3A2A00C0A0A8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = AP;
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Yauheni Drobau";
+				ORGANIZATIONNAME = "Eugene Drobov";
 				TargetAttributes = {
 					1E058AB41ECB3A2A00C0A0A8 = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -696,6 +727,7 @@
 				1E3C53AD1EDC5E3C00CDCC22 /* APProjectDetailsCollectionViewCell.xib in Resources */,
 				1E5A0AE71EDCB586004DEB1C /* Cost.storyboard in Resources */,
 				6E239B971F305DE200B84B30 /* TabBar.storyboard in Resources */,
+				6E6928361F7BA81800E83306 /* PictureCollectionViewCell.xib in Resources */,
 				6E7B435D1F4351DC00703EE1 /* APModalCollectionViewCell.xib in Resources */,
 				1E5A0AE11EDCB336004DEB1C /* Start.storyboard in Resources */,
 				6EB4D8391F78D8A600368A20 /* DropMenuView.xib in Resources */,
@@ -792,6 +824,7 @@
 				6E7B43571F43392900703EE1 /* ModalCollectionVC.m in Sources */,
 				6EB4D8431F78F1E700368A20 /* FilterTableViewController.m in Sources */,
 				1E058ABD1ECB3A2B00C0A0A8 /* AppDelegate.m in Sources */,
+				6E5E337E1F7A3D22002BF588 /* UIImage+Smart.m in Sources */,
 				6E7B43561F43392600703EE1 /* SimpleYesNoModalVC.m in Sources */,
 				1E058AF51ECB3ADD00C0A0A8 /* Utils.m in Sources */,
 				6E01EF4C1F792AF30007AD11 /* NSObject+Smart.m in Sources */,
@@ -809,6 +842,7 @@
 				1E285FB71EDC01EA0090F899 /* APRealmManager.m in Sources */,
 				6E239B9B1F30761700B84B30 /* APTabBarViewController.m in Sources */,
 				1E34DDAB1EDE119B005CE73C /* UIAlertController+AP.m in Sources */,
+				6E6928351F7BA81800E83306 /* PictureCollectionViewCell.m in Sources */,
 				1E5A0ADB1EDCAD1D004DEB1C /* APMenuViewController.m in Sources */,
 				6EB4D8371F78D89800368A20 /* DropMenuView.m in Sources */,
 				6EEA733E1F42F1D1000EA52E /* APLocationManager.m in Sources */,
@@ -816,9 +850,11 @@
 				6E01EF491F792A0C0007AD11 /* FontHelper.m in Sources */,
 				1E16673A1ECD7B6E0033EBB6 /* APProjectDetailsTableViewCell.m in Sources */,
 				6E7B43541F43392100703EE1 /* ModalViewController.m in Sources */,
+				6E5E33811F7A3F98002BF588 /* UserImage.m in Sources */,
 				1E3C53AB1EDC5E3100CDCC22 /* APProjectDetailsCollectionViewCell.m in Sources */,
 				6EED5FFB1F438551007FB771 /* UIColor+App.m in Sources */,
 				1E5A0B081EDCB856004DEB1C /* APQuestionViewController.m in Sources */,
+				6E5E337B1F7A32B5002BF588 /* PicturesViewController.m in Sources */,
 				1E2571E81ECB72C900C6107D /* APProjectCollectionViewCell.m in Sources */,
 				1E285FC51EDC095E0090F899 /* APKeychainManager.m in Sources */,
 				1E058B031ECB403B00C0A0A8 /* UIViewController+RevealViewController.m in Sources */,
@@ -952,8 +988,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobov.ArchitectureProjects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f0f8758-e99a-4e00-b136-4de00bb96bc8";
-				PROVISIONING_PROFILE_SPECIFIER = "ArchitectureProjects adHoc";
+				PROVISIONING_PROFILE = "1e88ac2f-67d2-4326-8636-a4f279ef846f";
+				PROVISIONING_PROFILE_SPECIFIER = "ArchitectureProjects Adhoc";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -24,7 +24,7 @@
     [self.tabBar.items[0] setTitle:NSLocalizedString(@"Projects", nil)];
     [self.tabBar.items[0] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
     
-    [self.tabBar.items[1] setTitle:NSLocalizedString(@"Projects2", nil)];
+    [self.tabBar.items[1] setTitle:NSLocalizedString(@"Send photos", nil)];
     [self.tabBar.items[1] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
 
     [self.tabBar.items[2] setTitle:NSLocalizedString(@"Projects3", nil)];

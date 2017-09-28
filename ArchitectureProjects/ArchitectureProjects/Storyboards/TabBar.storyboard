@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="-487" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--Empty Data Set Delegate-->
         <scene sceneID="skW-F4-sLV">
             <objects>
-                <viewController id="vUd-US-KWF" sceneMemberID="viewController">
+                <viewController id="vUd-US-KWF" customClass="PicturesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Qr-Fc-tHJ"/>
                         <viewControllerLayoutGuide type="bottom" id="C9n-xA-sZo"/>
@@ -62,14 +62,121 @@
                     <view key="view" contentMode="scaleToFill" id="AtI-l8-uan">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pFo-mU-9tF">
+                                <rect key="frame" x="10" y="194" width="355" height="304"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m8w-cE-U5s">
+                                    <size key="itemSize" width="88" height="89"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vUd-US-KWF" id="0q8-Oe-xI6"/>
+                                    <outlet property="delegate" destination="vUd-US-KWF" id="QLn-P4-qrL"/>
+                                    <outlet property="emptyDataSetDelegate" destination="vUd-US-KWF" id="mh4-FD-mwY"/>
+                                    <outlet property="emptyDataSetSource" destination="vUd-US-KWF" id="VDm-EK-Np2"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dab-6M-YYb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hNb-7D-g7d">
+                                        <rect key="frame" x="16" y="16" width="343" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahe-su-Lp4">
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="30"/>
+                                                <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Сделать Фото"/>
+                                                <connections>
+                                                    <action selector="makePhotoTouched:" destination="vUd-US-KWF" eventType="touchUpInside" id="BcZ-d6-Atg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKX-sh-WPi">
+                                                <rect key="frame" x="184" y="0.0" width="159" height="30"/>
+                                                <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Выбрать картинки"/>
+                                                <connections>
+                                                    <action selector="chooseImagesTouched:" destination="vUd-US-KWF" eventType="touchUpInside" id="FjH-JX-uyn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Картинки на отправку" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wg-pV-lnA">
+                                        <rect key="frame" x="99.5" y="83.5" width="176.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7Wg-pV-lnA" firstAttribute="centerX" secondItem="dab-6M-YYb" secondAttribute="centerX" id="3ie-cq-84v"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Wg-pV-lnA" secondAttribute="bottom" constant="16" id="73r-0w-6pc"/>
+                                    <constraint firstAttribute="trailing" secondItem="hNb-7D-g7d" secondAttribute="trailing" constant="16" id="Dqn-8D-FXf"/>
+                                    <constraint firstAttribute="height" constant="120" id="acF-PI-HET"/>
+                                    <constraint firstItem="hNb-7D-g7d" firstAttribute="leading" secondItem="dab-6M-YYb" secondAttribute="leading" constant="16" id="kXc-6w-ev6"/>
+                                    <constraint firstItem="hNb-7D-g7d" firstAttribute="top" secondItem="dab-6M-YYb" secondAttribute="top" constant="16" id="sdA-nj-sJi"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzs-ou-nS5">
+                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VXh-64-K0z"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendTouched:" destination="vUd-US-KWF" eventType="touchUpInside" id="2n0-BX-LnT"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubd-SS-ZTk">
+                                <rect key="frame" x="0.0" y="498" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.73725490199999999" alpha="0.45943921232876711" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="aNQ-f4-QzP"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C9n-xA-sZo" firstAttribute="top" secondItem="Yzs-ou-nS5" secondAttribute="bottom" id="AeD-Z3-lTZ"/>
+                            <constraint firstItem="pFo-mU-9tF" firstAttribute="top" secondItem="dab-6M-YYb" secondAttribute="bottom" constant="10" id="Bua-Hg-Ojg"/>
+                            <constraint firstItem="ubd-SS-ZTk" firstAttribute="top" secondItem="pFo-mU-9tF" secondAttribute="bottom" id="NJz-6a-2PC"/>
+                            <constraint firstAttribute="trailing" secondItem="Yzs-ou-nS5" secondAttribute="trailing" id="RLS-q8-XPq"/>
+                            <constraint firstItem="dab-6M-YYb" firstAttribute="leading" secondItem="AtI-l8-uan" secondAttribute="leading" id="ZRc-tN-eaB"/>
+                            <constraint firstItem="ubd-SS-ZTk" firstAttribute="leading" secondItem="AtI-l8-uan" secondAttribute="leading" id="bCr-Ix-lio"/>
+                            <constraint firstItem="Yzs-ou-nS5" firstAttribute="leading" secondItem="AtI-l8-uan" secondAttribute="leading" id="bEp-ma-BMk"/>
+                            <constraint firstItem="dab-6M-YYb" firstAttribute="top" secondItem="3Qr-Fc-tHJ" secondAttribute="bottom" id="dIF-F7-SqI"/>
+                            <constraint firstAttribute="trailing" secondItem="dab-6M-YYb" secondAttribute="trailing" id="ggo-92-xUq"/>
+                            <constraint firstItem="pFo-mU-9tF" firstAttribute="leading" secondItem="AtI-l8-uan" secondAttribute="leading" constant="10" id="kLP-JZ-LAg"/>
+                            <constraint firstAttribute="trailing" secondItem="pFo-mU-9tF" secondAttribute="trailing" constant="10" id="oO6-uz-ikE"/>
+                            <constraint firstAttribute="trailing" secondItem="ubd-SS-ZTk" secondAttribute="trailing" id="q7V-o5-3dh"/>
+                            <constraint firstItem="Yzs-ou-nS5" firstAttribute="top" secondItem="ubd-SS-ZTk" secondAttribute="bottom" id="qId-GO-Xj1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qH5-WP-baS"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="chooseImageButton" destination="dKX-sh-WPi" id="yKa-SH-d0X"/>
+                        <outlet property="collectionView" destination="pFo-mU-9tF" id="Ltu-k0-fTV"/>
+                        <outlet property="makePhotoButton" destination="ahe-su-Lp4" id="WZb-EG-6bE"/>
+                        <outlet property="mesageTF" destination="ubd-SS-ZTk" id="YxV-IA-Kcu"/>
+                        <outlet property="sendButton" destination="Yzs-ou-nS5" id="B6k-a9-Zt9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXr-Xf-L56" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="-84"/>
+            <point key="canvasLocation" x="1100" y="-84.107946026986511"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7VB-Lx-0yf">
@@ -304,7 +411,7 @@
         <scene sceneID="y2c-bH-F69">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pTT-St-vvi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Dus-T1-pvH"/>
+                    <tabBarItem key="tabBarItem" title="Item 2" image="camera" selectedImage="camera-filled" id="Dus-T1-pvH"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eTy-Hb-ybd">
@@ -380,6 +487,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="25" height="25"/>
+        <image name="camera-filled" width="25" height="25"/>
         <image name="floor-plan-filled-icon" width="25" height="25"/>
         <image name="floor-plan-icon" width="25" height="25"/>
         <image name="map-filled-icon" width="25" height="25"/>

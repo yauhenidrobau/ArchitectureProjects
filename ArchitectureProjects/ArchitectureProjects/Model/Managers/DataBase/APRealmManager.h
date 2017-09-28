@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #import "APUser.h"
 #import "Macros.h"
@@ -18,7 +19,13 @@
 - (void)saveUserWithEmail:(NSString*)email withCallback:(RealmDataManagerSaveCallback)callback;
 - (APUser*)getUser;
 
+- (void)saveUserImage:(UIImage*)image;
+- (NSArray*)getUserImages;
+
 - (void)saveToProject:(NSDictionary*)projectDict withCallback:(RealmDataManagerSaveCallback)callback;
+
+- (void)removeItem:(id)item;
+- (void)removeAllItemsForClass:(NSString*)className;
 
 - (NSArray*)RLMResultsToArray:(RLMResults *)results;
 - (NSArray*)projectImagesRLMResultsToArray:(RLMResults *)results;
