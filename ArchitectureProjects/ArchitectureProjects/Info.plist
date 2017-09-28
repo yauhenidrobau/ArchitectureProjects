@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Architecture</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>26.09.2017.09.00</string>
+	<string>28.09.2017.10.23</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -46,8 +48,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Дайте нам доступ, чтобы вы могли посылать нам фото своих проектов</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Нам нужно знать, где Вы находитесь, для построения маршрута</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Дайте нам доступ, чтобы вы могли посылать нам фото своих проектов</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -71,10 +77,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Дайте нам доступ, чтобы вы могли посылать нам фото своих проектов</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Дайте нам доступ, чтобы вы могли посылать нам фото своих проектов</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
