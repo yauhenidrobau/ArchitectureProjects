@@ -20,8 +20,10 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import "SimpleModalVC.h"
+#import "UIViewController+ShowModal.h"
 
-@interface PicturesViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PictureCollectionViewCellDelegate, MFMailComposeViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface PicturesViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PictureCollectionViewCellDelegate, MFMailComposeViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *makePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *chooseImageButton;
@@ -29,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *mesageTF;
 @property (strong, nonatomic) RLMResults *images;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UILabel *imagesForSendingLabel;
 @end
 
 @implementation PicturesViewController
@@ -40,6 +43,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"PictureCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.emptyDataSetSource = self;
     self.collectionView.emptyDataSetDelegate = self;
+    self.mesageTF.delegate = self;
     
     [self prepareAppearance];
     self.images = [UserImage allObjects];
@@ -94,13 +98,38 @@
     }
 }
 
-#pragma mark - MFMailComposeViewControllerDelegate
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {
-    if (result == MFMailComposeResultSent) {
-        [[APRealmManager sharedInstance] removeAllItemsForClass:@"UserImage"];
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
+#pragma mark - MFMailComposeViewControllerDelegate
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    NSString *message = @"";
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            break;
+        case MFMailComposeResultSaved:
+            message = NSLocalizedString(@"Mail saved",nil);
+            break;
+        case MFMailComposeResultSent:
+            [[APRealmManager sharedInstance] removeAllItemsForClass:@"UserImage"];
+            message = NSLocalizedString(@"Mail sent",nil);
+            break;
+        case MFMailComposeResultFailed:
+            message = NSLocalizedString(@"Mail sent failure",nil);
+            break;
+
+        default:
+            break;
     }
-    [controller dismissViewControllerAnimated:YES completion:nil];
+    if (message.length) {
+        [self showSimpleModalWithMessage:message];
+    }
+
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -  DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
@@ -127,7 +156,14 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *image = info[UIImagePickerControllerEditedImage];
-    NSData *resizedImageData = UIImageJPEGRepresentation(image, 0.8f);
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.f);
+    float koeff = 1.0;
+    NSData *resizedImageData = UIImageJPEGRepresentation(image, koeff);
+
+    while ( resizedImageData.length > imageData.length / 2) {
+        koeff = koeff-0.1;
+        resizedImageData = UIImageJPEGRepresentation(image, koeff);
+    }
     [[APRealmManager sharedInstance] saveUserImage:[UIImage  imageWithData:resizedImageData]];
     [picker dismissViewControllerAnimated:YES completion:nil];
     [self.collectionView reloadData];
@@ -154,9 +190,29 @@
     self.mesageTF.placeholder = NSLocalizedString(@"pictures_message.placeholder", nil);
     [self.makePhotoButton setTitle:NSLocalizedString(@"pictures.makePhoto", nil) forState:UIControlStateNormal];
     [self.chooseImageButton setTitle:NSLocalizedString(@"pictures.chooseImage", nil) forState:UIControlStateNormal];
+    self.imagesForSendingLabel.text = NSLocalizedString(@"pictures.imagesForSending.title", nil);
+    self.imagesForSendingLabel.font = FONT(FTCochin, 18);
+
     self.makePhotoButton.layer.cornerRadius = CGRectGetHeight(self.makePhotoButton.frame) / 2;
     self.chooseImageButton.layer.cornerRadius = CGRectGetHeight(self.chooseImageButton.frame) / 2;
 
+}
+
+- (void)showSimpleModalWithMessage:(NSString*)message {
+    [self showModalViewControllerWithIdentifier:@"SimpleModalVC" setupBlock:^(ModalViewController *modal) {
+        SimpleModalVC *vc = (SimpleModalVC*)modal;
+        vc.modalMessage = message;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+                if ([vc isViewLoaded]) {
+                    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                        vc.closeButtonTappedBlock();
+                        [self.collectionView reloadData];
+                    }];
+                }
+            }];
+        });
+    }];
 }
 - (void)showCamera {
     UIImagePickerController *vc = [UIImagePickerController new];

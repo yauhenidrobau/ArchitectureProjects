@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GCNetworkReachability.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (nonatomic, strong) GCNetworkReachability* reachability;
 @property (strong, nonatomic) UIWindow *window;
 
 

@@ -224,7 +224,9 @@
 -(void)loadProjects {
     WEAK(self)
     dispatch_async(dispatch_get_main_queue(), ^{
-        [SVProgressHUD show];
+        if ([Utils isInternetConnectionAvailable]) {
+            [SVProgressHUD show];
+        }
         [[APProjectManager sharedInstance] loadProjectsWithCompletion:^(NSArray *projects, BOOL finished, NSError *error) {
             STRONG(self)
 //            self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];

@@ -51,7 +51,7 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     APProjectDetailsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DetailCell" forIndexPath:indexPath];
-    cell.imageURL = [APFileHelper getImagePath:self.projectObject.name forImageIndex:indexPath.row+1];
+    cell.imageURL = [NSURL URLWithString:[APFileHelper getImagePath:self.projectObject.name forImageIndex:indexPath.row+1]];
     return cell;
 }
 

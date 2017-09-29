@@ -12,6 +12,7 @@
 #import "APImage.h"
 #import "UIImageView+WebCache.h"
 #import "APRealmManager.h"
+#import "AppDelegate.h"
 
 @implementation Utils
 
@@ -38,4 +39,7 @@
     return images;
 }
 
++(BOOL)isInternetConnectionAvailable {
+    return ((AppDelegate*)[UIApplication sharedApplication].delegate).reachability.currentReachabilityStatus != GCNetworkReachabilityStatusNotReachable;
+}
 @end

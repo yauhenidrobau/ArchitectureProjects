@@ -11,7 +11,7 @@
 #import "APFileHelper.h"
 #import "APConstants.h"
 
-@interface ModalCollectionVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface ModalCollectionVC () < UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"APModalCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"APModalCollectionViewCell"];
-    self.imagesCountLabel.text = [NSString stringWithFormat:@"%d %@ %ld",1, NSLocalizedString(@"of", nil), self.projectObject.images.count];
+    self.imagesCountLabel.text = [NSString stringWithFormat:@"%d %@ %lu",1, NSLocalizedString(@"of", nil), self.projectObject.images.count];
 
 }
 

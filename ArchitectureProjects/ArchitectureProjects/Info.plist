@@ -53,7 +53,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Нам нужно знать, где Вы находитесь, для построения маршрута</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Дайте нам доступ, чтобы вы могли посылать нам фото своих проектов</string>
+	<string>Дайте нам доступ, чтобы вы могли отправлять нам фото своих проектов</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

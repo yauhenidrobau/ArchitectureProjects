@@ -15,4 +15,6 @@
 
 +(void)addShadowToView:(UIView*)view;
 +(NSArray*)imagesFromImagesObject:(APProjectObject*)object;
++(BOOL)isInternetConnectionAvailable;
+
 @end

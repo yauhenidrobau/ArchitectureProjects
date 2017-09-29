@@ -12,7 +12,6 @@
 #import <Crashlytics/Crashlytics.h>
 
 #import <AFNetworking.h>
-#import <GCNetworkReachability.h>
 #import <IQKeyboardManager.h>
 #import "UIViewController+ShowModal.h"
 #import "SimpleModalVC.h"
@@ -32,8 +31,6 @@
 @interface AppDelegate () {
     BOOL showOfflineAlert;
 }
-
-@property (nonatomic, strong) GCNetworkReachability* reachability;
 
 @end
 
@@ -80,7 +77,6 @@
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateDidChage:) name:NN_NETWORK_STATE_OK object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showOfflineAlert) name:NN_NETWORK_STATE_OFFLINE object:nil];
 
     return YES;

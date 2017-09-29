@@ -12,7 +12,6 @@
 
 +(instancetype)sharedInstance;
 
-- (void)downloadResourcesForShops:(NSArray*)shops withCallback:(void(^)(BOOL isFinished))callback;
 - (void)downloadImageForProjects:(NSArray*)projects withCallback:(void(^)(BOOL downloaded, BOOL finished))callback;
 
 @end

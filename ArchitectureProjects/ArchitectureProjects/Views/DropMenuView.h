@@ -18,7 +18,6 @@ typedef enum  {
 @protocol DropMenuDelegate <NSObject>
 
 - (void)changeMenuYPosition:(CGFloat)newY animated:(BOOL)animated;
-- (void)optionsSelected:(NSInteger)option;
 - (void)filterTouched:(NSDictionary*)settings;
 
 @end

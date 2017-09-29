@@ -106,8 +106,8 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Картинки на отправку" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wg-pV-lnA">
-                                        <rect key="frame" x="99.5" y="83.5" width="176.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Картинки  для отправки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wg-pV-lnA">
+                                        <rect key="frame" x="92" y="83.5" width="191.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -169,6 +169,7 @@
                     <connections>
                         <outlet property="chooseImageButton" destination="dKX-sh-WPi" id="yKa-SH-d0X"/>
                         <outlet property="collectionView" destination="pFo-mU-9tF" id="Ltu-k0-fTV"/>
+                        <outlet property="imagesForSendingLabel" destination="7Wg-pV-lnA" id="MwF-fZ-zqc"/>
                         <outlet property="makePhotoButton" destination="ahe-su-Lp4" id="WZb-EG-6bE"/>
                         <outlet property="mesageTF" destination="ubd-SS-ZTk" id="YxV-IA-Kcu"/>
                         <outlet property="sendButton" destination="Yzs-ou-nS5" id="B6k-a9-Zt9"/>
@@ -282,7 +283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G2d-f9-ohw">
-                                <rect key="frame" x="0.0" y="94" width="375" height="524"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="519"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="wUb-b0-rVV">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -312,7 +313,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="G2d-f9-ohw" secondAttribute="trailing" id="80B-tL-pPt"/>
-                            <constraint firstItem="G2d-f9-ohw" firstAttribute="top" secondItem="xRn-UX-TdS" secondAttribute="bottom" constant="30" id="L31-sk-CVI"/>
+                            <constraint firstItem="G2d-f9-ohw" firstAttribute="top" secondItem="xRn-UX-TdS" secondAttribute="bottom" constant="35" id="L31-sk-CVI"/>
                             <constraint firstItem="aAc-b3-a13" firstAttribute="top" secondItem="G2d-f9-ohw" secondAttribute="bottom" id="MEa-WA-mxx"/>
                             <constraint firstAttribute="trailing" secondItem="ZSp-9I-2JJ" secondAttribute="trailing" id="O2O-Aw-ly8"/>
                             <constraint firstItem="ZSp-9I-2JJ" firstAttribute="top" secondItem="kg2-jM-41k" secondAttribute="top" constant="-265" id="YX9-v9-0cU"/>

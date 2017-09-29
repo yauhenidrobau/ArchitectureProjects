@@ -970,8 +970,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobov.ArchitectureProjects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3dd73f41-5a94-4325-be79-4ec24e5d5de1";
-				PROVISIONING_PROFILE_SPECIFIER = "ArchitectureProjects Dev";
+				PROVISIONING_PROFILE = "70ea1079-8bbe-452b-834e-a2f067a6dd7d";
+				PROVISIONING_PROFILE_SPECIFIER = "com.drobov.ArchitectureProjects Dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;

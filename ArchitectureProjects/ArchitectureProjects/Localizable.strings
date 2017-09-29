@@ -9,6 +9,10 @@
 
 //Common
 "not.found.title" = "Здесь пока ничего нет";
+"Mail cancelled" = "Отправка отменена.";
+"Mail saved" = "Письмо сохранено, не забудьте потом его отправить нам.";
+"Mail sent" = "Письмо отправлено, мы Вам скоро ответим.";
+"Mail sent failure" = "Ошибка отправки";
 
 // Tabbar
 "Projects" = "Проекты";
@@ -58,11 +62,11 @@
 "dropmenu_area" = "Площадь";
 
 // Pictures
-"pictures.chooseImage" = "Выбрать картинки";
+"pictures.chooseImage" = "Открыть галерею";
 "pictures.makePhoto" = "Сделать фото";
 "pictures_send.title" = "Отправить нам";
-"pictures_message.placeholder" = "Здесь вы можете описать свои идеи";
-
+"pictures_message.placeholder" = "Напишите свои идеи и мысли";
+"pictures.imagesForSending.title" = "Картинки  для отправки";
 //Project Details
 "of" = "из";
 
