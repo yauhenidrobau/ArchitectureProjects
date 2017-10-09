@@ -12,6 +12,7 @@
 #import "APMenuTableViewCell.h"
 #import "SWRevealViewController.h"
 #import "FontHelper.h"
+#import "UIColor+App.h"
 
 @interface APMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -66,6 +67,7 @@
     APMenuTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellID];
     cell.cellTitleLabel.text = title;
     cell.cellTitleLabel.font = FONT(FTCochin, 20);
+    cell.cellTitleLabel.textColor = [UIColor app_secondColor];
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }

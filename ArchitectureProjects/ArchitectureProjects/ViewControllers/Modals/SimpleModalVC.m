@@ -9,7 +9,7 @@
 @property (weak, nonatomic) IBOutlet UIView *modalView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-
+@property (strong, nonatomic) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 @end
@@ -32,6 +32,11 @@
     self.okButton.tintColor = [UIColor blueColor];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(close) userInfo:nil repeats:NO];
+}
+
 #pragma mark IBActions
 
 - (IBAction)okButtonTouched:(id)sender {
@@ -40,4 +45,12 @@
     }
 }
 
+- (void)close {
+    if (self.closed) {
+        self.closed ();
+    }
+    if (self.closeButtonTappedBlock) {
+        self.closeButtonTappedBlock ();
+    }
+}
 @end

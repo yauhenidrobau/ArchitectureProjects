@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Bodoni72.ttc">
             <string>BodoniSvtyTwoITCTT-BookIta</string>
-        </array>
-        <array key="GalanoGrotesque-Regular.otf">
-            <string>GalanoGrotesque-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -23,12 +19,14 @@
                 <outlet property="areaLabel" destination="fLv-pC-MUb" id="Mt5-Yi-bRn"/>
                 <outlet property="areaMaxTF" destination="uhc-9T-fsp" id="Ite-09-ywD"/>
                 <outlet property="areaMinTF" destination="TxP-ob-rgW" id="4Hz-Xg-iSB"/>
+                <outlet property="backView" destination="Nxr-dz-a2n" id="kh5-bf-WH6"/>
                 <outlet property="filterButton" destination="asJ-Uf-V7G" id="7h0-Mb-YYa"/>
                 <outlet property="floorLabel" destination="LKV-51-lGG" id="k6v-Oy-jU9"/>
                 <outlet property="floorSlider" destination="xeH-77-u4G" id="qqp-G5-z98"/>
                 <outlet property="floorValueLabel" destination="GHl-Wr-qud" id="w6r-Ky-KG8"/>
                 <outlet property="garageButton" destination="aTi-F1-JH4" id="GaF-EJ-VCB"/>
                 <outlet property="garageLabel" destination="cRJ-0P-6WW" id="3Br-HG-wnu"/>
+                <outlet property="helpLabel" destination="jVK-Ph-Hpt" id="VKd-eN-Ls6"/>
                 <outlet property="menuArrowImageView" destination="CFf-h9-Bo0" id="6me-My-89T"/>
                 <outlet property="menuContainer" destination="3BE-Sf-m4w" id="ZVn-sz-dvF"/>
                 <outlet property="menuTopSpace" destination="Lgq-GG-u27" id="un4-5l-ih6"/>
@@ -56,7 +54,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-F1-JH4">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-F1-JH4">
                                     <rect key="frame" x="300" y="0.0" width="35" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="Ylo-eT-W7j"/>
@@ -121,7 +119,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="55" id="qYu-np-INs"/>
                                     </constraints>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <connections>
@@ -143,7 +141,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="55" id="56B-dl-6eF"/>
                                     </constraints>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <connections>
@@ -160,7 +158,7 @@
                                 <constraint firstAttribute="height" constant="44" id="mfP-GP-5df"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="15"/>
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="selected" backgroundImage="drawer_btn_inactive">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -184,10 +182,10 @@
                                 <constraint firstAttribute="width" constant="14" id="qFa-SI-v6P"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVK-Ph-Hpt" userLabel="title lbl">
-                            <rect key="frame" x="16" y="285" width="343" height="0.0"/>
-                            <fontDescription key="fontDescription" name="GalanoGrotesque-Regular" family="Galano Grotesque" pointSize="14"/>
-                            <color key="textColor" red="0.62745098040000002" green="0.070588235289999995" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Потяните" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVK-Ph-Hpt" userLabel="title lbl">
+                            <rect key="frame" x="16" y="269" width="343" height="21.5"/>
+                            <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-BookIta" family="Bodoni 72" pointSize="17"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -204,6 +202,7 @@
                         <constraint firstItem="Dvb-xz-ntE" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="20" id="D9C-JY-lsa"/>
                         <constraint firstItem="Jah-1N-VsT" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="20" id="DEb-en-wTN"/>
                         <constraint firstItem="4NB-pp-hQt" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" id="DcC-ds-3ny"/>
+                        <constraint firstItem="jVK-Ph-Hpt" firstAttribute="top" secondItem="Nxr-dz-a2n" secondAttribute="bottom" constant="4" id="HOj-3f-FcO"/>
                         <constraint firstAttribute="trailing" secondItem="Dvb-xz-ntE" secondAttribute="trailing" constant="20" id="JQ9-cO-Nql"/>
                         <constraint firstAttribute="trailing" secondItem="jVK-Ph-Hpt" secondAttribute="trailing" constant="16" id="KjH-at-dab"/>
                         <constraint firstAttribute="trailing" secondItem="Nxr-dz-a2n" secondAttribute="trailing" id="MQb-FW-Nqc"/>
@@ -213,7 +212,6 @@
                         <constraint firstAttribute="height" constant="310" id="Xom-cn-dkK"/>
                         <constraint firstAttribute="trailing" secondItem="q0Y-WL-SGm" secondAttribute="trailing" constant="20" id="c24-Yh-uYF"/>
                         <constraint firstItem="Nxr-dz-a2n" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" id="cSV-QK-XI4"/>
-                        <constraint firstItem="4NB-pp-hQt" firstAttribute="top" secondItem="jVK-Ph-Hpt" secondAttribute="bottom" constant="-20" id="euq-C8-gl3"/>
                         <constraint firstItem="jVK-Ph-Hpt" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="16" id="hG8-y3-5M5"/>
                         <constraint firstItem="CFf-h9-Bo0" firstAttribute="centerX" secondItem="4NB-pp-hQt" secondAttribute="centerX" id="i6l-q0-397"/>
                         <constraint firstItem="q0Y-WL-SGm" firstAttribute="leading" secondItem="3BE-Sf-m4w" secondAttribute="leading" constant="20" id="mfZ-kn-fBd"/>

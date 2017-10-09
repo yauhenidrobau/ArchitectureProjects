@@ -26,6 +26,7 @@
 #import "ModalCollectionVC.h"
 #import "DropMenuView.h"
 #import "FilterTableViewController.h"
+#import "UIColor+App.h"
 
 #define APMainViewControllerFilterSegue @"FilterSegue"
 @interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource, DropMenuDelegate>
@@ -109,6 +110,10 @@
 //        vc.projectObject = object;
 //    }
 //}
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self.collectionView reloadData];
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -207,6 +212,9 @@
     [self.refreshControl addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.backgroundColor = [UIColor clearColor];
     [self.collectionView addSubview:self.refreshControl];
+    
+    self.dropMenuView.textColor = [UIColor app_secondColor];
+    self.dropMenuView.backgroundColor = [UIColor app_mainColor];
 }
 
 -(void)loadData {

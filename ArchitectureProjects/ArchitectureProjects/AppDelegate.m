@@ -23,6 +23,7 @@
 #import "APConstants.h"
 #import <SVProgressHUD.h>
 #import "APLocationManager.h"
+#import "UIColor+App.h"
 
 @import Firebase;
 @import GoogleMaps;
@@ -154,10 +155,10 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:35.0 / 255.0 green:35.0 / 255.0 blue:35.0 / 255.0 alpha:1]];
     
     [[UINavigationBar appearance]setTranslucent:NO];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor app_secondColor]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                                           NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                           NSForegroundColorAttributeName: [UIColor app_secondColor],
                                                            NSFontAttributeName: [UIFont systemFontOfSize:17.f]}];
     
     

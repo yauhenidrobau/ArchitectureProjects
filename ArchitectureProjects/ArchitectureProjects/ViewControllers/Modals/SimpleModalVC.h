@@ -7,6 +7,7 @@
 
 @interface SimpleModalVC : ModalViewController
 
+@property (strong, nonatomic) void (^closed)();
 @property (nonatomic, strong) NSString *modalMessage;
 @property (nonatomic, strong) NSString *modalTitle;
 

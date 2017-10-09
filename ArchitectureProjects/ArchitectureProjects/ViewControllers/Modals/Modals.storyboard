@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-ei-ds0">
-                                <rect key="frame" x="32" y="268" width="350" height="200"/>
+                                <rect key="frame" x="52" y="268" width="310" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQ3-wH-7ID">
-                                        <rect key="frame" x="0.0" y="160" width="350" height="40"/>
+                                        <rect key="frame" x="0.0" y="160" width="310" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="QxE-Bm-0fJ"/>
                                         </constraints>
@@ -36,13 +35,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-2C-BaI">
-                                        <rect key="frame" x="40" y="100" width="270" height="0.0"/>
+                                        <rect key="frame" x="40" y="100" width="230" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBD-sP-tdh">
-                                        <rect key="frame" x="20" y="20" width="310" height="0.0"/>
+                                        <rect key="frame" x="20" y="20" width="270" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -57,7 +56,6 @@
                                     <constraint firstItem="dFu-2C-BaI" firstAttribute="centerX" secondItem="fPc-ei-ds0" secondAttribute="centerX" id="GPs-us-Ekg"/>
                                     <constraint firstItem="pQ3-wH-7ID" firstAttribute="leading" secondItem="fPc-ei-ds0" secondAttribute="leading" id="MZD-66-gAU"/>
                                     <constraint firstAttribute="trailing" secondItem="eBD-sP-tdh" secondAttribute="trailing" constant="20" id="O21-v4-mlU"/>
-                                    <constraint firstAttribute="width" constant="350" id="QCC-E5-5uM"/>
                                     <constraint firstAttribute="trailing" secondItem="pQ3-wH-7ID" secondAttribute="trailing" id="WLZ-xQ-Zfz"/>
                                     <constraint firstAttribute="height" constant="200" id="Yzl-2Q-1F5"/>
                                     <constraint firstItem="eBD-sP-tdh" firstAttribute="top" secondItem="fPc-ei-ds0" secondAttribute="top" constant="20" id="aC8-vD-K8j"/>
@@ -69,6 +67,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.7047755282" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fPc-ei-ds0" firstAttribute="centerX" secondItem="Liz-N3-esy" secondAttribute="centerX" id="2o4-Jn-AW2"/>
+                            <constraint firstItem="fPc-ei-ds0" firstAttribute="width" secondItem="Liz-N3-esy" secondAttribute="width" multiplier="0.75" id="JRb-r9-FJ2"/>
                             <constraint firstItem="fPc-ei-ds0" firstAttribute="centerY" secondItem="Liz-N3-esy" secondAttribute="centerY" id="Nmq-zU-I2q"/>
                         </constraints>
                     </view>
@@ -133,7 +132,7 @@
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYg-Pp-XuN">
-                                                        <rect key="frame" x="15" y="7.6666666666666679" width="35" height="35"/>
+                                                        <rect key="frame" x="15" y="8" width="35" height="35"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="0GG-D8-sbF"/>
@@ -157,7 +156,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="из" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lu3-wQ-oEE">
-                                                        <rect key="frame" x="197.66666666666666" y="13.666666666666664" width="18.666666666666686" height="22"/>
+                                                        <rect key="frame" x="198" y="14" width="19" height="22"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>

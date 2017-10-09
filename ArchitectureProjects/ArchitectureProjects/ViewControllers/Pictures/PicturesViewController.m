@@ -22,6 +22,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "SimpleModalVC.h"
 #import "UIViewController+ShowModal.h"
+#import "UIColor+App.h"
 
 @interface PicturesViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, PictureCollectionViewCellDelegate, MFMailComposeViewControllerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UITextFieldDelegate>
 
@@ -92,7 +93,7 @@
         [mailCont setToRecipients:[NSArray arrayWithObject:BASE_EMAIL]];
         [mailCont setMessageBody:[NSString stringWithFormat:@"%@",self.mesageTF.text] isHTML:NO];
         for (UserImage *image in self.images) {
-            [mailCont addAttachmentData:image.imageData mimeType:@"image/jpg" fileName:[NSString stringWithFormat:@"image - %ld",image.imageId]];
+            [mailCont addAttachmentData:image.imageData mimeType:@"image/jpeg" fileName:[NSString stringWithFormat:@"image - %ld",image.imageId]];
         }
         [self presentViewController:mailCont animated:YES completion:nil];
     }
@@ -193,6 +194,13 @@
     self.imagesForSendingLabel.text = NSLocalizedString(@"pictures.imagesForSending.title", nil);
     self.imagesForSendingLabel.font = FONT(FTCochin, 18);
 
+    self.sendButton.backgroundColor = [UIColor app_mainColor];
+    self.chooseImageButton.backgroundColor = [UIColor app_mainColor];
+    self.makePhotoButton.backgroundColor = [UIColor app_mainColor];
+    self.sendButton.tintColor = [UIColor app_secondColor];
+    self.chooseImageButton.tintColor = [UIColor app_secondColor];
+    self.makePhotoButton.tintColor = [UIColor app_secondColor];
+
     self.makePhotoButton.layer.cornerRadius = CGRectGetHeight(self.makePhotoButton.frame) / 2;
     self.chooseImageButton.layer.cornerRadius = CGRectGetHeight(self.chooseImageButton.frame) / 2;
 
@@ -202,16 +210,10 @@
     [self showModalViewControllerWithIdentifier:@"SimpleModalVC" setupBlock:^(ModalViewController *modal) {
         SimpleModalVC *vc = (SimpleModalVC*)modal;
         vc.modalMessage = message;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-                if ([vc isViewLoaded]) {
-                    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer * _Nonnull timer) {
-                        vc.closeButtonTappedBlock();
-                        [self.collectionView reloadData];
-                    }];
-                }
-            }];
-        });
+        vc.closed = ^{
+            [self.collectionView reloadData];
+        };
+        
     }];
 }
 - (void)showCamera {

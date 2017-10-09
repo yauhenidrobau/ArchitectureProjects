@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *areaBeforeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *areaMaxTF;
 
+@property (weak, nonatomic) IBOutlet UILabel *helpLabel;
+@property (weak, nonatomic) IBOutlet UIView *backView;
+
 @property (nonatomic) BOOL isMenuVisible;
 @property (nonatomic) CGFloat menuClosedY;
 @property (nonatomic) CGFloat menuOpenedY;
@@ -37,6 +40,7 @@
 
 @implementation DropMenuView
 
+#pragma mark - Lifecycle
 -(id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -76,7 +80,31 @@
 
 }
 
-- (void)setSuperTopConstant:(CGFloat)superTopConstant {
+#pragma mark - Override Properties
+
+- (void)setTextColor:(UIColor *)textColor {
+    _textColor = textColor;
+    self.areaLabel.textColor = textColor;
+    self.floorLabel.textColor = textColor;
+    self.garageLabel.textColor = textColor;
+    self.floorValueLabel.textColor = textColor;
+    self.areaBeforeLabel.textColor = textColor;
+    self.filterButton.backgroundColor = textColor;
+    self.garageButton.tintColor = textColor;
+
+    self.areaMaxTF.backgroundColor = textColor;
+    self.areaMinTF.backgroundColor = textColor;
+    self.floorSlider.minimumTrackTintColor = textColor;
+    self.floorSlider.thumbTintColor = textColor;
+
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    _backgroundColor = backgroundColor;
+    self.backView.backgroundColor = backgroundColor;
+}
+
+-(void)setSuperTopConstant:(CGFloat)superTopConstant {
     _superTopConstant = superTopConstant;
     self.menuClosedY = superTopConstant;
 }

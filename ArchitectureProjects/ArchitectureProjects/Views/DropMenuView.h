@@ -26,6 +26,8 @@ typedef enum  {
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *menuTopSpace;
 @property (nonatomic) CGFloat superTopConstant;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *textColor;
 
 @property (weak, nonatomic) id <DropMenuDelegate>delegate;
 

@@ -12,6 +12,7 @@
 #import "Macros.h"
 #import "APLocationManager.h"
 #import <SVProgressHUD.h>
+#import "UIColor+App.h"
 
 @import GoogleMaps;
 
@@ -141,7 +142,7 @@
                                                          if(polyline) {
                                                              polyline.map = self.mapView;
                                                              polyline.strokeWidth = 4.f;
-                                                             polyline.strokeColor = RGB(49, 143, 216);
+                                                             polyline.strokeColor = [UIColor app_mainColor];
                                                              [SVProgressHUD dismissWithDelay:0.5];
                                                          }
                                                          //                                                         mapStatusLabel.text = @"Drawing route completed";

@@ -21,7 +21,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.bounds = CGRectMake( 0, 0, image.size.width, image.size.height );
         [button setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-        button.tintColor = [UIColor whiteColor];
+        button.tintColor = [UIColor app_secondColor];
         [button addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         self.navigationItem.leftBarButtonItem = revealButtonItem;
@@ -29,7 +29,8 @@
         [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
         UITapGestureRecognizer *tap = [revealViewController tapGestureRecognizer];
         [self.view addGestureRecognizer:tap];
-        self.navigationController.navigationBar.barTintColor = [UIColor ap_darkBlueColor];
+        self.navigationController.navigationBar.barTintColor = [UIColor app_mainColor];
+
         
     }
 }
