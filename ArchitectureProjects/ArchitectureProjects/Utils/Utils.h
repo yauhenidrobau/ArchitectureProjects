@@ -16,5 +16,6 @@
 +(void)addShadowToView:(UIView*)view;
 +(NSArray*)imagesFromImagesObject:(APProjectObject*)object;
 +(BOOL)isInternetConnectionAvailable;
-
++ (CGFloat)deviceKoeff;
++(BOOL)firstimage:(UIImage *)image1 isEqualTo:(UIImage *)image2;
 @end

@@ -21,20 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    CGFloat fontHeight = 14;
+    if (IS_IPAD) {
+        fontHeight = 17;
+    }
     [self.tabBar.items[0] setTitle:NSLocalizedString(@"Projects", nil)];
-    [self.tabBar.items[0] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
+    [self.tabBar.items[0] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, fontHeight)} forState:UIControlStateNormal];
     
     [self.tabBar.items[1] setTitle:NSLocalizedString(@"Send photos", nil)];
-    [self.tabBar.items[1] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
+    [self.tabBar.items[1] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, fontHeight)} forState:UIControlStateNormal];
 
-    [self.tabBar.items[2] setTitle:NSLocalizedString(@"Projects3", nil)];
-    [self.tabBar.items[2] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
+    [self.tabBar.items[2] setTitle:NSLocalizedString(@"Form", nil)];
+    [self.tabBar.items[2] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, fontHeight)} forState:UIControlStateNormal];
 
     [self.tabBar.items[3] setTitle:NSLocalizedString(@"Map", nil)];
-    [self.tabBar.items[3] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
+    [self.tabBar.items[3] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, fontHeight)} forState:UIControlStateNormal];
 
-    [self.tabBar.items[4] setTitle:NSLocalizedString(@"Settings", nil)];
-    [self.tabBar.items[4] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, 13)} forState:UIControlStateNormal];
+    [self.tabBar.items[4] setTitle:NSLocalizedString(@"Info", nil)];
+    [self.tabBar.items[4] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor app_secondColor], NSFontAttributeName: FONT(FTCochin, fontHeight)} forState:UIControlStateNormal];
 
     self.tabBar.barTintColor = [UIColor app_mainColor];
     self.tabBar.tintColor = [UIColor whiteColor];

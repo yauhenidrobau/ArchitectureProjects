@@ -19,7 +19,6 @@ return shared##classname; \
 #define RGBColorFromHex(rgbValue)        [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0xFF00) >> 8))/255.0f blue:((float)(rgbValue & 0xFF))/255.0f alpha:1.0f]
 
 #define OUR_LOCATION CLLocationCoordinate2DMake(52.710527, 25.341690)
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
 #define WEAK(var) __weak typeof(var) weak_##var = var;
 #define STRONG(var) \
@@ -40,6 +39,22 @@ _Pragma("clang diagnostic pop") \
 #define INSTAGRAM_URL @"https://www.instagram.com/proektydomow/"
 
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_5_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH <= 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+#define IS_IPAD_PRO (IS_IPAD && SCREEN_MAX_LENGTH == 1366.0)
 
 typedef enum {
     MenuTypeProjects = 0,

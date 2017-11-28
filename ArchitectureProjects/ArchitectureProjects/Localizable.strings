@@ -14,12 +14,15 @@
 "Mail sent" = "Письмо отправлено, мы Вам скоро ответим.";
 "Mail sent failure" = "Ошибка отправки";
 
+"Recommendations: %d" = "Советов: %d";
+
 // Tabbar
 "Projects" = "Проекты";
 "Send photos" = "Ваши Фото";
-"Projects3" = "3";
+"Form" = "Анкета";
 "Settings" = "Настройки";
 "Map" = "Как нас найти";
+"Info" = "Советы";
 
 //
 "alert.button.ok" = "ОК";
@@ -72,3 +75,17 @@
 
 //MAP
 "map.routing.title" = "Ищем нас...";
+
+//Form
+"form.finish.notReady.title" = "Анкета не готова";
+"form.finish.ready.title" = "Анкета готова!";
+
+"form.finish.titles.building.type" = "Вид строительства";
+"form.finish.titles.floor.type" = "Этажность";
+"form.finish.titles.roof.type" = "Кровля";
+"form.finish.titles.basement.type" = "Наличие подвала";
+"form.finish.titles.wall.type" = "Материал наружных стен";
+"form.finish.titles.roof.config" = "Конфигурация кровли";
+"form.finish.titles.slabs.material.type" = "Материал для перекрытий";
+"form.finish.titles.square.type" = "Примерная площадь";
+

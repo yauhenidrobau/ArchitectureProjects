@@ -12,6 +12,8 @@
 #import "APProjectObject.h"
 #import "APImagesObject.h"
 #import "UserImage.h"
+#import "RecommendationObject.h"
+#import "DesignObject.h"
 
 @implementation APRealmManager
 SINGLETON(APRealmManager)
@@ -54,6 +56,77 @@ SINGLETON(APRealmManager)
 
 #pragma mark - Project 
 
+- (void)saveToRecommendations:(NSDictionary *)recommendationsDict withCallback:(RealmDataManagerSaveCallback)callback {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    NSInteger index = 0;
+    NSLog(@"%@",[RLMRealm defaultRealm].configuration.fileURL);
+    for (NSString *name in recommendationsDict.allValues) {
+        [realm beginWriteTransaction];
+        @try {
+            RecommendationObject *object = [self RLMResultsToArray:[RecommendationObject objectsWhere:@"name == %@", name]].firstObject;
+            if (!object) {
+                object = [RecommendationObject new];
+                object.name = name;
+                [realm addOrUpdateObject:object];
+                    index ++;
+            } else {
+                [realm addOrUpdateObject:object];
+            }
+            [realm commitWriteTransaction];
+        
+        } @catch (NSException *exception) {
+            NSLog(@"exception");
+            NSError *error = [NSError errorWithDomain:@"projectObject save Error" code:-111 userInfo:nil];
+            if ([realm inWriteTransaction]) {
+                [realm cancelWriteTransaction];
+            }
+            if (callback) {
+                callback(error);
+            }
+        }
+    }
+    if (callback) {
+        callback(nil);
+    }
+}
+
+- (void)saveToDesignRecommendations:(NSDictionary *)recommendationsDict withCallback:(RealmDataManagerSaveCallback)callback {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    NSInteger index = 0;
+    NSLog(@"%@",[RLMRealm defaultRealm].configuration.fileURL);
+    for (NSString *value in recommendationsDict) {
+        [realm beginWriteTransaction];
+        @try {
+            NSDictionary *dict = recommendationsDict[value];
+            DesignObject *object = [self RLMResultsToArray:[DesignObject objectsWhere:@"designID == %d", value.integerValue]].firstObject;
+            if (!object) {
+                object = [DesignObject new];
+                object.category = dict[@"category"];
+                object.fullDescription = dict[@"catDescription"];
+                object.designID = value.integerValue;
+                [realm addOrUpdateObject:object];
+                index ++;
+            } else {
+                [realm addOrUpdateObject:object];
+            }
+            [realm commitWriteTransaction];
+            
+        } @catch (NSException *exception) {
+            NSLog(@"exception");
+            NSError *error = [NSError errorWithDomain:@"projectObject save Error" code:-111 userInfo:nil];
+            if ([realm inWriteTransaction]) {
+                [realm cancelWriteTransaction];
+            }
+            if (callback) {
+                callback(error);
+            }
+        }
+    }
+    if (callback) {
+        callback(nil);
+    }
+}
+
 - (void)saveToProject:(NSDictionary*)projectDict withCallback:(RealmDataManagerSaveCallback)callback {
     RLMRealm *realm = [RLMRealm defaultRealm];
     NSInteger index = 0;
@@ -76,7 +149,7 @@ SINGLETON(APRealmManager)
                     APImagesObject  *imageObject = [[APImagesObject alloc] init];
                     imageObject.image = imageURL;
                     imageObject.imagePrimaryID = index;
-//                    imageObject.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                    //                    imageObject.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
                     imageObject.captionTitle = [NSString stringWithFormat:@"%@-captionTitle-%ld", projectObject.name, index];
                     imageObject.captionCredit = [NSString stringWithFormat:@"%@-captionCredit-%ld", projectObject.name, index];
                     imageObject.captionSummary = [NSString stringWithFormat:@"%@-captionSummary-%ld", projectObject.name, index];

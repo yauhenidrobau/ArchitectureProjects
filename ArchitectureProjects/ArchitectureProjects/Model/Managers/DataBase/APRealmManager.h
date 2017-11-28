@@ -23,6 +23,8 @@
 - (NSArray*)getUserImages;
 
 - (void)saveToProject:(NSDictionary*)projectDict withCallback:(RealmDataManagerSaveCallback)callback;
+- (void)saveToRecommendations:(NSDictionary*)recommendationsDict withCallback:(RealmDataManagerSaveCallback)callback;
+- (void)saveToDesignRecommendations:(NSDictionary*)recommendationsDict withCallback:(RealmDataManagerSaveCallback)callback;
 
 - (void)removeItem:(id)item;
 - (void)removeAllItemsForClass:(NSString*)className;

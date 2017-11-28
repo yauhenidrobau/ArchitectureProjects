@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "APRealmManager.h"
 #import "AppDelegate.h"
+#import "Macros.h"
 
 @implementation Utils
 
@@ -39,6 +40,32 @@
     return images;
 }
 
++(BOOL)firstimage:(UIImage *)image1 isEqualTo:(UIImage *)image2 {
+    NSData *data1 = UIImagePNGRepresentation(image1);
+    NSData *data2 = UIImagePNGRepresentation(image2);
+    
+    return [data1 isEqualToData:data2];
+}
+
++ (CGFloat)deviceKoeff {
+    if (IS_IPHONE_4_OR_LESS) {
+        return 0.9;
+    }
+    else if (IS_IPHONE_5) {
+        return 0.9;
+    }
+    else if (IS_IPHONE_6) {
+        return 1;
+    }
+    else if (IS_IPHONE_6P) {
+        return 1.1;
+    }
+    else if (IS_IPAD){
+        return 2;
+    } else {
+        return 1;
+    }
+}
 +(BOOL)isInternetConnectionAvailable {
     return ((AppDelegate*)[UIApplication sharedApplication].delegate).reachability.currentReachabilityStatus != GCNetworkReachabilityStatusNotReachable;
 }

@@ -19,5 +19,6 @@ target 'ArchitectureProjects' do
    pod 'Firebase/Database'
    pod 'SAMKeychain'
    pod 'Canvas', '~> 0.1.2'
+   pod 'URBSegmentedControl'
 
 end

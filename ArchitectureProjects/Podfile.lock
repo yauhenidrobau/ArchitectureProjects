@@ -102,6 +102,7 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.1.2)
   - SWRevealViewController (2.3.0)
+  - URBSegmentedControl (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.6)
   - SVProgressHUD
   - SWRevealViewController (~> 2.3)
+  - URBSegmentedControl
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -150,7 +152,8 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  URBSegmentedControl: 6ca4bb5483854fe02e9718a92211f8f126748dc8
 
-PODFILE CHECKSUM: 334b17eb3591c7c241a4c063b625af821acb2e9b
+PODFILE CHECKSUM: 493b198dae1de06644e18d079b22341eab4b02a4
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

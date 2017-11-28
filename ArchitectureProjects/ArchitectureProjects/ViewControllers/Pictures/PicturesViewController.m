@@ -30,9 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *chooseImageButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITextField *mesageTF;
-@property (strong, nonatomic) RLMResults *images;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *imagesForSendingLabel;
+
+@property (strong, nonatomic) RLMResults *images;
+
 @end
 
 @implementation PicturesViewController
@@ -40,7 +42,6 @@
 #pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     [self.collectionView registerNib:[UINib nibWithNibName:@"PictureCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.emptyDataSetSource = self;
     self.collectionView.emptyDataSetDelegate = self;
