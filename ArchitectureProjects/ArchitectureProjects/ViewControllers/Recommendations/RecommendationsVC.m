@@ -107,7 +107,7 @@
     self.segmentedControl.baseColor = [UIColor app_mainColor];
     self.segmentedControl.segmentBackgroundColor = [UIColor app_secondColor];
     //
-    NSDictionary *textAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:13.0*[Utils deviceKoeff]]};
+    NSDictionary *textAttributes = @{NSFontAttributeName: [UIFont fontWithName:@"Avenir-Heavy" size:10.0*[Utils deviceKoeff]]};
     [self.segmentedControl setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
     
     [self.segmentedControl setControlEventBlock:^(NSInteger index, URBSegmentedControl *segmentedControl) {

@@ -91,12 +91,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.formValues = [@{}mutableCopy];
-    [self prepareImages];
-    
     self.finishFormTableView.delegate = self;
     self.formDataSource = [FormDataSource new];
     self.finishFormTableView.dataSource = self.formDataSource;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.formValues = [@{}mutableCopy];
+    [self prepareImages];
     [self prepareAppearance];
 }
 
@@ -170,48 +174,53 @@
     
 }
 - (IBAction)sendForm:(id)sender {
-    [self.formValues setObject:self.finishFormTextView.text forKey:@"Comments"];
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.formValues options:0 error:nil];
-    NSLog(@"ns data is %@",jsonData);
-    NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    // Create URL for PDF file
-    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filename = @"form.pdf";
-    NSURL *fileURL = [NSURL fileURLWithPathComponents:[NSArray arrayWithObjects:documentsDirectory, filename, nil]];
     
-    // Create PDF context
-    CGContextRef pdfContext = CGPDFContextCreateWithURL((CFURLRef)fileURL, NULL, NULL);
-    CGPDFContextBeginPage(pdfContext, NULL);
-    UIGraphicsPushContext(pdfContext);
+    if ([MFMailComposeViewController canSendMail]) {
+       [self.formValues setObject:self.finishFormTextView.text forKey:@"Comments"];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.formValues options:0 error:nil];
+        NSLog(@"ns data is %@",jsonData);
+        NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        // Create URL for PDF file
+        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filename = @"form.pdf";
+        NSURL *fileURL = [NSURL fileURLWithPathComponents:[NSArray arrayWithObjects:documentsDirectory, filename, nil]];
     
-    // Flip coordinate system
-    CGRect bounds = CGContextGetClipBoundingBox(pdfContext);
-    CGContextScaleCTM(pdfContext, 1.0, -1.0);
-    CGContextTranslateCTM(pdfContext, 0.0, -bounds.size.height);
+        // Create PDF context
+        CGContextRef pdfContext = CGPDFContextCreateWithURL((CFURLRef)fileURL, NULL, NULL);
+        CGPDFContextBeginPage(pdfContext, NULL);
+        UIGraphicsPushContext(pdfContext);
     
-    // Drawing commands
-    [json drawAtPoint:CGPointMake(50, 50) withAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20.0f]}];
-    // Clean up
-    UIGraphicsPopContext();
-    CGPDFContextEndPage(pdfContext);
-    CGPDFContextClose(pdfContext);
+        // Flip coordinate system
+        CGRect bounds = CGContextGetClipBoundingBox(pdfContext);
+        CGContextScaleCTM(pdfContext, 1.0, -1.0);
+        CGContextTranslateCTM(pdfContext, 0.0, -bounds.size.height);
     
-    NSString *emailTitle =  @"Анкета пользователя";
+        // Drawing commands
+        [json drawAtPoint:CGPointMake(50, 50) withAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20.0f]}];
+        // Clean up
+        UIGraphicsPopContext();
+        CGPDFContextEndPage(pdfContext);
+        CGPDFContextClose(pdfContext);
     
-    NSString *messageBody = self.finishFormTextView.text;
+        NSString *emailTitle =  @"Анкета пользователя";
     
-    NSArray *toRecipents = [NSArray arrayWithObject:BASE_EMAIL];
+        NSString *messageBody = self.finishFormTextView.text;
     
-    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+        NSArray *toRecipents = [NSArray arrayWithObject:BASE_EMAIL];
     
-    mc.mailComposeDelegate = self;
-    [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:NO];
-    [mc addAttachmentData:jsonData mimeType:@"application/pdf" fileName:filename];
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     
-    [mc setToRecipients:toRecipents];
+        mc.mailComposeDelegate = self;
+        [mc setSubject:emailTitle];
+        [mc setMessageBody:messageBody isHTML:NO];
+        [mc addAttachmentData:jsonData mimeType:@"application/pdf" fileName:filename];
     
-    [self presentViewController:mc animated:YES completion:NULL];
+        [mc setToRecipients:toRecipents];
+    
+        [self presentViewController:mc animated:YES completion:NULL];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@",BASE_EMAIL]]];
+    }
         
 }
 
@@ -228,7 +237,12 @@
             self.formValues = [@{}mutableCopy];
             [self.formDataSource updateValues:self.formValues];
             [self.finishFormTableView reloadData];
-            [self.tabBarController setSelectedIndex:0];
+            for (UIImageView *imageView in self.checkedImages) {
+                imageView.image = [UIImage imageNamed:@"unchecked"];
+            }
+            
+            [self.tabBarController setSelectedViewController:self.tabBarController.viewControllers.firstObject];
+            [self openPage:0];
             message = NSLocalizedString(@"Mail sent",nil);
             break;
         case MFMailComposeResultFailed:
@@ -284,7 +298,7 @@
     for (UIButton *button in self.buttons) {
         button.layer.cornerRadius = 15;
         button.backgroundColor = [UIColor app_mainColor];
-        button.tintColor = [UIColor app_secondColor];
+        [button setTitleColor:[UIColor app_secondColor] forState:UIControlStateNormal];
     }
     self.sendButton.backgroundColor = [UIColor app_mainColor];
     

@@ -267,8 +267,8 @@
                                                             </constraint>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="этажность(мансардный этаж считается вторым)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCg-6w-icK">
-                                                        <rect key="frame" x="159.5" y="50" width="703.5" height="38.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Этажность (мансардный этаж считается вторым)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCg-6w-icK">
+                                                        <rect key="frame" x="153" y="50" width="717" height="38.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" red="1" green="0.85167152960000003" blue="0.3272337857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -305,7 +305,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="FIt-mt-Grd"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="металлочерепица"/>
+                                                                <state key="normal" title="Металлочерепица"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="TBC-hY-EjF"/>
                                                                 </connections>
@@ -316,7 +316,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="mEu-6H-6DU"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="гибкая черепица"/>
+                                                                <state key="normal" title="Гибкая черепица"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="b4A-A6-jzb"/>
                                                                 </connections>
@@ -327,7 +327,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="sYy-LK-xIx"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="глиняная черепица"/>
+                                                                <state key="normal" title="Глиняная черепица"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="7wf-wl-aAA"/>
                                                                 </connections>
@@ -377,7 +377,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="yg4-lV-H9o"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="подвал под всем домом"/>
+                                                                <state key="normal" title="Подвал под всем домом"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="Kim-tf-xb5"/>
                                                                 </connections>
@@ -388,7 +388,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="FY3-94-cLT"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="подвал  частично"/>
+                                                                <state key="normal" title="Подвал частично"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="PBP-p9-Hvi"/>
                                                                 </connections>
@@ -399,7 +399,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="pe2-CT-KEi"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="без подвала"/>
+                                                                <state key="normal" title="Без подвала"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="Ty6-he-9I0"/>
                                                                 </connections>
@@ -411,8 +411,8 @@
                                                             </constraint>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="наличие подвала" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-55-3Ft">
-                                                        <rect key="frame" x="387.5" y="50" width="248.5" height="38.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наличие подвала" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-55-3Ft">
+                                                        <rect key="frame" x="385" y="50" width="254" height="38.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" red="1" green="0.85167152960000003" blue="0.3272337857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -449,7 +449,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="U8U-d7-nWz"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="блок+утеплитель"/>
+                                                                <state key="normal" title="Блок+утеплитель"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="Twb-Kz-Iek"/>
                                                                 </connections>
@@ -460,7 +460,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="dcw-oY-CiQ"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="блок+утеплитель+кирпич"/>
+                                                                <state key="normal" title="Блок+утеплитель+кирпич"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="aSP-ZD-YCT"/>
                                                                 </connections>
@@ -471,7 +471,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="TVR-QI-MEd"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="деревянный каркас"/>
+                                                                <state key="normal" title="Деревянный каркас"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="wBf-XV-meD"/>
                                                                 </connections>
@@ -482,7 +482,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="9mo-83-7CA"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="сруб из дерева"/>
+                                                                <state key="normal" title="Сруб из дерева"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="hFJ-4L-WNT"/>
                                                                 </connections>
@@ -494,8 +494,8 @@
                                                             </constraint>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="материал наружных стен" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcv-dd-PtR">
-                                                        <rect key="frame" x="329" y="50" width="366" height="38.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Материал наружных стен" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcv-dd-PtR">
+                                                        <rect key="frame" x="326.5" y="50" width="371" height="38.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" red="1" green="0.85167152960000003" blue="0.3272337857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -593,7 +593,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="xCc-VZ-GNf"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="деревянные балки"/>
+                                                                <state key="normal" title="Деревянные балки"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="e10-HH-F7n"/>
                                                                 </connections>
@@ -604,7 +604,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="eFQ-Bm-vj5"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                <state key="normal" title="жб плиты"/>
+                                                                <state key="normal" title="ЖБ плиты"/>
                                                                 <connections>
                                                                     <action selector="answerAction:" destination="HrX-j4-aTF" eventType="touchUpInside" id="aiF-vx-5Ut"/>
                                                                 </connections>

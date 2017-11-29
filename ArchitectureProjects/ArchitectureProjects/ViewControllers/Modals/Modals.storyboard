@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cochin.ttc">
+            <string>Cochin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Simple ModalVC-->
         <scene sceneID="6QZ-Jw-uSF">
@@ -18,14 +24,14 @@
                         <viewControllerLayoutGuide type="bottom" id="Lqg-8a-oIO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Liz-N3-esy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-ei-ds0">
-                                <rect key="frame" x="52" y="268" width="310" height="200"/>
+                                <rect key="frame" x="332" y="284" width="360" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQ3-wH-7ID">
-                                        <rect key="frame" x="0.0" y="160" width="310" height="40"/>
+                                        <rect key="frame" x="0.0" y="160" width="360" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="QxE-Bm-0fJ"/>
                                         </constraints>
@@ -35,13 +41,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-2C-BaI">
-                                        <rect key="frame" x="40" y="100" width="230" height="0.0"/>
+                                        <rect key="frame" x="40" y="100" width="280" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBD-sP-tdh">
-                                        <rect key="frame" x="20" y="20" width="270" height="0.0"/>
+                                        <rect key="frame" x="20" y="20" width="320" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -61,13 +67,14 @@
                                     <constraint firstItem="eBD-sP-tdh" firstAttribute="top" secondItem="fPc-ei-ds0" secondAttribute="top" constant="20" id="aC8-vD-K8j"/>
                                     <constraint firstItem="dFu-2C-BaI" firstAttribute="leading" secondItem="fPc-ei-ds0" secondAttribute="leading" constant="40" id="moU-i5-hdZ"/>
                                     <constraint firstItem="eBD-sP-tdh" firstAttribute="leading" secondItem="fPc-ei-ds0" secondAttribute="leading" constant="20" id="oic-85-Cg6"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="360" id="t3G-fl-IZ3"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.7047755282" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fPc-ei-ds0" firstAttribute="centerX" secondItem="Liz-N3-esy" secondAttribute="centerX" id="2o4-Jn-AW2"/>
-                            <constraint firstItem="fPc-ei-ds0" firstAttribute="width" secondItem="Liz-N3-esy" secondAttribute="width" multiplier="0.75" id="JRb-r9-FJ2"/>
+                            <constraint firstItem="fPc-ei-ds0" firstAttribute="width" secondItem="Liz-N3-esy" secondAttribute="width" multiplier="0.75" priority="750" id="JRb-r9-FJ2"/>
                             <constraint firstItem="fPc-ei-ds0" firstAttribute="centerY" secondItem="Liz-N3-esy" secondAttribute="centerY" id="Nmq-zU-I2q"/>
                         </constraints>
                     </view>
@@ -91,17 +98,17 @@
                         <viewControllerLayoutGuide type="bottom" id="0QJ-QJ-Ehz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YCM-n7-e3E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J4-iZ-KCy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zU3-iT-AMB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5O4-sR-28S">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Ff-nK-bDb">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -125,10 +132,10 @@
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycf-DC-spJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                                                 <subviews>
                                                     <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="isj-41-EWH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYg-Pp-XuN">
@@ -145,7 +152,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3v-tb-d4Q">
-                                                        <rect key="frame" x="364" y="7" width="35" height="35"/>
+                                                        <rect key="frame" x="974" y="7" width="35" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="35" id="M3q-Xb-hYd"/>
                                                             <constraint firstAttribute="height" constant="35" id="hZY-Xu-NXB"/>
@@ -156,7 +163,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="из" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lu3-wQ-oEE">
-                                                        <rect key="frame" x="198" y="14" width="19" height="22"/>
+                                                        <rect key="frame" x="503" y="14" width="19" height="22"/>
                                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -230,11 +237,11 @@
                         <viewControllerLayoutGuide type="bottom" id="b7W-Y9-MRp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xnm-Sd-zjS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFJ-eZ-SfH">
-                                <rect key="frame" x="32" y="268" width="350" height="200"/>
+                                <rect key="frame" x="337" y="284" width="350" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCa-pi-J5M">
                                         <rect key="frame" x="0.0" y="160" width="175" height="40"/>

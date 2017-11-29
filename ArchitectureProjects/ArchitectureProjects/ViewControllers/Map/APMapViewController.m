@@ -41,7 +41,7 @@
     [APLocationManager sharedInstance].locationManagerDelegate = self;
     [SVProgressHUD setContainerView:self.mapView];
     self.navigationController.navigationBar.hidden = YES;
-    [self updateLocationPermissions];
+//    [self updateLocationPermissions];
     self.locationButton.layer.cornerRadius = self.locationButton.frame.size.height / 2;
 }
 
@@ -62,17 +62,24 @@
     if ((self.userLocation.coordinate.latitude != location.coordinate.latitude || self.userLocation.coordinate.longitude != location.coordinate.longitude) && CLLocationCoordinate2DIsValid(self.userLocation.coordinate) && self.isFirstStart) {
         self.userLocation = location;
         [self prepareMapView];
+        
     }
 }
 
 #pragma mark - Private
-- (void)updateLocationPermissions{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([APLocationManager sharedInstance].isAvailable && CLLocationCoordinate2DIsValid(self.userLocation.coordinate) && self.userLocation.coordinate.latitude != 0 && self.userLocation.coordinate.longitude != 0) {
-            [self prepareMapView];
-            [[APLocationManager sharedInstance] startUpdatingLocation];
+- (void)updateLocationPermissions {
+    if ([APLocationManager sharedInstance].isAvailable) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+
             [self.timer invalidate];
             self.timer = nil;
+        });
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([APLocationManager sharedInstance].isAvailable) {
+            [self prepareMapView];
+            [[APLocationManager sharedInstance] startUpdatingLocation];
+            
         }
     });
 }
@@ -143,8 +150,8 @@
                                                              polyline.map = self.mapView;
                                                              polyline.strokeWidth = 4.f;
                                                              polyline.strokeColor = [UIColor app_mainColor];
-                                                             [SVProgressHUD dismissWithDelay:0.5];
                                                          }
+                                                         [SVProgressHUD dismissWithDelay:0.5];
                                                          //                                                         mapStatusLabel.text = @"Drawing route completed";
                                                          
                                                      });
