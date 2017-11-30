@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="64" width="1024" height="655"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTr-n4-MWX" userLabel="HeaderImagesStack">
-                                <rect key="frame" x="0.0" y="69" width="1024" height="40"/>
+                                <rect key="frame" x="0.0" y="64" width="1024" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDq-J1-35U">
                                         <rect key="frame" x="282" y="0.0" width="460" height="40"/>
@@ -112,7 +112,6 @@
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Rfr-eI-fam" firstAttribute="height" secondItem="QDq-J1-35U" secondAttribute="height" id="04w-yP-4Wk"/>
                                             <constraint firstItem="Ecg-tQ-B94" firstAttribute="height" secondItem="dUW-7o-EDM" secondAttribute="height" id="1nf-Y0-ffQ"/>
                                             <constraint firstItem="Gcx-dG-PCr" firstAttribute="height" secondItem="Rfr-eI-fam" secondAttribute="height" id="3mY-rA-yUg"/>
                                             <constraint firstItem="Gz2-bH-hpH" firstAttribute="height" secondItem="dUW-7o-EDM" secondAttribute="height" id="68Q-js-vmR"/>
@@ -124,6 +123,7 @@
                                             <constraint firstItem="9Iv-qd-aHG" firstAttribute="width" secondItem="dUW-7o-EDM" secondAttribute="width" id="N6W-Fx-Lj7"/>
                                             <constraint firstItem="0NQ-Xg-Ewi" firstAttribute="height" secondItem="Rfr-eI-fam" secondAttribute="height" id="ORq-Zb-2sg"/>
                                             <constraint firstItem="KUX-dT-73o" firstAttribute="height" secondItem="Rfr-eI-fam" secondAttribute="height" id="Rn2-lm-Klm"/>
+                                            <constraint firstItem="Rfr-eI-fam" firstAttribute="height" secondItem="QDq-J1-35U" secondAttribute="height" id="XFK-si-JVU"/>
                                             <constraint firstItem="Ecg-tQ-B94" firstAttribute="width" secondItem="dUW-7o-EDM" secondAttribute="width" id="Zn3-LC-2gT"/>
                                             <constraint firstItem="eNp-ig-nrv" firstAttribute="height" secondItem="dUW-7o-EDM" secondAttribute="height" id="bXM-aQ-kWZ"/>
                                             <constraint firstAttribute="height" constant="40" id="cOD-b4-xbl"/>
@@ -138,7 +138,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.52234053938356162" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="QDq-J1-35U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eTr-n4-MWX" secondAttribute="leading" id="J8L-u3-t7a"/>
                                     <constraint firstItem="QDq-J1-35U" firstAttribute="centerY" secondItem="eTr-n4-MWX" secondAttribute="centerY" id="Mv1-tB-mjJ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QDq-J1-35U" secondAttribute="trailing" id="OA1-Rl-iZk"/>
                                     <constraint firstItem="QDq-J1-35U" firstAttribute="centerX" secondItem="eTr-n4-MWX" secondAttribute="centerX" id="gIP-Uh-oo9"/>
                                 </constraints>
                             </view>
@@ -733,10 +735,10 @@
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pQC-2J-wVN" userLabel="EndFormView">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="866"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="610"/>
                                                 <subviews>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4s-yv-ZwH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="530"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="540"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Анкета готова!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T26-3z-bMP">
                                                                 <rect key="frame" x="406" y="20" width="212.5" height="38.5"/>
@@ -875,7 +877,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="H4s-yv-ZwH" secondAttribute="trailing" id="Yal-Zy-UtO"/>
                                                     <constraint firstItem="H4s-yv-ZwH" firstAttribute="leading" secondItem="pQC-2J-wVN" secondAttribute="leading" id="gPX-B8-6nS"/>
                                                     <constraint firstItem="efs-Lz-4TA" firstAttribute="leading" secondItem="pQC-2J-wVN" secondAttribute="leading" id="hCw-dS-xJ9"/>
-                                                    <constraint firstItem="efs-Lz-4TA" firstAttribute="top" secondItem="H4s-yv-ZwH" secondAttribute="bottom" constant="10" id="wEW-4X-wUW"/>
+                                                    <constraint firstItem="efs-Lz-4TA" firstAttribute="top" secondItem="H4s-yv-ZwH" secondAttribute="bottom" id="wEW-4X-wUW"/>
                                                     <constraint firstAttribute="bottom" secondItem="efs-Lz-4TA" secondAttribute="bottom" id="zuR-Kd-m2V"/>
                                                 </constraints>
                                             </view>
@@ -972,7 +974,7 @@
                             <constraint firstItem="J2S-Tj-fa6" firstAttribute="top" secondItem="OeV-HQ-Zrq" secondAttribute="top" id="Ckd-le-mx5"/>
                             <constraint firstItem="6J8-mL-3ya" firstAttribute="width" secondItem="OeV-HQ-Zrq" secondAttribute="width" id="Ie0-Ur-qTS"/>
                             <constraint firstItem="p0Y-Ai-gAT" firstAttribute="bottom" secondItem="OeV-HQ-Zrq" secondAttribute="bottom" id="Jl4-Zm-9rX"/>
-                            <constraint firstItem="eTr-n4-MWX" firstAttribute="top" secondItem="Hwg-J0-dUz" secondAttribute="bottom" constant="5" id="Ned-g5-ZhG"/>
+                            <constraint firstItem="eTr-n4-MWX" firstAttribute="top" secondItem="Hwg-J0-dUz" secondAttribute="bottom" id="Ned-g5-ZhG"/>
                             <constraint firstItem="SpZ-1c-88q" firstAttribute="top" secondItem="Hwg-J0-dUz" secondAttribute="bottom" constant="45" id="PS3-m5-sGv"/>
                             <constraint firstItem="HZZ-85-X3D" firstAttribute="width" secondItem="OeV-HQ-Zrq" secondAttribute="width" id="Pod-eq-tjq"/>
                             <constraint firstItem="7WT-mF-oJA" firstAttribute="bottom" secondItem="OeV-HQ-Zrq" secondAttribute="bottom" id="QQ6-yD-P83"/>
@@ -987,7 +989,7 @@
                             <constraint firstItem="eTr-n4-MWX" firstAttribute="leading" secondItem="aIz-jY-vdA" secondAttribute="leading" id="Zna-Tl-fSP"/>
                             <constraint firstItem="7cE-yI-9KO" firstAttribute="top" secondItem="OeV-HQ-Zrq" secondAttribute="top" id="aDn-vk-HJf"/>
                             <constraint firstItem="HZZ-85-X3D" firstAttribute="bottom" secondItem="OeV-HQ-Zrq" secondAttribute="bottom" id="b5g-bc-0gF"/>
-                            <constraint firstItem="SpZ-1c-88q" firstAttribute="top" secondItem="eTr-n4-MWX" secondAttribute="bottom" id="dDK-3m-mpO"/>
+                            <constraint firstItem="SpZ-1c-88q" firstAttribute="top" secondItem="eTr-n4-MWX" secondAttribute="bottom" constant="5" id="dDK-3m-mpO"/>
                             <constraint firstItem="OeV-HQ-Zrq" firstAttribute="top" secondItem="Hwg-J0-dUz" secondAttribute="bottom" id="e7z-0N-HdH"/>
                             <constraint firstItem="sTv-fe-jfl" firstAttribute="bottom" secondItem="OeV-HQ-Zrq" secondAttribute="bottom" id="eED-5G-BkC"/>
                             <constraint firstItem="5ba-zO-t8K" firstAttribute="centerX" secondItem="aIz-jY-vdA" secondAttribute="centerX" id="f7u-Hu-3Vl"/>
@@ -1448,41 +1450,12 @@
                         <outlet property="collectionView" destination="G2d-f9-ohw" id="XJ3-9U-sqm"/>
                         <outlet property="dropMenuView" destination="ZSp-9I-2JJ" id="rPR-VQ-4qg"/>
                         <outlet property="dropMenuViewTopConstraint" destination="YX9-v9-0cU" id="YdN-Ld-9M5"/>
-                        <segue destination="Nu9-7t-MuK" kind="show" identifier="FilterSegue" id="h7o-3O-uOV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUN-QJ-1Wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ktz-1w-sL5"/>
             </objects>
             <point key="canvasLocation" x="356" y="-753.37331334332839"/>
-        </scene>
-        <!--Filter Table View Controller-->
-        <scene sceneID="Qtc-DG-5eQ">
-            <objects>
-                <tableViewController id="Nu9-7t-MuK" customClass="FilterTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xbo-RL-KRm">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="719"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1vn-zx-Zlk">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1vn-zx-Zlk" id="VTX-YX-ZSs">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Nu9-7t-MuK" id="Zff-5d-rys"/>
-                            <outlet property="delegate" destination="Nu9-7t-MuK" id="SgT-63-e6Y"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eE7-vC-oc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1174" y="-755"/>
         </scene>
         <!--Empty Data Set Delegate-->
         <scene sceneID="t5H-ov-CSa">

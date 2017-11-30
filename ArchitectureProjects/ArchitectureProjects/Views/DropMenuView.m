@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *areaMinTF;
 @property (weak, nonatomic) IBOutlet UILabel *areaBeforeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *areaMaxTF;
+@property (weak, nonatomic) IBOutlet UIButton *resetFilterButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *helpLabel;
 @property (weak, nonatomic) IBOutlet UIView *backView;
@@ -65,6 +66,8 @@
     [self.garageButton setImage:[UIImage imageNamed:@"unchecked-icon"] forState:UIControlStateNormal];
     [self.garageButton setImage:[UIImage imageNamed:@"checked-icon"] forState:UIControlStateSelected];
     [self.filterButton setTitle:NSLocalizedString(@"dropmenu_filter",nil) forState:UIControlStateNormal];
+    [self.resetFilterButton setTitle:NSLocalizedString(@"dropmenu_reset_filter",nil) forState:UIControlStateNormal];
+
     self.garageLabel.text = NSLocalizedString(@"dropmenu_garage", nil);
     self.floorLabel.text = NSLocalizedString(@"dropmenu_floors", nil);
     self.areaLabel.text = NSLocalizedString(@"dropmenu_area", nil);
@@ -77,7 +80,9 @@
     self.floorLabel.font = FONT(FTCochin, 17);
     self.areaBeforeLabel.font = FONT(FTCochin, 17);
     self.filterButton.titleLabel.font = FONT(FTCochin, 19);
-
+    
+    self.resetFilterButton.layer.cornerRadius = self.resetFilterButton.frame.size.height / 2;
+    [self.resetFilterButton setTintColor:[UIColor whiteColor]];
 }
 
 #pragma mark - Override Properties
@@ -91,6 +96,7 @@
     self.areaBeforeLabel.textColor = textColor;
     self.filterButton.backgroundColor = textColor;
     self.garageButton.tintColor = textColor;
+    self.resetFilterButton.backgroundColor = textColor;
 
     self.areaMaxTF.backgroundColor = textColor;
     self.areaMinTF.backgroundColor = textColor;
@@ -118,6 +124,15 @@
 }
 - (IBAction)garageTouched:(id)sender {
     self.garageButton.selected = !self.garageButton.selected;
+}
+- (IBAction)resetFilter:(id)sender {
+    self.filterSettings = [@{}mutableCopy];
+    [self.garageButton setSelected:NO];
+    self.floorSlider.value = self.floorSlider.minimumValue;
+    self.areaMinTF.text = @"";
+    self.areaMaxTF.text = @"";
+    self.floorValueLabel.text = @"";
+    [self.delegate resetFilterTouched];
 }
 
 - (IBAction)sliderValueChanged:(id)sender {

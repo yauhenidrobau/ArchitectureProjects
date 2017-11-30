@@ -177,8 +177,14 @@
 }
 
 - (void)filterTouched:(NSDictionary *)settings {
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"garage = %@ AND (totalArea >= %@ AND totalArea <= %@) AND floors = %@", settings[@"garageSettings"], settings[@"areaMinValue"], settings[@"areaMaxValue"], settings[@"floorSettings"]];
     self.projects = [[[APRealmManager sharedInstance] RLMResultsToArray:[APProjectObject allObjects]] filteredArrayUsingPredicate:predicate];
+    [self.collectionView reloadData];
+}
+
+- (void)resetFilterTouched {
+    self.projects = [[APRealmManager sharedInstance] RLMResultsToArray:[APProjectObject allObjects]];
     [self.collectionView reloadData];
 }
 
@@ -244,7 +250,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.collectionView reloadData];
                     [self.refreshControl endRefreshing];
-                    [SVProgressHUD showSuccessWithStatus:@"Loaded"];
+                    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"common.loaded", nil)];
                     [SVProgressHUD dismissWithDelay:0.5];
                 });
             } else if (![APNetworkHelper isInternetConnected]){

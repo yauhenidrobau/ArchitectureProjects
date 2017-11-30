@@ -72,7 +72,7 @@
     self.recLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Recommendations: %d",nil),self.recommendations.count];
     [self.tableView reloadData];
     if ([Utils isInternetConnectionAvailable]) {
-//        [SVProgressHUD show];
+        [SVProgressHUD show];
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     //    STRONG(self);
@@ -86,8 +86,8 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
               //      STRONG(self)
                     [self.tableView reloadData];
-//                    [SVProgressHUD showSuccessWithStatus:@"Loaded"];
-//                    [SVProgressHUD dismissWithDelay:0.5];
+                    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"common.loaded", nil)];
+                    [SVProgressHUD dismissWithDelay:0.5];
                 });
             } else if (![APNetworkHelper isInternetConnected]){
                 [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];

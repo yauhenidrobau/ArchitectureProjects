@@ -17,5 +17,7 @@
 +(NSArray*)imagesFromImagesObject:(APProjectObject*)object;
 +(BOOL)isInternetConnectionAvailable;
 + (CGFloat)deviceKoeff;
++ (NSString *)mimeTypeForData:(NSData *)data;
+
 +(BOOL)firstimage:(UIImage *)image1 isEqualTo:(UIImage *)image2;
 @end

@@ -13,7 +13,7 @@
 "Mail saved" = "Письмо сохранено, не забудьте потом его отправить нам.";
 "Mail sent" = "Письмо отправлено, мы Вам скоро ответим.";
 "Mail sent failure" = "Ошибка отправки";
-
+"common.loaded" = "Загружено";
 "Recommendations: %d" = "Советов: %d";
 
 // Tabbar
@@ -63,6 +63,7 @@
 "dropmenu_garage" = "Наличие гаража";
 "dropmenu_floors" = "Количество этажей";
 "dropmenu_area" = "Площадь";
+"dropmenu_reset_filter" = "Сброс";
 
 // Pictures
 "pictures.chooseImage" = "Открыть галерею";

@@ -336,8 +336,8 @@
 				6EB4D8341F78D86800368A20 /* Views */,
 				1E058ACF1ECB3ADD00C0A0A8 /* ViewControllers */,
 				1E058AE11ECB3ADD00C0A0A8 /* Utils */,
-				1E058AE71ECB3ADD00C0A0A8 /* Storyboards */,
 				1E058AEC1ECB3ADD00C0A0A8 /* Model */,
+				1E058AE71ECB3ADD00C0A0A8 /* Storyboards */,
 				6E645D641FBDB521005BBE37 /* Resources */,
 				1E058ABB1ECB3A2B00C0A0A8 /* AppDelegate.h */,
 				1E058ABC1ECB3A2B00C0A0A8 /* AppDelegate.m */,
@@ -1228,8 +1228,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobov.ArchitectureProjects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3dd73f41-5a94-4325-be79-4ec24e5d5de1";
-				PROVISIONING_PROFILE_SPECIFIER = "ArchitectureProjects Dev";
+				PROVISIONING_PROFILE = "70ea1079-8bbe-452b-834e-a2f067a6dd7d";
+				PROVISIONING_PROFILE_SPECIFIER = "com.drobov.ArchitectureProjects Dev";
 				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

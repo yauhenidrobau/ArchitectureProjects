@@ -19,6 +19,7 @@ typedef enum  {
 
 - (void)changeMenuYPosition:(CGFloat)newY animated:(BOOL)animated;
 - (void)filterTouched:(NSDictionary*)settings;
+- (void)resetFilterTouched;
 
 @end
 

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *smallImage3;
 @property (weak, nonatomic) IBOutlet CSAnimationView *view;
 @property (strong, nonatomic) NSArray *images;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -44,6 +45,8 @@
 
 -(void)updateCellWithProject:(APProjectObject *)project {
     [self.view startCanvasAnimation];
+    self.nameLabel.text = project.name;
+    
     for (NSInteger i = 0; i < self.images.count; i++) {
         
         

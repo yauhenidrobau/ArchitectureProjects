@@ -20,7 +20,7 @@
 - (APUser*)getUser;
 
 - (void)saveUserImage:(UIImage*)image;
-- (NSArray*)getUserImages;
+- (void)getUserImagesWithCallback:(RealmDataManagerGetobjectsCallback)callback;
 
 - (void)saveToProject:(NSDictionary*)projectDict withCallback:(RealmDataManagerSaveCallback)callback;
 - (void)saveToRecommendations:(NSDictionary*)recommendationsDict withCallback:(RealmDataManagerSaveCallback)callback;

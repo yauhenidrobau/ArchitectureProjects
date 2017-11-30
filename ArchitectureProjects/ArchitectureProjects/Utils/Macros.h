@@ -32,8 +32,8 @@ _Pragma("clang diagnostic pop") \
 #define NN_NETWORK_STATE_OFFLINE @"NN_NETWORK_STATE_OFFLINE"
 
 
-#define BASE_EMAIL @"proektydomow@mail.ru"
-//#define BASE_EMAIL @"zheka-88_94@mail.ru"
+//#define BASE_EMAIL @"proektydomow@mail.ru"
+#define BASE_EMAIL @"zheka-88_94@mail.ru"
 
 #define VK_URL @"https://vk.com/architectureidesign"
 #define INSTAGRAM_URL @"https://www.instagram.com/proektydomow/"
@@ -66,3 +66,6 @@ typedef enum {
 
 typedef void(^RealmDataManagerSaveCallback)(NSError *error);
 typedef void(^APUserManagerLoginCompletion)(NSError *error);
+typedef void(^RealmDataManagerGetobjectsCallback)(NSArray *objects, NSError *error);
+typedef void(^RealmDataManagerGetobjectCallback)(NSObject *object, NSError *error);
+

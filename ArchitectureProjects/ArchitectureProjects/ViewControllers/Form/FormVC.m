@@ -94,14 +94,16 @@
     self.finishFormTableView.delegate = self;
     self.formDataSource = [FormDataSource new];
     self.finishFormTableView.dataSource = self.formDataSource;
+    
+    self.formValues = [@{}mutableCopy];
+    [self prepareImages];
+    [self prepareAppearance];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.formValues = [@{}mutableCopy];
-    [self prepareImages];
-    [self prepareAppearance];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -176,35 +178,14 @@
 - (IBAction)sendForm:(id)sender {
     
     if ([MFMailComposeViewController canSendMail]) {
-       [self.formValues setObject:self.finishFormTextView.text forKey:@"Comments"];
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.formValues options:0 error:nil];
-        NSLog(@"ns data is %@",jsonData);
-        NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        // Create URL for PDF file
-        NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *filename = @"form.pdf";
-        NSURL *fileURL = [NSURL fileURLWithPathComponents:[NSArray arrayWithObjects:documentsDirectory, filename, nil]];
-    
-        // Create PDF context
-        CGContextRef pdfContext = CGPDFContextCreateWithURL((CFURLRef)fileURL, NULL, NULL);
-        CGPDFContextBeginPage(pdfContext, NULL);
-        UIGraphicsPushContext(pdfContext);
-    
-        // Flip coordinate system
-        CGRect bounds = CGContextGetClipBoundingBox(pdfContext);
-        CGContextScaleCTM(pdfContext, 1.0, -1.0);
-        CGContextTranslateCTM(pdfContext, 0.0, -bounds.size.height);
-    
-        // Drawing commands
-        [json drawAtPoint:CGPointMake(50, 50) withAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20.0f]}];
-        // Clean up
-        UIGraphicsPopContext();
-        CGPDFContextEndPage(pdfContext);
-        CGPDFContextClose(pdfContext);
-    
+//       [self.formValues setObject:self.finishFormTextView.text forKey:@"Комментарии"];
+        NSString *stringToSend = @"";
+        for (NSString *key in self.formValues) {
+            stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n",key,self.formValues[key]]];
+        }
+        stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"\n\n%@ : %@ \n",@"Комментарии",self.finishFormTextView.text]];
+
         NSString *emailTitle =  @"Анкета пользователя";
-    
-        NSString *messageBody = self.finishFormTextView.text;
     
         NSArray *toRecipents = [NSArray arrayWithObject:BASE_EMAIL];
     
@@ -212,8 +193,7 @@
     
         mc.mailComposeDelegate = self;
         [mc setSubject:emailTitle];
-        [mc setMessageBody:messageBody isHTML:NO];
-        [mc addAttachmentData:jsonData mimeType:@"application/pdf" fileName:filename];
+        [mc setMessageBody:stringToSend isHTML:NO];
     
         [mc setToRecipients:toRecipents];
     
@@ -323,8 +303,9 @@
             self.headerCheckStackViewHeight.constant = 40;
         }
     }
-    [self.view layoutIfNeeded];
+    [self.headerCheckStackView updateConstraintsIfNeeded];
 }
+
 - (void)prepareImages {
     for (UIImageView *imageView in self.images) {
         imageView.image = [UIImage imageNamed:@"form-background"];
