@@ -96,6 +96,7 @@
 		6E6928361F7BA81800E83306 /* PictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6928341F7BA81800E83306 /* PictureCollectionViewCell.xib */; };
 		6E6E7FE91FCC07ED0026554A /* FormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E7FE81FCC07ED0026554A /* FormDataSource.m */; };
 		6E6E7FEC1FCC09BC0026554A /* FormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E7FEB1FCC09BC0026554A /* FormCell.m */; };
+		6E7ADE291FD00FE800168479 /* SimpleModalTextFiledsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7ADE281FD00FE800168479 /* SimpleModalTextFiledsVC.m */; };
 		6E7B43541F43392100703EE1 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B111EDCC800004DEB1C /* ModalViewController.m */; };
 		6E7B43551F43392400703EE1 /* SimpleModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B151EDCC800004DEB1C /* SimpleModalVC.m */; };
 		6E7B43561F43392600703EE1 /* SimpleYesNoModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A0B171EDCC800004DEB1C /* SimpleYesNoModalVC.m */; };
@@ -106,6 +107,9 @@
 		6E81176D1FCD56450025F174 /* DesignObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E81176C1FCD56450025F174 /* DesignObject.m */; };
 		6E8117711FCD58DC0025F174 /* DesignRecommendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E81176F1FCD58DC0025F174 /* DesignRecommendsCell.m */; };
 		6E8117721FCD58DC0025F174 /* DesignRecommendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8117701FCD58DC0025F174 /* DesignRecommendsCell.xib */; };
+		6E8466E01FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8466DF1FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.m */; };
+		6E8466E31FDA8D8800EC60BA /* ProjectsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8466E21FDA8D8800EC60BA /* ProjectsDataSource.m */; };
+		6E8466E61FDEAFEB00EC60BA /* CircularCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8466E51FDEAFEA00EC60BA /* CircularCollectionViewLayout.swift */; };
 		6EB4D8371F78D89800368A20 /* DropMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4D8361F78D89800368A20 /* DropMenuView.m */; };
 		6EB4D8391F78D8A600368A20 /* DropMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB4D8381F78D8A600368A20 /* DropMenuView.xib */; };
 		6EB4D83C1F78DC7D00368A20 /* UIImageView+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4D83B1F78DC7D00368A20 /* UIImageView+Rotation.m */; };
@@ -267,6 +271,8 @@
 		6E6E7FE81FCC07ED0026554A /* FormDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormDataSource.m; sourceTree = "<group>"; };
 		6E6E7FEA1FCC09BC0026554A /* FormCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormCell.h; sourceTree = "<group>"; };
 		6E6E7FEB1FCC09BC0026554A /* FormCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormCell.m; sourceTree = "<group>"; };
+		6E7ADE271FD00FE800168479 /* SimpleModalTextFiledsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleModalTextFiledsVC.h; sourceTree = "<group>"; };
+		6E7ADE281FD00FE800168479 /* SimpleModalTextFiledsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleModalTextFiledsVC.m; sourceTree = "<group>"; };
 		6E7B43511F43340B00703EE1 /* ModalCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalCollectionVC.h; sourceTree = "<group>"; };
 		6E7B43521F43340B00703EE1 /* ModalCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalCollectionVC.m; sourceTree = "<group>"; };
 		6E7B43591F4351DC00703EE1 /* APModalCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APModalCollectionViewCell.h; sourceTree = "<group>"; };
@@ -277,6 +283,12 @@
 		6E81176E1FCD58DC0025F174 /* DesignRecommendsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignRecommendsCell.h; sourceTree = "<group>"; };
 		6E81176F1FCD58DC0025F174 /* DesignRecommendsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignRecommendsCell.m; sourceTree = "<group>"; };
 		6E8117701FCD58DC0025F174 /* DesignRecommendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignRecommendsCell.xib; sourceTree = "<group>"; };
+		6E8466DE1FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleModalTextFiledsWithCollectionVC.h; sourceTree = "<group>"; };
+		6E8466DF1FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleModalTextFiledsWithCollectionVC.m; sourceTree = "<group>"; };
+		6E8466E11FDA8D8800EC60BA /* ProjectsDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectsDataSource.h; sourceTree = "<group>"; };
+		6E8466E21FDA8D8800EC60BA /* ProjectsDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectsDataSource.m; sourceTree = "<group>"; };
+		6E8466E41FDEAFEA00EC60BA /* ArchitectureProjects-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArchitectureProjects-Bridging-Header.h"; sourceTree = "<group>"; };
+		6E8466E51FDEAFEA00EC60BA /* CircularCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewLayout.swift; sourceTree = "<group>"; };
 		6EB4D8351F78D89800368A20 /* DropMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropMenuView.h; sourceTree = "<group>"; };
 		6EB4D8361F78D89800368A20 /* DropMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropMenuView.m; sourceTree = "<group>"; };
 		6EB4D8381F78D8A600368A20 /* DropMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropMenuView.xib; sourceTree = "<group>"; };
@@ -331,13 +343,14 @@
 		1E058AB71ECB3A2A00C0A0A8 /* ArchitectureProjects */ = {
 			isa = PBXGroup;
 			children = (
+				6E8466E41FDEAFEA00EC60BA /* ArchitectureProjects-Bridging-Header.h */,
 				6EF30C881F39C20E00E60759 /* ThirdParty */,
 				6E239B981F3075EF00B84B30 /* Helpers */,
+				1E058AEC1ECB3ADD00C0A0A8 /* Model */,
 				6EB4D8341F78D86800368A20 /* Views */,
 				1E058ACF1ECB3ADD00C0A0A8 /* ViewControllers */,
-				1E058AE11ECB3ADD00C0A0A8 /* Utils */,
-				1E058AEC1ECB3ADD00C0A0A8 /* Model */,
 				1E058AE71ECB3ADD00C0A0A8 /* Storyboards */,
+				1E058AE11ECB3ADD00C0A0A8 /* Utils */,
 				6E645D641FBDB521005BBE37 /* Resources */,
 				1E058ABB1ECB3A2B00C0A0A8 /* AppDelegate.h */,
 				1E058ABC1ECB3A2B00C0A0A8 /* AppDelegate.m */,
@@ -427,6 +440,7 @@
 		1E058AFC1ECB3BCD00C0A0A8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6E8466E51FDEAFEA00EC60BA /* CircularCollectionViewLayout.swift */,
 				1E2571E51ECB72A400C6107D /* ProjectCell */,
 				1E058AFD1ECB3BF000C0A0A8 /* APMainViewController.h */,
 				1E058AFE1ECB3BF000C0A0A8 /* APMainViewController.m */,
@@ -661,6 +675,10 @@
 				1E5A0B151EDCC800004DEB1C /* SimpleModalVC.m */,
 				1E5A0B161EDCC800004DEB1C /* SimpleYesNoModalVC.h */,
 				1E5A0B171EDCC800004DEB1C /* SimpleYesNoModalVC.m */,
+				6E7ADE271FD00FE800168479 /* SimpleModalTextFiledsVC.h */,
+				6E7ADE281FD00FE800168479 /* SimpleModalTextFiledsVC.m */,
+				6E8466DE1FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.h */,
+				6E8466DF1FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.m */,
 				6E7B43511F43340B00703EE1 /* ModalCollectionVC.h */,
 				6E7B43521F43340B00703EE1 /* ModalCollectionVC.m */,
 				6E7B43591F4351DC00703EE1 /* APModalCollectionViewCell.h */,
@@ -694,6 +712,8 @@
 				6E239B9A1F30761700B84B30 /* APTabBarViewController.m */,
 				6EEA733C1F42F1D1000EA52E /* APLocationManager.h */,
 				6EEA733D1F42F1D1000EA52E /* APLocationManager.m */,
+				6E8466E11FDA8D8800EC60BA /* ProjectsDataSource.h */,
+				6E8466E21FDA8D8800EC60BA /* ProjectsDataSource.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -891,7 +911,7 @@
 					1E058AB41ECB3A2A00C0A0A8 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = M2W7A5AWJY;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -998,7 +1018,6 @@
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1051,6 +1070,7 @@
 			files = (
 				6EB4D83C1F78DC7D00368A20 /* UIImageView+Rotation.m in Sources */,
 				1E5A0AE41EDCB351004DEB1C /* APStartViewController.m in Sources */,
+				6E8466E61FDEAFEB00EC60BA /* CircularCollectionViewLayout.swift in Sources */,
 				6E8117711FCD58DC0025F174 /* DesignRecommendsCell.m in Sources */,
 				1E285FAF1EDBFE0D0090F899 /* APProjectManager.m in Sources */,
 				1E5A0ADE1EDCB0F8004DEB1C /* APMenuTableViewCell.m in Sources */,
@@ -1085,6 +1105,7 @@
 				1E285FB71EDC01EA0090F899 /* APRealmManager.m in Sources */,
 				6E239B9B1F30761700B84B30 /* APTabBarViewController.m in Sources */,
 				1E34DDAB1EDE119B005CE73C /* UIAlertController+AP.m in Sources */,
+				6E8466E31FDA8D8800EC60BA /* ProjectsDataSource.m in Sources */,
 				6E6928351F7BA81800E83306 /* PictureCollectionViewCell.m in Sources */,
 				1E5A0ADB1EDCAD1D004DEB1C /* APMenuViewController.m in Sources */,
 				6EB4D8371F78D89800368A20 /* DropMenuView.m in Sources */,
@@ -1099,7 +1120,9 @@
 				6E81176D1FCD56450025F174 /* DesignObject.m in Sources */,
 				6EED5FFB1F438551007FB771 /* UIColor+App.m in Sources */,
 				1E5A0B081EDCB856004DEB1C /* APQuestionViewController.m in Sources */,
+				6E7ADE291FD00FE800168479 /* SimpleModalTextFiledsVC.m in Sources */,
 				6E5E337B1F7A32B5002BF588 /* PicturesViewController.m in Sources */,
+				6E8466E01FDA8B8400EC60BA /* SimpleModalTextFiledsWithCollectionVC.m in Sources */,
 				6E5DCD2B1FBED127002D21DD /* RecommendationsManager.m in Sources */,
 				1E2571E81ECB72C900C6107D /* APProjectCollectionViewCell.m in Sources */,
 				6E5DCD2E1FBED1BE002D21DD /* RecommendationObject.m in Sources */,
@@ -1214,8 +1237,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M2W7A5AWJY;
 				INFOPLIST_FILE = "$(SRCROOT)/ArchitectureProjects/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1230,6 +1255,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "70ea1079-8bbe-452b-834e-a2f067a6dd7d";
 				PROVISIONING_PROFILE_SPECIFIER = "com.drobov.ArchitectureProjects Dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/ArchitectureProjects/ArchitectureProjects-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -1241,8 +1268,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M2W7A5AWJY;
 				INFOPLIST_FILE = "$(SRCROOT)/ArchitectureProjects/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1257,6 +1286,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1e88ac2f-67d2-4326-8636-a4f279ef846f";
 				PROVISIONING_PROFILE_SPECIFIER = "ArchitectureProjects Adhoc";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/ArchitectureProjects/ArchitectureProjects-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

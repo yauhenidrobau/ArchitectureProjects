@@ -21,7 +21,7 @@
 #import "APUserManager.h"
 #import "UIAlertController+AP.h"
 #import "APConstants.h"
-#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
 #import "APLocationManager.h"
 #import "UIColor+App.h"
 
@@ -70,13 +70,6 @@
      */
     [GMSServices provideAPIKey:GOOGLE_MAPS_API_KEY];
     [GMSPlacesClient provideAPIKey:GOOGLE_MAPS_API_KEY];
-
-    /*
-     SVProgressHUD
-     */
-    [SVProgressHUD setDefaultAnimationType:SVProgressHUDAnimationTypeNative];
-    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showOfflineAlert) name:NN_NETWORK_STATE_OFFLINE object:nil];
 

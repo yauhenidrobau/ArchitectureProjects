@@ -4,6 +4,8 @@
 
 #import "SimpleModalVC.h"
 
+#import "UIColor+App.h"
+
 @interface SimpleModalVC ()
 
 @property (weak, nonatomic) IBOutlet UIView *modalView;
@@ -23,13 +25,16 @@
 
     self.titleLabel.text = self.modalTitle;
     self.messageLabel.text = self.modalMessage;
+    self.titleLabel.textColor = [UIColor app_secondColor];
+    self.messageLabel.textColor = [UIColor app_secondColor];
 
-//    self.modalView.layer.borderWidth = 2;
+
+    self.modalView.backgroundColor = [UIColor app_mainColor];
     self.modalView.layer.cornerRadius = 15;
 
-    self.modalView.layer.borderColor = [UIColor blackColor].CGColor;
-    self.titleLabel.textColor = [UIColor blackColor];
-    self.okButton.tintColor = [UIColor blueColor];
+    self.okButton.tintColor = [UIColor app_secondColor];
+    self.okButton.backgroundColor = [UIColor app_mainColor];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {

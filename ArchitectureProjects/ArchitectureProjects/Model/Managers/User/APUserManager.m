@@ -21,7 +21,7 @@ SINGLETON(APUserManager)
 #pragma mark - Override Proerties
 - (BOOL)isUserAuthorised {
     NSString *email = [[APKeychainManager sharedInstance] storedEmail];
-    return (email.length && [[APRealmManager sharedInstance]getUser]);
+    return email.length;
 }
 
 #pragma mark - Public

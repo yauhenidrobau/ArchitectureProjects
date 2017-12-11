@@ -15,6 +15,7 @@
 "Mail sent failure" = "Ошибка отправки";
 "common.loaded" = "Загружено";
 "Recommendations: %d" = "Советов: %d";
+"common.send" = "Отправить";
 
 // Tabbar
 "Projects" = "Проекты";

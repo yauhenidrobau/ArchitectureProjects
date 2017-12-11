@@ -11,6 +11,7 @@
 #import "Macros.h"
 #import "FontHelper.h"
 #import "Utils.h"
+#import "UIColor+App.h"
 
 @interface FormCell()
 
@@ -27,7 +28,7 @@
     
     self.cellTitleLabel.font = FONT(FTCochin,16*[Utils deviceKoeff]);
     self.cellValueLabel.font = FONT(FTCochin,16*[Utils deviceKoeff]);
-
+    self.backgroundColor = [UIColor app_mainColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

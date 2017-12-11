@@ -11,7 +11,7 @@
 #import "DesignRecommendsCell.h"
 #import "APUserManager.h"
 #import "Utils.h"
-#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
 #import "RecommendationsManager.h"
 #import "APNetworkHelper.h"
 #import "DesignObject.h"
@@ -72,30 +72,33 @@
 
 -(void)loadProjects {
     
-    self.recommendations = [[RecommendationsManager sharedInstance] cachedDesignRecommendations];
-    [self.tableView reloadData];
-    if ([Utils isInternetConnectionAvailable]) {
-        //        [SVProgressHUD show];
-    }
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        //    STRONG(self);
-        WEAK(self)
-        
-        [[RecommendationsManager sharedInstance] loadDesignRecommendationsWithCompletion:^(NSArray *objects, BOOL finished, NSError *error) {
+    [[APRealmManager sharedInstance] cachedDesignRecommendationsWithCallback:^(NSArray *objects, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.recommendations = objects;
+            [self.tableView reloadData];
+        });
+        if ([Utils isInternetConnectionAvailable]) {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             //    STRONG(self);
-            if (finished && [APNetworkHelper isInternetConnected]) {
-                self.recommendations = objects;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //      STRONG(self)
-                    [self.tableView reloadData];
-                    //                    [SVProgressHUD showSuccessWithStatus:@"Loaded"];
-                    //                    [SVProgressHUD dismissWithDelay:0.5];
-                });
-            } else if (![APNetworkHelper isInternetConnected]){
-                [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
-            }
-        }];
-    });
+            WEAK(self)
+            
+            [[RecommendationsManager sharedInstance] loadDesignRecommendationsWithCompletion:^(NSArray *objects, BOOL finished, NSError *error) {
+                    STRONG(self);
+                if (finished && [APNetworkHelper isInternetConnected]) {
+                    self.recommendations = objects;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //      STRONG(self)
+                        [self.tableView reloadData];
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    });
+                } else if (![APNetworkHelper isInternetConnected]){
+                    [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
+                }
+            }];
+        });
+    }];
 }
 
 @end

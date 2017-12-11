@@ -21,15 +21,16 @@
 #import "APUserManager.h"
 #import "APNetworkHelper.h"
 #import "Utils.h"
-#import <SVProgressHUD/SVProgressHUD.h>
+#import <MBProgressHUD.h>
 #import "UIViewController+ShowModal.h"
 #import "ModalCollectionVC.h"
 #import "DropMenuView.h"
 #import "FilterTableViewController.h"
 #import "UIColor+App.h"
+#import "ProjectsDataSource.h"
 
 #define APMainViewControllerFilterSegue @"FilterSegue"
-@interface APMainViewController () <UICollectionViewDelegate, UICollectionViewDataSource, DropMenuDelegate>
+@interface APMainViewController () <DropMenuDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
@@ -41,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet DropMenuView *dropMenuView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropMenuViewTopConstraint;
 
+@property (strong, nonatomic) ProjectsDataSource *projectsDataSource;
 @end
 
 @implementation APMainViewController
@@ -51,10 +53,10 @@
     self.dropMenuView.delegate = self;
     self.dropMenuView.superTopConstant = self.dropMenuViewTopConstraint.constant;
     
+    [self prepareDataSource];
     [self prepareCollectionView];
     [self prepareAppearance];
     
-    [self.navigationController.navigationItem setTitle:@"Kee"];
     [self loadData];
 }
 
@@ -66,23 +68,7 @@
 #pragma mark - IBActions
 
 -(void)pullToRefresh {
-    [self loadProjects];
-}
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.projects.count;
-}
-
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    APProjectCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    [cell updateCellWithProject:self.projects[indexPath.row]];
-    return cell;
+    [self.projectsDataSource loadProjects];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,16 +89,6 @@
 //    [self performSegueWithIdentifier:@"ProjectDetailSegue" sender:[self.collectionView cellForItemAtIndexPath:indexPath]];
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"ProjectDetailSegue"]) {
-//       APProjectDetailsViewController *vc = segue.destinationViewController;
-//        APProjectObject *object = self.projects[[self.collectionView indexPathForCell:sender].row];
-//        vc.projectObject = object;
-//    }
-//}
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [self.collectionView reloadData];
-}
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
@@ -142,30 +118,16 @@
     return CGSizeMake(0, 0);
 }
 
-#pragma mark - ScrollViewDelegate
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    scrollView = self.collectionView;
-    _currentOffset = self.collectionView.contentOffset.y;
-    
-}
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    
-//    CGFloat scrollPos = self.collectionView.contentOffset.y ;
-//    
-//    if(scrollPos < 65 && self.navigationController.isNavigationBarHidden){
-//        //Fully hide your toolbar
-////            [UIView animateWithDuration:1 animations:^{
-//                [self.navigationController setNavigationBarHidden:NO animated:YES];
-////            }];
-//    } else {
-//        if (scrollPos > 65 && !self.navigationController.isNavigationBarHidden) {
-//            //Slide it up incrementally, etc.
-//            [self.navigationController setNavigationBarHidden:YES animated:YES];
-//        }
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([segue.identifier isEqualToString:@"ProjectDetailSegue"]) {
+//       APProjectDetailsViewController *vc = segue.destinationViewController;
+//        APProjectObject *object = self.projects[[self.collectionView indexPathForCell:sender].row];
+//        vc.projectObject = object;
 //    }
+//}
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self.collectionView reloadData];
 }
 
 #pragma mark - DropMenuDelegate
@@ -188,7 +150,7 @@
     [self.collectionView reloadData];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSNumber*)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSNumber*)sender {
     if ([segue.identifier isEqualToString:APMainViewControllerFilterSegue]) {
         FilterTableViewController *vc = segue.destinationViewController;
         if (sender.integerValue == FilterFloorOption) {
@@ -200,19 +162,42 @@
 }
 #pragma mark - Private
 
--(void)prepareCollectionView {
+- (void)prepareCollectionView {
     [self.collectionView registerNib:[UINib nibWithNibName:@"APProjectCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"Cell"];
     // Configure layout
-    self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
-//    [self.flowLayout setItemSize:CGSizeMake(191, 160)];
-    [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    self.flowLayout.minimumInteritemSpacing = 10.0f;
-    [self.collectionView setCollectionViewLayout:self.flowLayout];
+//    self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
+////    [self.flowLayout setItemSize:CGSizeMake(191, 160)];
+//    [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+//    self.flowLayout.minimumInteritemSpacing = 10.0f;
+//    [self.collectionView setCollectionViewLayout:self.flowLayout];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.bounces = YES;
+    
+    self.collectionView.dataSource = self.projectsDataSource;
 }
 
--(void)prepareAppearance {
+- (void)prepareDataSource {
+    self.projectsDataSource = [ProjectsDataSource new];
+    WEAK(self)
+    self.projectsDataSource.startLoadingAction = ^{
+        STRONG(self)
+        if ([Utils isInternetConnectionAvailable]) {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        }
+    };
+    self.projectsDataSource.finishLoadingAction = ^{
+        STRONG(self)
+        [self.refreshControl endRefreshing];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    };
+    
+    self.projectsDataSource.reloadAction = ^{
+        STRONG(self)
+        [self.collectionView reloadData];
+    };
+}
+
+- (void)prepareAppearance {
 
     self.refreshControl = [[UIRefreshControl alloc] initWithFrame:self.view.frame];
     [self.refreshControl addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
@@ -226,39 +211,14 @@
 -(void)loadData {
     WEAK(self)
     if ([APUserManager sharedInstance].isUserAuthorised) {
-        [self loadProjects];
+        [self.projectsDataSource loadProjects];
     } else {
         [[APUserManager sharedInstance] loginUserWithEmail:@"test@test.com" withCompletion:^(NSError *error) {
             STRONG(self)
-            [self loadProjects];
+            [self.projectsDataSource loadProjects];
         }];
     }
 }
 
--(void)loadProjects {
-    WEAK(self)
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([Utils isInternetConnectionAvailable]) {
-            [SVProgressHUD show];
-        }
-        [[APProjectManager sharedInstance] loadProjectsWithCompletion:^(NSArray *projects, BOOL finished, NSError *error) {
-            STRONG(self)
-//            self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
-//            [self.collectionView reloadData];
-            if (finished && [APNetworkHelper isInternetConnected]) {
-                self.projects = [[APRealmManager sharedInstance]RLMResultsToArray:[APProjectObject allObjects]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.collectionView reloadData];
-                    [self.refreshControl endRefreshing];
-                    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"common.loaded", nil)];
-                    [SVProgressHUD dismissWithDelay:0.5];
-                });
-            } else if (![APNetworkHelper isInternetConnected]){
-                [self.refreshControl endRefreshing];
-                [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
-            }
-        }];
-    });
 
-}
 @end

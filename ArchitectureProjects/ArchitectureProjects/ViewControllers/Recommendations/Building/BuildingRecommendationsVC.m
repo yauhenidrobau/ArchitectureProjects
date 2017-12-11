@@ -10,7 +10,7 @@
 #import "BuildingRecommendsCell.h"
 #import "APUserManager.h"
 #import "Utils.h"
-#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
 #import "RecommendationsManager.h"
 #import "APNetworkHelper.h"
 #import "RecommendationObject.h"
@@ -67,32 +67,34 @@
 }
 
 -(void)loadProjects {
-    
-    self.recommendations = [[RecommendationsManager sharedInstance] cachedRecommendations];
-    self.recLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Recommendations: %d",nil),self.recommendations.count];
-    [self.tableView reloadData];
     if ([Utils isInternetConnectionAvailable]) {
-        [SVProgressHUD show];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-    //    STRONG(self);
-        WEAK(self)
-
-        [[RecommendationsManager sharedInstance] loadBuildingRecommendationsWithCompletion:^(NSArray *objects, BOOL finished, NSError *error) {
-        //    STRONG(self);
-            if (finished && [APNetworkHelper isInternetConnected]) {
-                self.recommendations = objects;
-                self.recLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Recommendations: %d",nil),self.recommendations.count];
-                dispatch_async(dispatch_get_main_queue(), ^{
-              //      STRONG(self)
-                    [self.tableView reloadData];
-                    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"common.loaded", nil)];
-                    [SVProgressHUD dismissWithDelay:0.5];
-                });
-            } else if (![APNetworkHelper isInternetConnected]){
-                [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
-            }
-        }];
-    });
+    WEAK(self)
+    [[APRealmManager sharedInstance] cachedRecommendationsWithCallback:^(NSArray *objects, NSError *error) {
+        STRONG(self);
+        
+        self.recommendations = objects;
+        self.recLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Recommendations: %d",nil),self.recommendations.count];
+        [self.tableView reloadData];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        
+            [[RecommendationsManager sharedInstance] loadBuildingRecommendationsWithCompletion:^(NSArray *objects, BOOL finished, NSError *error) {
+                    STRONG(self);
+                if (finished && [APNetworkHelper isInternetConnected]) {
+                    self.recommendations = objects;
+                    self.recLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Recommendations: %d",nil),self.recommendations.count];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //      STRONG(self)
+                        [self.tableView reloadData];
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    });
+                } else if (![APNetworkHelper isInternetConnected]){
+                    [[NSNotificationCenter defaultCenter]postNotificationName:NN_NETWORK_STATE_OFFLINE object:nil];
+                }
+            }];
+        });
+    }];
 }
 @end

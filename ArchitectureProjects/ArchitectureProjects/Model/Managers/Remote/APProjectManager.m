@@ -30,9 +30,9 @@ SINGLETON(APProjectManager)
 #pragma mark - Public
 
 - (void)loadProjectsWithCompletion:(void(^)(NSArray *projects, BOOL finished, NSError *error))completion {
-        NSArray* cachedProjects = [self cachedObjects];
+    [[APRealmManager sharedInstance] cachedObjectsWithCallback:^(NSArray *objects, NSError *error) {
         if (completion) {
-            completion(cachedProjects, NO, nil);
+            completion(objects, NO, nil);
         }
         if ([APNetworkHelper isInternetConnected]) {
             self.ref = [[FIRDatabase database] reference];
@@ -42,30 +42,36 @@ SINGLETON(APProjectManager)
             [[FIRAuth auth] signInWithEmail:email password:email completion:^(FIRUser *user, NSError *error) {
                 if (user && !error) {
                     NSLog(@"----- Get Projects -----");
-
+                    
                     [[self.ref child:@"projects"] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
                         // Get user value
                         NSDictionary *projectDict = [self parseObjectsFromJSON:snapshot];
                         NSLog(@"----- Save Projects -----");
                         [[APRealmManager sharedInstance]saveToProject:projectDict withCallback:^(NSError *error) {
-                            NSArray* cachedProjects = [self cachedObjects];
-                            if (completion) {
-                                completion(cachedProjects, YES, error);
-                            }
+                            [[APRealmManager sharedInstance] cachedObjectsWithCallback:^(NSArray *objects, NSError *error) {
+                                if (completion) {
+                                    completion(objects, YES, error);
+                                }
+                            }];
                         }];
                     } withCancelBlock:^(NSError * _Nonnull error) {
                         NSLog(@"%@", error.localizedDescription);
-                        if (completion) {
-                            completion(cachedProjects, YES, error);
-                        }
+                        [[APRealmManager sharedInstance] cachedObjectsWithCallback:^(NSArray *objects, NSError *error) {
+                            if (completion) {
+                                completion(objects, YES, error);
+                            }
+                        }];
                     }];
                 } else {
-                    if (completion) {
-                        completion(cachedProjects, YES, error);
-                    }
+                    [[APRealmManager sharedInstance] cachedObjectsWithCallback:^(NSArray *objects, NSError *error) {
+                        if (completion) {
+                            completion(objects, YES, error);
+                        }
+                    }];
                 }
             }];
-        }
+    }
+    }];
 }
 
 //- (NSArray*)loadProjectsForCategory:(NSString*)category {
@@ -77,13 +83,6 @@ SINGLETON(APProjectManager)
 //}
 
 #pragma mark - Private
-
-#warning Background thread?!
-- (NSArray*)cachedObjects {
-    RLMResults *results = [APProjectObject allObjects];
-    NSArray *localProjects = [[APRealmManager sharedInstance] RLMResultsToArray:results];
-    return localProjects;
-}
 
 - (NSDictionary*)parseObjectsFromJSON:(FIRDataSnapshot *)JSON {
     NSError *error = nil;

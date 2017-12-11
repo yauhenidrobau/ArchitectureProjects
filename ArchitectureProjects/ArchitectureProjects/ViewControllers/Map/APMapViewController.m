@@ -11,7 +11,7 @@
 #import "APConstants.h"
 #import "Macros.h"
 #import "APLocationManager.h"
-#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
 #import "UIColor+App.h"
 
 @import GoogleMaps;
@@ -39,7 +39,6 @@
     self.mapView.myLocationEnabled = YES;
     self.userLocation = [APLocationManager sharedInstance].manager.location;
     [APLocationManager sharedInstance].locationManagerDelegate = self;
-    [SVProgressHUD setContainerView:self.mapView];
     self.navigationController.navigationBar.hidden = YES;
 //    [self updateLocationPermissions];
     self.locationButton.layer.cornerRadius = self.locationButton.frame.size.height / 2;
@@ -119,14 +118,13 @@
     NSURL *directionsUrl = [NSURL URLWithString:directionsUrlString];
     
     if (self.isFirstStart) {
-        [SVProgressHUD showWithStatus:NSLocalizedString(@"map.routing.title", nil)];
+        [MBProgressHUD showHUDAddedTo:self.mapView animated:YES];
         [self centerUser];
         self.isFirstStart = NO;
     }
 
     NSURLSessionDataTask *fetchDirectionsTask = [[NSURLSession sharedSession] dataTaskWithURL:directionsUrl completionHandler:
                                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                                                      
                                                      dispatch_sync(dispatch_get_main_queue(), ^{
                                                          if (error) {
@@ -134,7 +132,8 @@
                                                              NSLog(@"error: %@", error);
                                                              return;
                                                          }
-                                                         
+                                                         NSError *jsonError;
+                                                         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
                                                          NSArray *routesArray = [json objectForKey:@"routes"];
                                                          
                                                          GMSPolyline *polyline = nil;
@@ -151,7 +150,7 @@
                                                              polyline.strokeWidth = 4.f;
                                                              polyline.strokeColor = [UIColor app_mainColor];
                                                          }
-                                                         [SVProgressHUD dismissWithDelay:0.5];
+                                                         [MBProgressHUD hideHUDForView:self.view animated:YES];
                                                          //                                                         mapStatusLabel.text = @"Drawing route completed";
                                                          
                                                      });

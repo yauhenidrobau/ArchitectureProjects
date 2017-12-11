@@ -15,7 +15,7 @@
 #import <MessageUI/MessageUI.h>
 #import "SimpleModalVC.h"
 #import "UIViewController+ShowModal.h"
-
+#import "SimpleModalTextFiledsVC.h"
 @interface FormVC () <UIScrollViewDelegate, UITableViewDelegate,MFMailComposeViewControllerDelegate, UITextViewDelegate>
 
 //Section1
@@ -83,6 +83,8 @@
 @property (weak, nonatomic) IBOutlet UIStackView *headerCheckStackView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerCheckStackViewHeight;
 
+@property (nonatomic) BOOL isNewBuilding;
+
 @end
 
 @implementation FormVC
@@ -133,6 +135,15 @@
 
 - (IBAction)answerAction:(UIButton*)sender {
     NSInteger tag = sender.superview.tag;
+    if (tag == 0) {
+        if (sender.tag == 0) {
+            self.isNewBuilding = YES;
+            [self sendForm:nil];
+            return;
+        } else {
+            self.isNewBuilding = NO;
+        }
+    }
     self.checkedImages[tag].image = [UIImage imageNamed:@"checked"];
     [self.formValues setObject:sender.titleLabel.text forKey:self.finishFormTitles[tag]];
     self.finishFormTitleLabel.text = self.formValues.allKeys.count == self.checkedImages.count ? NSLocalizedString(@"form.finish.ready.title", nil) : NSLocalizedString(@"form.finish.notReady.title", nil);
@@ -170,38 +181,56 @@
             }
         }
     } else {
+        self.isNewBuilding = NO;
         [self openPage:self.checkedImages.count];
     }
     self.pageControl.hidden = [self currentPage] == self.pageControl.numberOfPages;
     
 }
 - (IBAction)sendForm:(id)sender {
-    
-    if ([MFMailComposeViewController canSendMail]) {
-//       [self.formValues setObject:self.finishFormTextView.text forKey:@"Комментарии"];
-        NSString *stringToSend = @"";
-        for (NSString *key in self.formValues) {
-            stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n",key,self.formValues[key]]];
-        }
-        stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"\n\n%@ : %@ \n",@"Комментарии",self.finishFormTextView.text]];
-
-        NSString *emailTitle =  @"Анкета пользователя";
-    
-        NSArray *toRecipents = [NSArray arrayWithObject:BASE_EMAIL];
-    
-        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    
-        mc.mailComposeDelegate = self;
-        [mc setSubject:emailTitle];
-        [mc setMessageBody:stringToSend isHTML:NO];
-    
-        [mc setToRecipients:toRecipents];
-    
-        [self presentViewController:mc animated:YES completion:NULL];
+    NSString *modalIdentifier = @"";
+    if (!sender) {
+        modalIdentifier = @"SimpleModalTextFiledsWithCollectionVC";
     } else {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@",BASE_EMAIL]]];
+        modalIdentifier = @"SimpleModalTextFiledsVC";
     }
-        
+    [self showModalViewControllerWithIdentifier:modalIdentifier setupBlock:^(ModalViewController *modal) {
+        SimpleModalTextFiledsVC *vc = (SimpleModalTextFiledsVC*)modal;
+        vc.closedWithData = ^(NSString *phone, NSString* address, NSString* projectNumber) {
+            if ([MFMailComposeViewController canSendMail]) {
+                //       [self.formValues setObject:self.finishFormTextView.text forKey:@"Комментарии"];
+                NSString *stringToSend = @"";
+                for (NSString *key in self.formValues) {
+                    stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n",key,self.formValues[key]]];
+                }
+                stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"\n\n%@ : %@ \n",@"Комментарии",self.finishFormTextView.text]];
+                
+                stringToSend = [stringToSend stringByAppendingString:@"-----*****-----\n"];
+                stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n",@"Номер для связи",phone]];
+                stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n",@"Адрес строительства",address]];
+                stringToSend = [stringToSend stringByAppendingString:[NSString stringWithFormat:@"%@ : %@ \n",@"Номер Готового Проекта",projectNumber]];
+
+                stringToSend = [stringToSend stringByAppendingString:@"-----*****-----\n"];
+
+                NSString *emailTitle =  @"Анкета пользователя";
+                
+                NSArray *toRecipents = [NSArray arrayWithObject:BASE_EMAIL];
+                
+                MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+                
+                mc.mailComposeDelegate = self;
+                [mc setSubject:emailTitle];
+                [mc setMessageBody:stringToSend isHTML:NO];
+                
+                [mc setToRecipients:toRecipents];
+                
+                [self presentViewController:mc animated:YES completion:NULL];
+            } else {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@",BASE_EMAIL]]];
+            }
+            
+        };
+    } animated:YES];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
@@ -214,6 +243,7 @@
             message = NSLocalizedString(@"Mail saved",nil);
             break;
         case MFMailComposeResultSent:
+            self.isNewBuilding = NO;
             self.formValues = [@{}mutableCopy];
             [self.formDataSource updateValues:self.formValues];
             [self.finishFormTableView reloadData];

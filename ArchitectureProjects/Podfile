@@ -10,7 +10,7 @@ target 'ArchitectureProjects' do
    pod 'GoogleMaps'
    pod 'GooglePlaces'
    pod 'SWRevealViewController', '~> 2.3'
-   pod 'SVProgressHUD'
+   pod 'MBProgressHUD'
    pod 'GCNetworkReachability'
    pod 'IQKeyboardManager'
    pod 'Firebase/Storage'

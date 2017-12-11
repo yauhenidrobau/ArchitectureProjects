@@ -17,7 +17,8 @@
 +(instancetype)sharedInstance;
 
 - (void)saveUserWithEmail:(NSString*)email withCallback:(RealmDataManagerSaveCallback)callback;
-- (APUser*)getUser;
+- (void)getUserWithCallback:(RealmDataManagerGetobjectCallback)callback;
+- (void)getProjectsWithCallback:(RealmDataManagerGetobjectsCallback)callback;
 
 - (void)saveUserImage:(UIImage*)image;
 - (void)getUserImagesWithCallback:(RealmDataManagerGetobjectsCallback)callback;
@@ -28,6 +29,10 @@
 
 - (void)removeItem:(id)item;
 - (void)removeAllItemsForClass:(NSString*)className;
+
+- (void)cachedRecommendationsWithCallback:(RealmDataManagerGetobjectsCallback)callback;
+- (void)cachedDesignRecommendationsWithCallback:(RealmDataManagerGetobjectsCallback)callback;
+- (void)cachedObjectsWithCallback:(RealmDataManagerGetobjectsCallback)callback;
 
 - (NSArray*)RLMResultsToArray:(RLMResults *)results;
 - (NSArray*)projectImagesRLMResultsToArray:(RLMResults *)results;

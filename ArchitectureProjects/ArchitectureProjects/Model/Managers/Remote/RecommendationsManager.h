@@ -14,6 +14,4 @@
 
 - (void)loadBuildingRecommendationsWithCompletion:(void(^)(NSArray *projects, BOOL finished, NSError *error))completion;
 - (void)loadDesignRecommendationsWithCompletion:(void(^)(NSArray *projects, BOOL finished, NSError *error))completion;
-- (NSArray*)cachedRecommendations;
-- (NSArray*)cachedDesignRecommendations;
 @end

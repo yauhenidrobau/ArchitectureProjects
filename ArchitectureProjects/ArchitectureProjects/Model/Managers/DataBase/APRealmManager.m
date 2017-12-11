@@ -26,9 +26,8 @@ SINGLETON(APRealmManager)
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.operationQueue = [NSOperationQueue new];
+        self.operationQueue = [NSOperationQueue currentQueue];
         self.operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;
-        self.operationQueue.qualityOfService = NSQualityOfServiceBackground;
     }
     return self;
 }
@@ -36,16 +35,25 @@ SINGLETON(APRealmManager)
 #pragma mark - Public
 
 #pragma mark - User
-- (APUser*)getUser {
-    __block APUser *user;
+- (void)getUserWithCallback:(RealmDataManagerGetobjectCallback)callback  {
     [self.operationQueue addOperationWithBlock:^{
-        user = [APUser allObjects].firstObject;
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (callback) {
+                callback([APUser allObjects].firstObject,nil);
+            }
+        });
     }];
-    if (user) {
-        return user;
-    }
-    return nil;
+}
+
+#pragma mark - Projects
+- (void)getProjectsWithCallback:(RealmDataManagerGetobjectsCallback)callback {
+    [self.operationQueue addOperationWithBlock:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (callback) {
+                callback([APProjectObject allObjects],nil);
+            }
+        });
+    }];
 }
 
 - (void)saveUserWithEmail:(NSString*)email withCallback:(RealmDataManagerSaveCallback)callback {
@@ -228,6 +236,43 @@ SINGLETON(APRealmManager)
     }];
 }
 
+- (void)cachedRecommendationsWithCallback:(RealmDataManagerGetobjectsCallback)callback  {
+    [self.operationQueue addOperationWithBlock:^{
+        RLMResults *results = [RecommendationObject allObjects];
+        NSArray *localObjects = [[APRealmManager sharedInstance] RLMResultsToArray:results withSortDescriptor:@"name"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (callback) {
+                callback(localObjects,nil);
+            }
+        });
+    }];
+}
+
+- (void)cachedObjectsWithCallback:(RealmDataManagerGetobjectsCallback)callback  {
+    [self.operationQueue addOperationWithBlock:^{
+        RLMResults *results = [APProjectObject allObjects];
+        NSArray *localProjects = [[APRealmManager sharedInstance] RLMResultsToArray:results];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (callback) {
+                callback(localProjects,nil);
+            }
+        });
+    }];
+}
+
+- (void)cachedDesignRecommendationsWithCallback:(RealmDataManagerGetobjectsCallback)callback  {
+    [self.operationQueue addOperationWithBlock:^{
+        RLMResults *results = [DesignObject allObjects];
+        NSArray *localObjects = [[APRealmManager sharedInstance] RLMResultsToArray:results withSortDescriptor:@"category"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (callback) {
+                callback(localObjects,nil);
+            }
+        });
+    }];
+}
+
 #pragma mark - User Pictures
 - (void)saveUserImage:(UIImage*)image {
     [self.operationQueue addOperationWithBlock:^{
@@ -254,9 +299,11 @@ SINGLETON(APRealmManager)
 
 - (void)getUserImagesWithCallback:(RealmDataManagerGetobjectsCallback)callback  {
     [self.operationQueue addOperationWithBlock:^{
-        if (callback) {
-            callback([self RLMResultsToArray:[UserImage allObjects] withSortDescriptor:@"imageId"], nil);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (callback) {
+                callback([self RLMResultsToArray:[UserImage allObjects] withSortDescriptor:@"imageId"],nil);
+            }
+        });
     }];
 }
 

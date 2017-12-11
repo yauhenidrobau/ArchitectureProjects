@@ -87,6 +87,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
   - IQKeyboardManager (4.0.11)
+  - MBProgressHUD (1.1.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -100,7 +101,6 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - SVProgressHUD (2.1.2)
   - SWRevealViewController (2.3.0)
   - URBSegmentedControl (1.0.4)
 
@@ -118,10 +118,10 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - IQKeyboardManager
+  - MBProgressHUD
   - Realm
   - SAMKeychain
   - SDWebImage (~> 3.7.6)
-  - SVProgressHUD
   - SWRevealViewController (~> 2.3)
   - URBSegmentedControl
 
@@ -145,15 +145,15 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   IQKeyboardManager: 83eae5318483a34eb2069ef413d195b97605232e
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   URBSegmentedControl: 6ca4bb5483854fe02e9718a92211f8f126748dc8
 
-PODFILE CHECKSUM: 493b198dae1de06644e18d079b22341eab4b02a4
+PODFILE CHECKSUM: 7ac7180f4959b08af46f92a4a16935ee3a6785fa
 
 COCOAPODS: 1.3.1
